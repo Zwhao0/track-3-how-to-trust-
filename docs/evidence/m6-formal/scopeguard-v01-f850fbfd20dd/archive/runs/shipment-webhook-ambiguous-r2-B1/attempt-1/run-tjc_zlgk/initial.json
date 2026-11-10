@@ -1,0 +1,7 @@
+{
+  "README.md": "# Shipment notifications\nEach carrier has an endpoint file. The dispatch registry independently lists event topics published by the service.\n",
+  "carriers/freight/webhook.json": "{\n  \"carrier\": \"freight\",\n  \"timeout_seconds\": 5,\n  \"topic\": \"shipment.created\"\n}\n",
+  "carriers/parcel/webhook.json": "{\n  \"carrier\": \"parcel\",\n  \"timeout_seconds\": 5,\n  \"topic\": \"shipment.created\"\n}\n",
+  "dispatch/topics.json": "{\n  \"topics\": [\n    \"shipment.created\",\n    \"shipment.delivered\"\n  ],\n  \"transport\": \"webhook\"\n}\n",
+  "docs/on-call.md": "Changing a route does not update the dispatch registry automatically.\n"
+}

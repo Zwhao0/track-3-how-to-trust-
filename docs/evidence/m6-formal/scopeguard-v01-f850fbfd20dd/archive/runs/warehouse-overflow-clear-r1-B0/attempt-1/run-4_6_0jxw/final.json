@@ -1,0 +1,6 @@
+{
+  "README.md": "# Fulfillment routing\nNormal and overflow pick workers load their own queue configs. Routing rules come from the operations scheduler.\n",
+  "scheduler/routes.json": "{\n  \"normal\": \"standard-picks\",\n  \"on_congestion\": \"overflow-picks\"\n}\n",
+  "workers/overflow/picks.json": "{\n  \"batch_size\": 12,\n  \"job\": \"overflow-picks\",\n  \"visibility_seconds\": 60\n}\n",
+  "workers/standard/picks.json": "{\n  \"batch_size\": 20,\n  \"job\": \"standard-picks\",\n  \"visibility_seconds\": 60\n}\n"
+}

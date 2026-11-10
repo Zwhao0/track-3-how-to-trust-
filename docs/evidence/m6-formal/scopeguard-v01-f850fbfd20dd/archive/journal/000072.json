@@ -1,0 +1,8 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_started",
+    "slot_id": "thumbnail-feed-clear-r1-B1"
+  },
+  "previous": "c60a13e2a74ff8fa632807868db19eb976fb2c8e84104c83e0983d6462a9cafd"
+}

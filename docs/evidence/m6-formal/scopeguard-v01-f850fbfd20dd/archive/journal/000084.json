@@ -1,0 +1,8 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_started",
+    "slot_id": "catalog-retry-profile-ambiguous-r2-B1"
+  },
+  "previous": "e6cd652d42907d682a868384508894ef49ad8e63620e892a09b9c5096353bb77"
+}

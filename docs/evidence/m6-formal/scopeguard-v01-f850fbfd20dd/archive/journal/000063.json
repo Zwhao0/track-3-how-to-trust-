@@ -1,0 +1,9 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_sealed",
+    "outcome_sha256": "a6a609d51a1ba13b95007ef6873d6b242e89fe9ebc29732a35c2a9519f36dadf",
+    "slot_id": "catalog-retry-profile-clear-r1-B0"
+  },
+  "previous": "439bac1a6d7ffef874ee3f23d8e9644547e4c91e7cc8d7a606277a6a2691947b"
+}

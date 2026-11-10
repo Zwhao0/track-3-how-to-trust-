@@ -1,0 +1,6 @@
+{
+  "README.md": "# Invoice dispatch\nEach channel owns its delivery configuration. The billing console and partner API load separate files.\n",
+  "ops/queue-map.json": "{\n  \"billing-console\": \"payments\",\n  \"partner-events\": \"integrations\"\n}\n",
+  "services/console/delivery.json": "{\n  \"channel\": \"console\",\n  \"format\": \"pdf\",\n  \"max_attempts\": 5,\n  \"queue\": \"billing-console\"\n}\n",
+  "services/partner/delivery.json": "{\n  \"channel\": \"partner\",\n  \"format\": \"pdf\",\n  \"max_attempts\": 3,\n  \"queue\": \"partner-events\"\n}\n"
+}

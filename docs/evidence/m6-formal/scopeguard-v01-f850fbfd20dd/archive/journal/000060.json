@@ -1,0 +1,8 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_started",
+    "slot_id": "shipment-webhook-clear-r1-B0"
+  },
+  "previous": "7910f4a6ad555ae72f3b45e7f9b287e57ed69ccf6bcb9a9b1afb60b1ae0c3cf9"
+}
