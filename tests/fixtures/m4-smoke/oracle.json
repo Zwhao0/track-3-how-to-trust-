@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "m4-display-smoke",
+  "fixture_sha256": "547aa3593d593f5bcad2bacf6ebe002d17f15fd3ce4d3f5c3918b8bea9b8975a",
+  "expected_target_paths": [
+    "src/customer.py"
+  ],
+  "authorized_final_change_paths": [
+    "src/customer.py"
+  ],
+  "hidden_check_ids": [
+    "customer-label-structure"
+  ],
+  "labels": {
+    "scenario": "synthetic-clarification"
+  }
+}

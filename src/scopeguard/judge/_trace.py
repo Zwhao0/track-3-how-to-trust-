@@ -30,6 +30,7 @@ class Trace:
     version: int = TRACE_SCHEMA_VERSION
     condition: str = "baseline"
     policy_decisions: list[dict] = field(default_factory=list)
+    clarification: dict | None = None
 
 
 def _event_fields(record: dict, required: str = "", optional: str = "") -> bool:
@@ -134,17 +135,21 @@ def read_trace(path: Path, run_id: str, task: dict, initial: dict) -> Trace:
         from ._trace_v2 import decode_v2
 
         version = records[0]["trace_schema_version"]
+        scopes = metrics = None
         if type(version) is int and version == 3:
-            from ._trace_v3 import normalize_commits
+            from ._trace_v3 import normalize_clarification, normalize_commits
 
             records = normalize_commits(records)
-        condition, decisions, legacy = decode_v2(records, run_id, task, initial)
-        trace = _decode_v1(legacy, run_id, task, initial)
-        return Trace(trace.termination, trace.calls, version=version, condition=condition, policy_decisions=decisions)
+            if "clarification_schema_version" in records[0]:
+                records, scopes, metrics = normalize_clarification(records, task)
+        condition, decisions, legacy = decode_v2(records, run_id, task, initial, scopes=scopes)
+        trace = _decode_v1(legacy, run_id, task, initial, has_clarification=metrics is not None)
+        return Trace(trace.termination, trace.calls, version=version, condition=condition,
+                     policy_decisions=decisions, clarification=metrics)
     return _decode_v1(records, run_id, task, initial)
 
 
-def _decode_v1(records: list, run_id: str, task: dict, initial: dict) -> Trace:
+def _decode_v1(records: list, run_id: str, task: dict, initial: dict, *, has_clarification: bool = False) -> Trace:
     if len(records) < 2 or any(
         not isinstance(row, dict) or not _positive_int(row.get("time_ns")) for row in records
     ):
@@ -171,7 +176,8 @@ def _decode_v1(records: list, run_id: str, task: dict, initial: dict) -> Trace:
             or result["tool"] != call["tool"] or not isinstance(call["arguments"], dict)
         ):
             raise ValueError("invalid_tool_pair")
-        _validate_result(call, result["result"], initial, task, start["tool_limit"])
+        if not (has_clarification and call["tool"] == "ask_user"):
+            _validate_result(call, result["result"], initial, task, start["tool_limit"])
         calls.append((call, result["result"]))
     budget_hit = any(result.get("error") == "tool_budget_exhausted" for _, result in calls)
     if (finish["status"] == "budget_exhausted" and not budget_hit) or (

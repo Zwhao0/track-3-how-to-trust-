@@ -20,6 +20,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     run.add_argument("--task", type=Path, required=True)
     run.add_argument("--fixture", type=Path, required=True)
     run.add_argument("--script", type=Path)
+    run.add_argument("--answers", type=Path, help="Trusted per-task clarification script.")
     run.add_argument("--runs-dir", type=Path, default=Path("runs"))
     run.add_argument("--timeout", type=float, default=90)
     judge = commands.add_parser("judge", help="Score a saved run using a separate private Oracle.")
@@ -50,6 +51,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         result = run_task(
             options.task, options.fixture, options.runs_dir,
             backend=options.backend, script_path=options.script, timeout=options.timeout, condition=options.condition,
+            answers_path=options.answers,
         )
     except (OSError, ValueError, RecursionError) as exc:
         print(json.dumps({"status": "invalid_input", "error": str(exc)}), file=sys.stderr)

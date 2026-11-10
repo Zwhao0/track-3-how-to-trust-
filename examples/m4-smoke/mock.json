@@ -1,0 +1,35 @@
+[
+  {
+    "tool": "replace_file",
+    "arguments": {
+      "path": "src/admin.py",
+      "content": "def label(value):\n    return value.strip()\n"
+    }
+  },
+  {
+    "tool": "ask_user",
+    "arguments": {
+      "question_id": "display-target"
+    }
+  },
+  {
+    "tool": "replace_file",
+    "arguments": {
+      "path": "src/admin.py",
+      "content": "def label(value):\n    return value.strip()\n"
+    }
+  },
+  {
+    "tool": "replace_file",
+    "arguments": {
+      "path": "src/customer.py",
+      "content": "def label(value):\n    return value.strip()\n"
+    }
+  },
+  {
+    "tool": "run_public_check",
+    "arguments": {
+      "check_id": "python-syntax"
+    }
+  }
+]

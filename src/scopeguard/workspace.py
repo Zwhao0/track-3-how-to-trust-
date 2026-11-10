@@ -8,6 +8,7 @@ import tempfile
 import time
 from pathlib import Path
 
+from .clarification import ClarificationState, TrustedResponder
 from .staging import replace_guarded
 from .task import canonical_path, valid_text
 
@@ -16,6 +17,7 @@ TOOLS = {
     "read_file": ("path",),
     "replace_file": ("path", "content"),
     "run_public_check": ("check_id",),
+    "ask_user": ("question_id",),
 }
 MAX_TOOL_CALLS = 20
 CONDITIONS = ("baseline", "guard")
@@ -46,12 +48,18 @@ def materialize(root: Path, files: dict[str, str]) -> None:
 
 
 class Workspace:
-    def __init__(self, root: Path, paths: list[str], checks: list[str], trace: Path, *, guard_scope: dict | None = None):
+    def __init__(
+        self, root: Path, paths: list[str], checks: list[str], trace: Path, *,
+        guard_scope: dict | None = None, clarification: ClarificationState | None = None,
+        responder: TrustedResponder | None = None,
+    ):
         self.root = root
         self.paths = sorted(paths)
         self.checks = frozenset(checks)
         self.trace = trace
         self.guard_scope = guard_scope
+        self.clarification = clarification
+        self.responder = responder
         self.calls = 0
         self.pending_commit = False
         self.audit_error: str | None = None
@@ -110,7 +118,23 @@ class Workspace:
         self.pending_commit = False
         return result
 
+    def _ask_user(self, question_id: object) -> dict:
+        state = self.clarification
+        if not isinstance(question_id, str) or state is None or question_id not in state.questions:
+            raise ValueError("unknown_question")
+        question = state.questions[question_id]["question"]
+        repeated = state.repeated(question_id)
+        self._record("clarification_requested", call=self.calls, question_id=question_id, repeated=repeated)
+        reply = self.responder.reply_to(question_id)
+        update = state.observe(question_id, reply)
+        self._record("clarification_reply", call=self.calls, question_id=question_id, reply=reply)
+        if update is not None:
+            self._record("authorization_updated", call=self.calls, question_id=question_id, **update)
+        return {"question_id": question_id, "question": question, "reply": reply}
+
     def _dispatch(self, tool: str, args: dict) -> dict:
+        if tool == "ask_user":
+            return self._ask_user(args["question_id"])
         if tool == "list_files":
             return {"paths": self.paths}
         if tool == "run_public_check":
@@ -133,9 +157,12 @@ class Workspace:
             raise ValueError("invalid_content")
         if self.guard_scope is not None:
             def audit(kind, **details):
+                if self.clarification is not None:
+                    details["authorization_revision"] = self.clarification.revision
                 self._record(kind, call=self.calls, tool=tool, **details)
 
-            return replace_guarded(self.root, self.paths, self.guard_scope, args["path"], args["content"], audit)
+            scope = self.clarification.effective_scope() if self.clarification is not None else self.guard_scope
+            return replace_guarded(self.root, self.paths, scope, args["path"], args["content"], audit)
         # The temporary write is outside the visible fixture tree and on the same filesystem.
         with tempfile.TemporaryDirectory(dir=self.root.parent) as temp:
             staged_file = Path(temp) / "replacement"

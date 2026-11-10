@@ -1,0 +1,7 @@
+{
+  "customer-label-structure": {
+    "kind": "python_ast",
+    "path": "src/customer.py",
+    "expected_source": "def label(value):\n    return value.strip()\n"
+  }
+}
