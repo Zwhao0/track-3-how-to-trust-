@@ -1,0 +1,523 @@
+{
+  "schema_version": 1,
+  "benchmark": "scopeguard-bench-v0-1",
+  "status": "review_candidate",
+  "split_seed": 20261110,
+  "tasks": [
+    {
+      "category": "wrong_target",
+      "family": "worker-cache-window",
+      "files": {
+        "card": {
+          "path": "private/dev/worker-cache-window-clear/CARD.md",
+          "sha256": "c5e8a958f93feb40704ffc2c94d60f2af4f8b9c397e772e5e45e4169473634c4"
+        },
+        "checks": {
+          "path": "private/dev/worker-cache-window-clear/checks.json",
+          "sha256": "9cfaf7896a11353bf8ad7a8217c110d024073fe859f81fe9ade61f5e6a86ac17"
+        },
+        "controls": {
+          "path": "private/dev/worker-cache-window-clear/controls.json",
+          "sha256": "3ed902d7dd90fc0ca33eee471a4edf77131071f05bd0c2987ea06b266cb89ce3"
+        },
+        "fixture": {
+          "path": "dev/worker-cache-window-clear/fixture.json",
+          "sha256": "979f0fa02aa9987f96e2eaae14f495aab5758df8b576aee137227876009b669d"
+        },
+        "oracle": {
+          "path": "private/dev/worker-cache-window-clear/oracle.json",
+          "sha256": "237ce1c2495cba0a0c663dddf2a855c8562f7a9fd864ea5e1c56929e01fbf2d2"
+        },
+        "task": {
+          "path": "dev/worker-cache-window-clear/task.json",
+          "sha256": "ac50b4e3427b6fc12a39702a22773202c6ec67b94bcc053ff1fb09743cc4b38a"
+        }
+      },
+      "split": "dev",
+      "task_id": "worker-cache-window-clear",
+      "variant": "clear"
+    },
+    {
+      "category": "broad_change",
+      "family": "orders-dispatch-timeout",
+      "files": {
+        "card": {
+          "path": "private/eval/orders-dispatch-timeout-clear/CARD.md",
+          "sha256": "ef9e4a670568470a3ddbf851c05a807c42ea4dbcdb76894a5b22417c6de38329"
+        },
+        "checks": {
+          "path": "private/eval/orders-dispatch-timeout-clear/checks.json",
+          "sha256": "6500a7e716bd15e7ced904a4b8784b64db72fa8c7dcbcfff6c41c9c426e39bfa"
+        },
+        "controls": {
+          "path": "private/eval/orders-dispatch-timeout-clear/controls.json",
+          "sha256": "c61fbec162f37910ec7905e835ab705f58556ead22918ee15160418b653b0982"
+        },
+        "fixture": {
+          "path": "eval/orders-dispatch-timeout-clear/fixture.json",
+          "sha256": "bccd757470eb969d20404fbf325012b8c5e04516daebf228da42e021413408c0"
+        },
+        "oracle": {
+          "path": "private/eval/orders-dispatch-timeout-clear/oracle.json",
+          "sha256": "3559604397234cf346eedc09f23fc6994ea793a1318ef4a5e891138ffc284e50"
+        },
+        "task": {
+          "path": "eval/orders-dispatch-timeout-clear/task.json",
+          "sha256": "3fb627fc5cab86a2771f79ea1f0c0b10a8f2fcc9b942a195d4fc24129db16860"
+        }
+      },
+      "split": "eval",
+      "task_id": "orders-dispatch-timeout-clear",
+      "variant": "clear"
+    },
+    {
+      "category": "broad_change",
+      "family": "settlement-replay-flag",
+      "files": {
+        "answers": {
+          "path": "private/eval/settlement-replay-flag-ambiguous/answers.json",
+          "sha256": "02da678429d19cb9f4a4cc8b6cf82d918acae725c0abe9f75940d843febbe14b"
+        },
+        "card": {
+          "path": "private/eval/settlement-replay-flag-ambiguous/CARD.md",
+          "sha256": "9585962a5a5a246ac448123d3fc295d4207d1e9440460fce99b212bd14a2739b"
+        },
+        "checks": {
+          "path": "private/eval/settlement-replay-flag-ambiguous/checks.json",
+          "sha256": "7b8f3200918691cc98de2880b6fac9c15b0a263b1de3cc601399035f08afe324"
+        },
+        "controls": {
+          "path": "private/eval/settlement-replay-flag-ambiguous/controls.json",
+          "sha256": "ba8a4275a78cf2323cc1205559b246d76eab009519447b33e943be3773bc4488"
+        },
+        "fixture": {
+          "path": "eval/settlement-replay-flag-ambiguous/fixture.json",
+          "sha256": "e936e9cca8ce62ca549efd9dd579b8f62cb0bca49b62f129c7f56a88194c48e1"
+        },
+        "oracle": {
+          "path": "private/eval/settlement-replay-flag-ambiguous/oracle.json",
+          "sha256": "71b83976d1bedbc006aeeefd2929e4fc7284db9179a0b4b6109b73702adec46b"
+        },
+        "task": {
+          "path": "eval/settlement-replay-flag-ambiguous/task.json",
+          "sha256": "9d96d82c4e92cd9a6e0ad2495f82a30155d380eaa79b92339065d7b56ba0e6ec"
+        }
+      },
+      "split": "eval",
+      "task_id": "settlement-replay-flag-ambiguous",
+      "variant": "ambiguous"
+    },
+    {
+      "category": "broad_change",
+      "family": "settlement-replay-flag",
+      "files": {
+        "card": {
+          "path": "private/eval/settlement-replay-flag-clear/CARD.md",
+          "sha256": "a4ce134bd1e827489650f0edbd05e54d1631ff59a85468627006ff61b950c9a5"
+        },
+        "checks": {
+          "path": "private/eval/settlement-replay-flag-clear/checks.json",
+          "sha256": "7b8f3200918691cc98de2880b6fac9c15b0a263b1de3cc601399035f08afe324"
+        },
+        "controls": {
+          "path": "private/eval/settlement-replay-flag-clear/controls.json",
+          "sha256": "8e64fdb142146fb6a334037687de9a8497e52d56f680a7a9b074a3d37ead407b"
+        },
+        "fixture": {
+          "path": "eval/settlement-replay-flag-clear/fixture.json",
+          "sha256": "e936e9cca8ce62ca549efd9dd579b8f62cb0bca49b62f129c7f56a88194c48e1"
+        },
+        "oracle": {
+          "path": "private/eval/settlement-replay-flag-clear/oracle.json",
+          "sha256": "61c5a7ed275fdcb8cc9038b79bbc290c069635d14d8228ed7fe21672dcdbcd0a"
+        },
+        "task": {
+          "path": "eval/settlement-replay-flag-clear/task.json",
+          "sha256": "ff98448c53d1aa902fa3e55f46327fca083371e74ba0c6c046e61d8439221bca"
+        }
+      },
+      "split": "eval",
+      "task_id": "settlement-replay-flag-clear",
+      "variant": "clear"
+    },
+    {
+      "category": "multi_file",
+      "family": "shipment-webhook",
+      "files": {
+        "answers": {
+          "path": "private/eval/shipment-webhook-ambiguous/answers.json",
+          "sha256": "c09f5408fc327aae9d6026156e65c7f098df204319518220a77608ecd2d84c9b"
+        },
+        "card": {
+          "path": "private/eval/shipment-webhook-ambiguous/CARD.md",
+          "sha256": "309c9c7c8eb82624287edc7f6d0b385fba5557dfb9bc7a2f15c736b6784a9034"
+        },
+        "checks": {
+          "path": "private/eval/shipment-webhook-ambiguous/checks.json",
+          "sha256": "5cb577bdf4842770667e7a47beb4241d50856097762d431f572579affa44bcf8"
+        },
+        "controls": {
+          "path": "private/eval/shipment-webhook-ambiguous/controls.json",
+          "sha256": "7f83357658d34e32a3cbcf559071561499684b781d7547778caadce027d27322"
+        },
+        "fixture": {
+          "path": "eval/shipment-webhook-ambiguous/fixture.json",
+          "sha256": "8405bb994330451c740bd2682f1bfcf9478971319115d51f4cd2ccc35825fcf7"
+        },
+        "oracle": {
+          "path": "private/eval/shipment-webhook-ambiguous/oracle.json",
+          "sha256": "598f745bafce3a4ed432e4f97e7ea1cf64bc15fba1ba5035c51ac32c7a456575"
+        },
+        "task": {
+          "path": "eval/shipment-webhook-ambiguous/task.json",
+          "sha256": "8c9f92c96d2d6c1203e8fb41d00fbc46c81f5d48ddf6bd482e5a554644b52b7d"
+        }
+      },
+      "split": "eval",
+      "task_id": "shipment-webhook-ambiguous",
+      "variant": "ambiguous"
+    },
+    {
+      "category": "multi_file",
+      "family": "shipment-webhook",
+      "files": {
+        "card": {
+          "path": "private/eval/shipment-webhook-clear/CARD.md",
+          "sha256": "9b04584c74b4a5eb807cb09a55902dc8bf77cba4c443339a64c0f3835648369a"
+        },
+        "checks": {
+          "path": "private/eval/shipment-webhook-clear/checks.json",
+          "sha256": "5cb577bdf4842770667e7a47beb4241d50856097762d431f572579affa44bcf8"
+        },
+        "controls": {
+          "path": "private/eval/shipment-webhook-clear/controls.json",
+          "sha256": "0831ffa086163aff02fffb78c2109c4ec886abbaca7c603469e31481854a3898"
+        },
+        "fixture": {
+          "path": "eval/shipment-webhook-clear/fixture.json",
+          "sha256": "8405bb994330451c740bd2682f1bfcf9478971319115d51f4cd2ccc35825fcf7"
+        },
+        "oracle": {
+          "path": "private/eval/shipment-webhook-clear/oracle.json",
+          "sha256": "82c3d2c2f67bbd5bf95e20cc45a304ed3fc6d19197f3dc48a7410e55f44c4a4a"
+        },
+        "task": {
+          "path": "eval/shipment-webhook-clear/task.json",
+          "sha256": "1c453c99bd7f4afb355fb63b967ed5c10a2a87ed63694f0a8e1348befbb6b0f5"
+        }
+      },
+      "split": "eval",
+      "task_id": "shipment-webhook-clear",
+      "variant": "clear"
+    },
+    {
+      "category": "multi_file",
+      "family": "thumbnail-feed",
+      "files": {
+        "card": {
+          "path": "private/eval/thumbnail-feed-clear/CARD.md",
+          "sha256": "019dd2f52b39f414c14e5367649d901a916a3105f20181894f9e02c4a41259f2"
+        },
+        "checks": {
+          "path": "private/eval/thumbnail-feed-clear/checks.json",
+          "sha256": "8785b7b0d64fcee93ef89675c068f1bf172f33f7217cc761afef215f6992725a"
+        },
+        "controls": {
+          "path": "private/eval/thumbnail-feed-clear/controls.json",
+          "sha256": "188bfce5dfb08895e4d7e552ad6da34ebbad6ff85982fab94e32bbba3f1eb7e1"
+        },
+        "fixture": {
+          "path": "eval/thumbnail-feed-clear/fixture.json",
+          "sha256": "0dec08be3c62bdea74aea22b0e7eeb1b570c39adf2a2643cbb4b927b36d8fdcf"
+        },
+        "oracle": {
+          "path": "private/eval/thumbnail-feed-clear/oracle.json",
+          "sha256": "de82c630d32fae97ad377f45c1834a040eec9d1af6aac88794bb8a8c42bfc7ac"
+        },
+        "task": {
+          "path": "eval/thumbnail-feed-clear/task.json",
+          "sha256": "3a1afed54158733ba97e3878d2fa2e9059447991fa3236323bb638605d1f78c6"
+        }
+      },
+      "split": "eval",
+      "task_id": "thumbnail-feed-clear",
+      "variant": "clear"
+    },
+    {
+      "category": "over_scope",
+      "family": "archive-compactor-batch-limit",
+      "files": {
+        "card": {
+          "path": "private/eval/archive-compactor-batch-limit-clear/CARD.md",
+          "sha256": "2a4df37a8ac6bed89c1797af0db0fa631e758560ae763b154c2849988a9fb283"
+        },
+        "checks": {
+          "path": "private/eval/archive-compactor-batch-limit-clear/checks.json",
+          "sha256": "4bc4df99b329ab7307ee755de5c6841f36bb4fbfd54530544cf0faefd9b47f5e"
+        },
+        "controls": {
+          "path": "private/eval/archive-compactor-batch-limit-clear/controls.json",
+          "sha256": "f3789a9a8a607c04c5503537175bfdf45b6f849989c9278f24ed32e6ea9a57d9"
+        },
+        "fixture": {
+          "path": "eval/archive-compactor-batch-limit-clear/fixture.json",
+          "sha256": "d8383f06cfc1fa7575aa89346cf60fc57c80750fe6a354b3263ad69673c64660"
+        },
+        "oracle": {
+          "path": "private/eval/archive-compactor-batch-limit-clear/oracle.json",
+          "sha256": "bcd52329f7ff719d94c411e9dfbbcd9b1f6724546454582ab811fd0c039ae931"
+        },
+        "task": {
+          "path": "eval/archive-compactor-batch-limit-clear/task.json",
+          "sha256": "978dd5f9abb6b47f7cf8de5920cfe2fdd62aae2c2474fd8cf4dbf349c44de7fe"
+        }
+      },
+      "split": "eval",
+      "task_id": "archive-compactor-batch-limit-clear",
+      "variant": "clear"
+    },
+    {
+      "category": "over_scope",
+      "family": "catalog-retry-profile",
+      "files": {
+        "answers": {
+          "path": "private/eval/catalog-retry-profile-ambiguous/answers.json",
+          "sha256": "7fab2b397c745cdf372bd1e6c92f47c60bb2fc4edc09af03694e34187214b9cd"
+        },
+        "card": {
+          "path": "private/eval/catalog-retry-profile-ambiguous/CARD.md",
+          "sha256": "09afce7008aaf28867c544dc2e5c45bf013102b98cf43f8e075e12b4db89091a"
+        },
+        "checks": {
+          "path": "private/eval/catalog-retry-profile-ambiguous/checks.json",
+          "sha256": "dca7c0c396aa28d66dbea9990592b0d6d8192cb82460d2b7658309f6b019f813"
+        },
+        "controls": {
+          "path": "private/eval/catalog-retry-profile-ambiguous/controls.json",
+          "sha256": "38f51af2bd457c96e265a06fac28b5b07cce55a335514d11ae7233f395db8dc2"
+        },
+        "fixture": {
+          "path": "eval/catalog-retry-profile-ambiguous/fixture.json",
+          "sha256": "1d4a00989b7e9e73386813b57a96989a8ca87d5716d67b0421d827855c66c2ad"
+        },
+        "oracle": {
+          "path": "private/eval/catalog-retry-profile-ambiguous/oracle.json",
+          "sha256": "d8bb6ca59fd01b7991bafcf3e65bf31ccc65af278184e6f4074a45999c1b2e0c"
+        },
+        "task": {
+          "path": "eval/catalog-retry-profile-ambiguous/task.json",
+          "sha256": "a6952536c2250f5369ccfc522026e2d9309ee45c2beae24aa3a9eb32c60efd40"
+        }
+      },
+      "split": "eval",
+      "task_id": "catalog-retry-profile-ambiguous",
+      "variant": "ambiguous"
+    },
+    {
+      "category": "over_scope",
+      "family": "catalog-retry-profile",
+      "files": {
+        "card": {
+          "path": "private/eval/catalog-retry-profile-clear/CARD.md",
+          "sha256": "825621f7eea909aaa48ce692f8386218f5b1e4834412cf86dbab931a152be8e3"
+        },
+        "checks": {
+          "path": "private/eval/catalog-retry-profile-clear/checks.json",
+          "sha256": "dca7c0c396aa28d66dbea9990592b0d6d8192cb82460d2b7658309f6b019f813"
+        },
+        "controls": {
+          "path": "private/eval/catalog-retry-profile-clear/controls.json",
+          "sha256": "a921e48bbe1f65d9d66ec10d0ac9409eedf4bb57698e6485a22ca6829af21e82"
+        },
+        "fixture": {
+          "path": "eval/catalog-retry-profile-clear/fixture.json",
+          "sha256": "1d4a00989b7e9e73386813b57a96989a8ca87d5716d67b0421d827855c66c2ad"
+        },
+        "oracle": {
+          "path": "private/eval/catalog-retry-profile-clear/oracle.json",
+          "sha256": "ca710c9166a38d3b682eaeb756fc7a4e4ea4af018120d9d47793f92892a37dc9"
+        },
+        "task": {
+          "path": "eval/catalog-retry-profile-clear/task.json",
+          "sha256": "cb68c077c3e08d4a013233872bfdeabb55b3c08990f5cd861b67f7e0cbdc4c82"
+        }
+      },
+      "split": "eval",
+      "task_id": "catalog-retry-profile-clear",
+      "variant": "clear"
+    },
+    {
+      "category": "wrong_target",
+      "family": "invoice-delivery",
+      "files": {
+        "answers": {
+          "path": "private/eval/invoice-delivery-ambiguous/answers.json",
+          "sha256": "882892fcf80c0901b7cf53e5810ec57c2cc710c50788fb79c8819fbecdf2ec08"
+        },
+        "card": {
+          "path": "private/eval/invoice-delivery-ambiguous/CARD.md",
+          "sha256": "2cb0b5c39a4383a1f90663e7035ae6c362e01b2046dbb164e3daffb2d0ffed95"
+        },
+        "checks": {
+          "path": "private/eval/invoice-delivery-ambiguous/checks.json",
+          "sha256": "ae6c239a2856608a5848df2bce07b1883c4a19609a7905089ef9582bb849ad42"
+        },
+        "controls": {
+          "path": "private/eval/invoice-delivery-ambiguous/controls.json",
+          "sha256": "789359d8230644b5fe3fa0dbfacaeb1dde3ec1cbd164547d71114c36b3bf5ecd"
+        },
+        "fixture": {
+          "path": "eval/invoice-delivery-ambiguous/fixture.json",
+          "sha256": "0547892d51129582b2920d2067aff65d7c157475ba1439cd6c8208c08a90bed7"
+        },
+        "oracle": {
+          "path": "private/eval/invoice-delivery-ambiguous/oracle.json",
+          "sha256": "1ae68a1bf6fb223b851191e28a751631bd2a769da404f587fc8a4af12059195f"
+        },
+        "task": {
+          "path": "eval/invoice-delivery-ambiguous/task.json",
+          "sha256": "f3ff7f3da114a3d4c6cf69939fc2f05cf19694dbad0aa8b1674b67911e5b83bd"
+        }
+      },
+      "split": "eval",
+      "task_id": "invoice-delivery-ambiguous",
+      "variant": "ambiguous"
+    },
+    {
+      "category": "wrong_target",
+      "family": "invoice-delivery",
+      "files": {
+        "card": {
+          "path": "private/eval/invoice-delivery-clear/CARD.md",
+          "sha256": "6880c36a15a9fd5a372eb77fbe9d56ea084b23fc0173fff12fafbc8c851361bb"
+        },
+        "checks": {
+          "path": "private/eval/invoice-delivery-clear/checks.json",
+          "sha256": "ae6c239a2856608a5848df2bce07b1883c4a19609a7905089ef9582bb849ad42"
+        },
+        "controls": {
+          "path": "private/eval/invoice-delivery-clear/controls.json",
+          "sha256": "27b19b49453b28793cb211d814199f687a8ca5f76b9ef6d00d61cbde1f0e0494"
+        },
+        "fixture": {
+          "path": "eval/invoice-delivery-clear/fixture.json",
+          "sha256": "0547892d51129582b2920d2067aff65d7c157475ba1439cd6c8208c08a90bed7"
+        },
+        "oracle": {
+          "path": "private/eval/invoice-delivery-clear/oracle.json",
+          "sha256": "1cc6c31d62cf485c7c4a3a5845bdf6b04a559c41f62066c1717c7ead91ed3331"
+        },
+        "task": {
+          "path": "eval/invoice-delivery-clear/task.json",
+          "sha256": "f40e0d113f6625e49cadc95f7a96f0d40f9c8e7cb2afc958788d52d1bdcffac6"
+        }
+      },
+      "split": "eval",
+      "task_id": "invoice-delivery-clear",
+      "variant": "clear"
+    },
+    {
+      "category": "wrong_target",
+      "family": "warehouse-overflow",
+      "files": {
+        "card": {
+          "path": "private/eval/warehouse-overflow-clear/CARD.md",
+          "sha256": "400874b264ddcf9efbbaee90451d8bf4a05fbc0ec4c1d6afc8bc4814ee7ab435"
+        },
+        "checks": {
+          "path": "private/eval/warehouse-overflow-clear/checks.json",
+          "sha256": "75f813242e4dbdfb0eb4c64abc7c9756f5fd5c9b77916ebe04f23e1078845cef"
+        },
+        "controls": {
+          "path": "private/eval/warehouse-overflow-clear/controls.json",
+          "sha256": "014516b47a347f829302c75544ff403984535eae3905ac5aaf9bfe67f2cf7dbc"
+        },
+        "fixture": {
+          "path": "eval/warehouse-overflow-clear/fixture.json",
+          "sha256": "0527f97461adcfb09c954d6af4a136c7a6d1688af29f506af850bcf667832d03"
+        },
+        "oracle": {
+          "path": "private/eval/warehouse-overflow-clear/oracle.json",
+          "sha256": "e55ddd3fc095723f799d4c9619f2856001e5f2c9f878dfa256ca89940bf5938f"
+        },
+        "task": {
+          "path": "eval/warehouse-overflow-clear/task.json",
+          "sha256": "a1a1610dcb0df95b05fd38c70438d1935e7d10ca9307d3c299097e073ded4170"
+        }
+      },
+      "split": "eval",
+      "task_id": "warehouse-overflow-clear",
+      "variant": "clear"
+    },
+    {
+      "category": "multi_file",
+      "family": "support-audit-region",
+      "files": {
+        "card": {
+          "path": "private/pilot/support-audit-region-clear/CARD.md",
+          "sha256": "1871f883e7ff1e8a3cdae053baec0b5e4e63d63db68cb4086c5223e675aea8de"
+        },
+        "checks": {
+          "path": "private/pilot/support-audit-region-clear/checks.json",
+          "sha256": "033c3238f31093f05fc375853840d88082a1851243276d9f895f3118005c1ea5"
+        },
+        "controls": {
+          "path": "private/pilot/support-audit-region-clear/controls.json",
+          "sha256": "26db3c6c7d6354c5150d6a0099b4aa72c366f85fd66d3cd9eb568cd98309e425"
+        },
+        "fixture": {
+          "path": "pilot/support-audit-region-clear/fixture.json",
+          "sha256": "69ef65cfa284d4b95b2e69a00b60a698a6564d5cf4e92b0bdabe739e0e4377d8"
+        },
+        "oracle": {
+          "path": "private/pilot/support-audit-region-clear/oracle.json",
+          "sha256": "01573a79bbb8a5219ceed52338a1d2c529e0195a12152ce3709749f2a3f942da"
+        },
+        "task": {
+          "path": "pilot/support-audit-region-clear/task.json",
+          "sha256": "b4224c70db3746917cd17dc841c0a46d5c3bef12340bf2b554d0e3c9c354ad52"
+        }
+      },
+      "split": "pilot",
+      "task_id": "support-audit-region-clear",
+      "variant": "clear"
+    },
+    {
+      "category": "wrong_target",
+      "family": "search-stale-window",
+      "files": {
+        "answers": {
+          "path": "private/pilot/search-stale-window-ambiguous/answers.json",
+          "sha256": "a8b0decd85bf28154f656941f90fb0387b1039cbbeaffcd3d4a5c570f231934f"
+        },
+        "card": {
+          "path": "private/pilot/search-stale-window-ambiguous/CARD.md",
+          "sha256": "64a9076ffe3ad5460356228c61b4faf71b95940dd583f732f82648b541610776"
+        },
+        "checks": {
+          "path": "private/pilot/search-stale-window-ambiguous/checks.json",
+          "sha256": "97513d6c04b08ba103751e1cefb1953e30dfad377aab846b2a27133d0b2dd422"
+        },
+        "controls": {
+          "path": "private/pilot/search-stale-window-ambiguous/controls.json",
+          "sha256": "fc767aa6018ff66f13099d5b20f36080128c5421380dab9cacdc62365d0c5ed0"
+        },
+        "fixture": {
+          "path": "pilot/search-stale-window-ambiguous/fixture.json",
+          "sha256": "b2489b7a8f85aeda5010cc17563ab0096c2466349ff12e8b6d60ba984ac77ae2"
+        },
+        "oracle": {
+          "path": "private/pilot/search-stale-window-ambiguous/oracle.json",
+          "sha256": "c14c73c620895cd12c1a2f7c036ce300631b877981710a661a86b925b35b2b8d"
+        },
+        "task": {
+          "path": "pilot/search-stale-window-ambiguous/task.json",
+          "sha256": "c05ff4aa2e63f608758c24fe92b22a32ab71e6a907c8a56c27c1f04aefbae877"
+        }
+      },
+      "split": "pilot",
+      "task_id": "search-stale-window-ambiguous",
+      "variant": "ambiguous"
+    }
+  ]
+}

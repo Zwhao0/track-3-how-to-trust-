@@ -1,0 +1,10 @@
+{
+  "decoy_path": "services/partner/delivery.json",
+  "leak_markers": [],
+  "positive": {
+    "services/console/delivery.json": "{\n  \"channel\": \"console\",\n  \"format\": \"pdf\",\n  \"max_attempts\": 5,\n  \"queue\": \"billing-console\"\n}\n"
+  },
+  "required_questions": [
+    "target"
+  ]
+}

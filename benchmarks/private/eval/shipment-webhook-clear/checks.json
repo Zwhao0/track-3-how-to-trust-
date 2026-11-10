@@ -1,0 +1,25 @@
+{
+  "required-1": {
+    "expected": {
+      "carrier": "freight",
+      "timeout_seconds": 5,
+      "topic": "shipment.dispatched"
+    },
+    "kind": "json_value",
+    "path": "carriers/freight/webhook.json",
+    "selector": []
+  },
+  "required-2": {
+    "expected": {
+      "topics": [
+        "shipment.created",
+        "shipment.delivered",
+        "shipment.dispatched"
+      ],
+      "transport": "webhook"
+    },
+    "kind": "json_value",
+    "path": "dispatch/topics.json",
+    "selector": []
+  }
+}

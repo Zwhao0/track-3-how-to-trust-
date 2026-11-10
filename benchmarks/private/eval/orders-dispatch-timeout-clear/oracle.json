@@ -1,0 +1,18 @@
+{
+  "authorized_final_change_paths": [
+    "services/orders/routes.json"
+  ],
+  "expected_target_paths": [
+    "services/orders/routes.json"
+  ],
+  "fixture_sha256": "bccd757470eb969d20404fbf325012b8c5e04516daebf228da42e021413408c0",
+  "hidden_check_ids": [
+    "required-1"
+  ],
+  "labels": {
+    "category": "broad_change",
+    "variant": "clear"
+  },
+  "schema_version": 1,
+  "task_id": "orders-dispatch-timeout-clear"
+}

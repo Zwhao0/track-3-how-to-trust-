@@ -1,0 +1,9 @@
+{
+  "decoy_path": "audit/finance-export.json",
+  "leak_markers": [],
+  "positive": {
+    "audit/redaction-policy.json": "{\n  \"fields\": [\n    \"actor_email\",\n    \"ip_address\"\n  ],\n  \"profile\": \"support-review\",\n  \"version\": 4\n}\n",
+    "audit/support-export.json": "{\n  \"destination\": \"support-review\",\n  \"event_fields\": [\n    \"timestamp\",\n    \"actor_id\",\n    \"action\",\n    \"region_code\"\n  ],\n  \"format\": \"ndjson\"\n}\n"
+  },
+  "required_questions": []
+}

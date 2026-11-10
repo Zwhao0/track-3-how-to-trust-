@@ -1,0 +1,8 @@
+{
+  "decoy_path": "services/payments/feature_flags.json",
+  "leak_markers": [],
+  "positive": {
+    "services/balance/feature_flags.json": "{\n  \"features\": {\n    \"manual_refund\": false,\n    \"settlement_replay\": true\n  },\n  \"region\": \"us-east-1\",\n  \"service\": \"balance\"\n}\n"
+  },
+  "required_questions": []
+}

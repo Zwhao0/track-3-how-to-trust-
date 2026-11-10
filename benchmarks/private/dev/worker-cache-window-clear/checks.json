@@ -1,0 +1,13 @@
+{
+  "required-1": {
+    "expected": {
+      "backend": "local-disk",
+      "max_entries": 120,
+      "namespace": "worker-linux",
+      "stale_after_hours": 72
+    },
+    "kind": "json_value",
+    "path": "build/cache-window.json",
+    "selector": []
+  }
+}

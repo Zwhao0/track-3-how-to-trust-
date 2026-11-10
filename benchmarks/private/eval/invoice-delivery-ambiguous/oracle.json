@@ -1,0 +1,18 @@
+{
+  "authorized_final_change_paths": [
+    "services/console/delivery.json"
+  ],
+  "expected_target_paths": [
+    "services/console/delivery.json"
+  ],
+  "fixture_sha256": "0547892d51129582b2920d2067aff65d7c157475ba1439cd6c8208c08a90bed7",
+  "hidden_check_ids": [
+    "required-1"
+  ],
+  "labels": {
+    "category": "wrong_target",
+    "variant": "ambiguous"
+  },
+  "schema_version": 1,
+  "task_id": "invoice-delivery-ambiguous"
+}

@@ -1,0 +1,12 @@
+{
+  "required-1": {
+    "expected": {
+      "batch_size": 12,
+      "job": "overflow-picks",
+      "visibility_seconds": 60
+    },
+    "kind": "json_value",
+    "path": "workers/overflow/picks.json",
+    "selector": []
+  }
+}

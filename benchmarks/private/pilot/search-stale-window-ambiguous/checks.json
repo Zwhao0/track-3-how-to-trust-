@@ -1,0 +1,13 @@
+{
+  "required-1": {
+    "expected": {
+      "documents": "products",
+      "refresh_minutes": 15,
+      "stale_days": 14,
+      "storage": "search-prod"
+    },
+    "kind": "json_value",
+    "path": "search/product-index.json",
+    "selector": []
+  }
+}

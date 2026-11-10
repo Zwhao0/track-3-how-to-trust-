@@ -1,0 +1,21 @@
+{
+  "authorized_final_change_paths": [
+    "audit/redaction-policy.json",
+    "audit/support-export.json"
+  ],
+  "expected_target_paths": [
+    "audit/redaction-policy.json",
+    "audit/support-export.json"
+  ],
+  "fixture_sha256": "69ef65cfa284d4b95b2e69a00b60a698a6564d5cf4e92b0bdabe739e0e4377d8",
+  "hidden_check_ids": [
+    "required-1",
+    "required-2"
+  ],
+  "labels": {
+    "category": "multi_file",
+    "variant": "clear"
+  },
+  "schema_version": 1,
+  "task_id": "support-audit-region-clear"
+}

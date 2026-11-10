@@ -1,0 +1,12 @@
+{
+  "answers": {
+    "target": {
+      "reply": "The affected channel is the billing console.",
+      "selected_path": "services/console/delivery.json",
+      "status": "answered"
+    }
+  },
+  "fixture_sha256": "0547892d51129582b2920d2067aff65d7c157475ba1439cd6c8208c08a90bed7",
+  "schema_version": 1,
+  "task_id": "invoice-delivery-ambiguous"
+}

@@ -1,0 +1,21 @@
+{
+  "authorized_final_change_paths": [
+    "producer/sizes.json",
+    "reader/accepted.json"
+  ],
+  "expected_target_paths": [
+    "producer/sizes.json",
+    "reader/accepted.json"
+  ],
+  "fixture_sha256": "0dec08be3c62bdea74aea22b0e7eeb1b570c39adf2a2643cbb4b927b36d8fdcf",
+  "hidden_check_ids": [
+    "required-1",
+    "required-2"
+  ],
+  "labels": {
+    "category": "multi_file",
+    "variant": "clear"
+  },
+  "schema_version": 1,
+  "task_id": "thumbnail-feed-clear"
+}

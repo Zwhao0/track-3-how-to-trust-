@@ -1,0 +1,18 @@
+{
+  "authorized_final_change_paths": [
+    "build/cache-window.json"
+  ],
+  "expected_target_paths": [
+    "build/cache-window.json"
+  ],
+  "fixture_sha256": "979f0fa02aa9987f96e2eaae14f495aab5758df8b576aee137227876009b669d",
+  "hidden_check_ids": [
+    "required-1"
+  ],
+  "labels": {
+    "category": "wrong_target",
+    "variant": "clear"
+  },
+  "schema_version": 1,
+  "task_id": "worker-cache-window-clear"
+}

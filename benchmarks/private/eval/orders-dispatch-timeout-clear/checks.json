@@ -1,0 +1,24 @@
+{
+  "required-1": {
+    "expected": {
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/dispatch",
+          "timeout_seconds": 5,
+          "upstream": "dispatch-v2"
+        },
+        {
+          "method": "POST",
+          "path": "/orders",
+          "timeout_seconds": 4,
+          "upstream": "orders-v1"
+        }
+      ],
+      "service": "orders"
+    },
+    "kind": "json_value",
+    "path": "services/orders/routes.json",
+    "selector": []
+  }
+}

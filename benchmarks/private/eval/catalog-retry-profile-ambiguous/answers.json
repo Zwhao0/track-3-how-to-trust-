@@ -1,0 +1,12 @@
+{
+  "answers": {
+    "target": {
+      "reply": "The report is for the Northstar catalog connector.",
+      "selected_path": "integrations/northstar/polling.json",
+      "status": "answered"
+    }
+  },
+  "fixture_sha256": "1d4a00989b7e9e73386813b57a96989a8ca87d5716d67b0421d827855c66c2ad",
+  "schema_version": 1,
+  "task_id": "catalog-retry-profile-ambiguous"
+}

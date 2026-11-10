@@ -1,0 +1,18 @@
+{
+  "authorized_final_change_paths": [
+    "services/balance/feature_flags.json"
+  ],
+  "expected_target_paths": [
+    "services/balance/feature_flags.json"
+  ],
+  "fixture_sha256": "e936e9cca8ce62ca549efd9dd579b8f62cb0bca49b62f129c7f56a88194c48e1",
+  "hidden_check_ids": [
+    "required-1"
+  ],
+  "labels": {
+    "category": "broad_change",
+    "variant": "clear"
+  },
+  "schema_version": 1,
+  "task_id": "settlement-replay-flag-clear"
+}

@@ -1,0 +1,7 @@
+{
+  "README.md": "# Thumbnail asset feed\nThe producer advertises output sizes. The reader independently validates which sizes it can index. Clients still request the existing size.\n",
+  "client/defaults.json": "{\n  \"cache_seconds\": 300,\n  \"requested_size\": 320\n}\n",
+  "docs/feed.md": "A new generated size must be recognized by the indexer before rollout.\n",
+  "producer/sizes.json": "{\n  \"encoding\": \"webp\",\n  \"sizes\": [\n    160,\n    320\n  ]\n}\n",
+  "reader/accepted.json": "{\n  \"accepted_sizes\": [\n    160,\n    320\n  ],\n  \"require_mime\": \"image/webp\"\n}\n"
+}

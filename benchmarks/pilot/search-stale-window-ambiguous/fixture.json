@@ -1,0 +1,8 @@
+{
+  "README.md": "# Search index configuration\nProduct search and the help center are indexed independently.\n",
+  "docs/search-indexing.md": "Product records and help articles have separate index refresh jobs.\nStorage and refresh cadence are configured per index.\n",
+  "ops/search-maintenance.json": "{\n  \"batch_size\": 250,\n  \"max_parallel_rebuilds\": 2,\n  \"quiet_hours\": [\n    \"01:00\",\n    \"04:00\"\n  ]\n}\n",
+  "search/aliases.json": "{\n  \"default\": \"product\",\n  \"help\": \"help-center\"\n}\n",
+  "search/help-index.json": "{\n  \"documents\": \"help-center\",\n  \"refresh_minutes\": 30,\n  \"stale_days\": 3,\n  \"storage\": \"search-help\"\n}\n",
+  "search/product-index.json": "{\n  \"documents\": \"products\",\n  \"refresh_minutes\": 15,\n  \"stale_days\": 3,\n  \"storage\": \"search-prod\"\n}\n"
+}

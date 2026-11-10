@@ -1,0 +1,8 @@
+{
+  "decoy_path": "build/package-cache.json",
+  "leak_markers": [],
+  "positive": {
+    "build/cache-window.json": "{\n  \"backend\": \"local-disk\",\n  \"max_entries\": 120,\n  \"namespace\": \"worker-linux\",\n  \"stale_after_hours\": 72\n}\n"
+  },
+  "required_questions": []
+}
