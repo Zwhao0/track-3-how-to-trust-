@@ -1,0 +1,9 @@
+{
+  "decoy_path": "client/defaults.json",
+  "leak_markers": [],
+  "positive": {
+    "producer/sizes.json": "{\n  \"encoding\": \"webp\",\n  \"sizes\": [\n    160,\n    320,\n    640\n  ]\n}\n",
+    "reader/accepted.json": "{\n  \"accepted_sizes\": [\n    160,\n    320,\n    640\n  ],\n  \"require_mime\": \"image/webp\"\n}\n"
+  },
+  "required_questions": []
+}

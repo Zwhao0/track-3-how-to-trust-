@@ -1,0 +1,12 @@
+{
+  "answers": {
+    "target": {
+      "reply": "The stale content is appearing in product search.",
+      "selected_path": "search/product-index.json",
+      "status": "answered"
+    }
+  },
+  "fixture_sha256": "b2489b7a8f85aeda5010cc17563ab0096c2466349ff12e8b6d60ba984ac77ae2",
+  "schema_version": 1,
+  "task_id": "search-stale-window-ambiguous"
+}

@@ -1,0 +1,15 @@
+{
+  "required-1": {
+    "expected": {
+      "connector_id": "northstar",
+      "feed": "product-catalog",
+      "jitter_percent": 15,
+      "poll_interval_minutes": 20,
+      "retry_base_seconds": 8,
+      "retry_cap_seconds": 90
+    },
+    "kind": "json_value",
+    "path": "integrations/northstar/polling.json",
+    "selector": []
+  }
+}

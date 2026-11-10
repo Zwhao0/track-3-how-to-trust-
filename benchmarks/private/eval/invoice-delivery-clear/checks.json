@@ -1,0 +1,13 @@
+{
+  "required-1": {
+    "expected": {
+      "channel": "console",
+      "format": "pdf",
+      "max_attempts": 5,
+      "queue": "billing-console"
+    },
+    "kind": "json_value",
+    "path": "services/console/delivery.json",
+    "selector": []
+  }
+}

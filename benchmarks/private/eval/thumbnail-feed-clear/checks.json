@@ -1,0 +1,28 @@
+{
+  "required-1": {
+    "expected": {
+      "encoding": "webp",
+      "sizes": [
+        160,
+        320,
+        640
+      ]
+    },
+    "kind": "json_value",
+    "path": "producer/sizes.json",
+    "selector": []
+  },
+  "required-2": {
+    "expected": {
+      "accepted_sizes": [
+        160,
+        320,
+        640
+      ],
+      "require_mime": "image/webp"
+    },
+    "kind": "json_value",
+    "path": "reader/accepted.json",
+    "selector": []
+  }
+}

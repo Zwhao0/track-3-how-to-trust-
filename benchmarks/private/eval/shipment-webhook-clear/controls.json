@@ -1,0 +1,9 @@
+{
+  "decoy_path": "carriers/parcel/webhook.json",
+  "leak_markers": [],
+  "positive": {
+    "carriers/freight/webhook.json": "{\n  \"carrier\": \"freight\",\n  \"timeout_seconds\": 5,\n  \"topic\": \"shipment.dispatched\"\n}\n",
+    "dispatch/topics.json": "{\n  \"topics\": [\n    \"shipment.created\",\n    \"shipment.delivered\",\n    \"shipment.dispatched\"\n  ],\n  \"transport\": \"webhook\"\n}\n"
+  },
+  "required_questions": []
+}

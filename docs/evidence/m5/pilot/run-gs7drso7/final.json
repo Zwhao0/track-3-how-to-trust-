@@ -1,0 +1,7 @@
+{
+  "README.md": "# Build cache settings\nThe local Linux worker cache and package download cache have separate windows.\n",
+  "build/cache-window.json": "{\n  \"backend\": \"local-disk\",\n  \"max_entries\": 120,\n  \"namespace\": \"worker-linux\",\n  \"stale_after_hours\": 72\n}\n",
+  "build/package-cache.json": "{\n  \"backend\": \"remote\",\n  \"max_entries\": 400,\n  \"namespace\": \"package-release\",\n  \"stale_after_hours\": 24\n}\n",
+  "ci/worker-pool.json": "{\n  \"max_workers\": 6,\n  \"platform\": \"linux-x64\",\n  \"queue\": \"build-validation\"\n}\n",
+  "docs/cache-operations.md": "The package download cache is shared across release workers.\nThe local worker cache is cleared during weekly maintenance.\n"
+}

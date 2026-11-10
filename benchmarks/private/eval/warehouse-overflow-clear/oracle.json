@@ -1,0 +1,18 @@
+{
+  "authorized_final_change_paths": [
+    "workers/overflow/picks.json"
+  ],
+  "expected_target_paths": [
+    "workers/overflow/picks.json"
+  ],
+  "fixture_sha256": "0527f97461adcfb09c954d6af4a136c7a6d1688af29f506af850bcf667832d03",
+  "hidden_check_ids": [
+    "required-1"
+  ],
+  "labels": {
+    "category": "wrong_target",
+    "variant": "clear"
+  },
+  "schema_version": 1,
+  "task_id": "warehouse-overflow-clear"
+}

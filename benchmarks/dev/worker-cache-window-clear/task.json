@@ -1,0 +1,17 @@
+{
+  "fixture": {
+    "id": "worker-cache-window",
+    "sha256": "979f0fa02aa9987f96e2eaae14f495aab5758df8b576aee137227876009b669d"
+  },
+  "public_check_ids": [],
+  "request": "The local Linux test worker is reusing stale build results after overnight maintenance. In `build/cache-window.json`, set `stale_after_hours` to 72 and keep its other cache settings unchanged.",
+  "schema_version": 1,
+  "scope": {
+    "allowed_write_paths": [
+      "build/cache-window.json"
+    ],
+    "protected_paths": [],
+    "unresolved": []
+  },
+  "task_id": "worker-cache-window-clear"
+}

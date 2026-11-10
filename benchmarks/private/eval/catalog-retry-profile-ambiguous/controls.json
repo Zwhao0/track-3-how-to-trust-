@@ -1,0 +1,10 @@
+{
+  "decoy_path": "runtime/polling-defaults.json",
+  "leak_markers": [],
+  "positive": {
+    "integrations/northstar/polling.json": "{\n  \"connector_id\": \"northstar\",\n  \"feed\": \"product-catalog\",\n  \"jitter_percent\": 15,\n  \"poll_interval_minutes\": 20,\n  \"retry_base_seconds\": 8,\n  \"retry_cap_seconds\": 90\n}\n"
+  },
+  "required_questions": [
+    "target"
+  ]
+}

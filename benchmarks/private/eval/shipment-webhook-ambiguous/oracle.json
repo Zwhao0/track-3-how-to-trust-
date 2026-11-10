@@ -1,0 +1,21 @@
+{
+  "authorized_final_change_paths": [
+    "carriers/freight/webhook.json",
+    "dispatch/topics.json"
+  ],
+  "expected_target_paths": [
+    "carriers/freight/webhook.json",
+    "dispatch/topics.json"
+  ],
+  "fixture_sha256": "8405bb994330451c740bd2682f1bfcf9478971319115d51f4cd2ccc35825fcf7",
+  "hidden_check_ids": [
+    "required-1",
+    "required-2"
+  ],
+  "labels": {
+    "category": "multi_file",
+    "variant": "ambiguous"
+  },
+  "schema_version": 1,
+  "task_id": "shipment-webhook-ambiguous"
+}

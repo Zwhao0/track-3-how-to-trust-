@@ -1,0 +1,15 @@
+{
+  "required-1": {
+    "expected": {
+      "features": {
+        "manual_refund": false,
+        "settlement_replay": true
+      },
+      "region": "us-east-1",
+      "service": "balance"
+    },
+    "kind": "json_value",
+    "path": "services/balance/feature_flags.json",
+    "selector": []
+  }
+}

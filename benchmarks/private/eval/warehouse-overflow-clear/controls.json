@@ -1,0 +1,8 @@
+{
+  "decoy_path": "workers/standard/picks.json",
+  "leak_markers": [],
+  "positive": {
+    "workers/overflow/picks.json": "{\n  \"batch_size\": 12,\n  \"job\": \"overflow-picks\",\n  \"visibility_seconds\": 60\n}\n"
+  },
+  "required_questions": []
+}

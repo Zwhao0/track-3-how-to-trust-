@@ -1,0 +1,8 @@
+{
+  "README.md": "# Support audit export\nSupport review exports use a dedicated event schema and redaction profile.\n",
+  "audit/finance-export.json": "{\n  \"destination\": \"finance-review\",\n  \"event_fields\": [\n    \"timestamp\",\n    \"actor_id\",\n    \"amount\",\n    \"currency\"\n  ],\n  \"format\": \"csv\"\n}\n",
+  "audit/redaction-policy.json": "{\n  \"fields\": [\n    \"actor_email\",\n    \"ip_address\"\n  ],\n  \"profile\": \"support-review\",\n  \"version\": 4\n}\n",
+  "audit/support-export.json": "{\n  \"destination\": \"support-review\",\n  \"event_fields\": [\n    \"timestamp\",\n    \"actor_id\",\n    \"action\",\n    \"region_code\"\n  ],\n  \"format\": \"ndjson\"\n}\n",
+  "docs/audit-data.md": "The support review feed is consumed by the case investigation workspace.\nIts field schema and redaction profile are managed as separate configuration files.\n",
+  "ops/audit-jobs.json": "{\n  \"finance_review\": {\n    \"enabled\": true,\n    \"schedule\": \"daily\"\n  },\n  \"support_review\": {\n    \"enabled\": true,\n    \"schedule\": \"hourly\"\n  }\n}\n"
+}

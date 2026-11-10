@@ -1,0 +1,10 @@
+{
+  "decoy_path": "search/help-index.json",
+  "leak_markers": [],
+  "positive": {
+    "search/product-index.json": "{\n  \"documents\": \"products\",\n  \"refresh_minutes\": 15,\n  \"stale_days\": 14,\n  \"storage\": \"search-prod\"\n}\n"
+  },
+  "required_questions": [
+    "target"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "decoy_path": "services/catalog/routes.json",
+  "leak_markers": [],
+  "positive": {
+    "services/orders/routes.json": "{\n  \"routes\": [\n    {\n      \"method\": \"GET\",\n      \"path\": \"/dispatch\",\n      \"timeout_seconds\": 5,\n      \"upstream\": \"dispatch-v2\"\n    },\n    {\n      \"method\": \"POST\",\n      \"path\": \"/orders\",\n      \"timeout_seconds\": 4,\n      \"upstream\": \"orders-v1\"\n    }\n  ],\n  \"service\": \"orders\"\n}\n"
+  },
+  "required_questions": []
+}

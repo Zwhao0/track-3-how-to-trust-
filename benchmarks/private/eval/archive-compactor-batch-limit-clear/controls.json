@@ -1,0 +1,8 @@
+{
+  "decoy_path": "platform/worker-defaults.json",
+  "leak_markers": [],
+  "positive": {
+    "jobs/archive/compactor.py": "from datetime import timedelta\n\nMAX_ITEMS_PER_PASS = 800\nCUTOFF_DAYS = 180\n\n\ndef select_batch(records, today):\n    cutoff = today - timedelta(days=CUTOFF_DAYS)\n    eligible = [record for record in records if record.archived_at < cutoff]\n    return eligible[:MAX_ITEMS_PER_PASS]\n"
+  },
+  "required_questions": []
+}

@@ -1,0 +1,12 @@
+{
+  "answers": {
+    "target": {
+      "reply": "The affected service is balance.",
+      "selected_path": "services/balance/feature_flags.json",
+      "status": "answered"
+    }
+  },
+  "fixture_sha256": "e936e9cca8ce62ca549efd9dd579b8f62cb0bca49b62f129c7f56a88194c48e1",
+  "schema_version": 1,
+  "task_id": "settlement-replay-flag-ambiguous"
+}

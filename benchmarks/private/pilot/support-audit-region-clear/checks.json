@@ -1,0 +1,30 @@
+{
+  "required-1": {
+    "expected": {
+      "fields": [
+        "actor_email",
+        "ip_address"
+      ],
+      "profile": "support-review",
+      "version": 4
+    },
+    "kind": "json_value",
+    "path": "audit/redaction-policy.json",
+    "selector": []
+  },
+  "required-2": {
+    "expected": {
+      "destination": "support-review",
+      "event_fields": [
+        "timestamp",
+        "actor_id",
+        "action",
+        "region_code"
+      ],
+      "format": "ndjson"
+    },
+    "kind": "json_value",
+    "path": "audit/support-export.json",
+    "selector": []
+  }
+}

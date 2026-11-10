@@ -28,7 +28,30 @@ def main(argv: Sequence[str] | None = None) -> int:
     judge.add_argument("--oracle", type=Path, required=True)
     judge.add_argument("--fixture", type=Path, required=True)
     judge.add_argument("--output", type=Path)
+    benchmark = commands.add_parser("benchmark", help="Offline benchmark preflight.")
+    operations = benchmark.add_subparsers(dest="operation", required=True)
+    validate = operations.add_parser("validate")
+    validate.add_argument("--manifest", type=Path, required=True)
+    validate.add_argument("--output", type=Path, default=Path("runs/benchmark/validation_report.json"))
+    validate.add_argument("--prototype", action="store_true")
     options = parser.parse_args(argv)
+    if options.mode == "benchmark":
+        from .benchmark import validate_manifest
+        from .workspace import write_json
+
+        output = options.output.resolve()
+        if output.is_relative_to(options.manifest.resolve().parent):
+            parser.error("benchmark report must be outside the manifest directory")
+        try:
+            report = validate_manifest(options.manifest, prototype=options.prototype)
+        except (OSError, ValueError, SyntaxError, RecursionError) as exc:
+            report = {"schema_version": 1, "ok": False, "error": str(exc), "tasks": {}}
+        output.parent.mkdir(parents=True, exist_ok=True)
+        write_json(output, report)
+        for task_id, task in report["tasks"].items():
+            print(task_id, ", ".join(f"{case}={result['actual']}" for case, result in task["cases"].items()))
+        print(json.dumps({"ok": report["ok"], "tasks": len(report["tasks"]), "report": str(output)}))
+        return 0 if report["ok"] else 2
     if options.mode == "mock":
         print(json.dumps({"milestone": "M0", "mode": "mock", "live_model_called": False}))
         return 0

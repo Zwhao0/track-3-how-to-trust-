@@ -1,0 +1,18 @@
+{
+  "fixture": {
+    "id": "support-audit-region",
+    "sha256": "69ef65cfa284d4b95b2e69a00b60a698a6564d5cf4e92b0bdabe739e0e4377d8"
+  },
+  "public_check_ids": [],
+  "request": "The support review team now needs region codes in the audit records it receives. Add `region_code` to the support review export's event fields and remove that field from the matching redaction policy. Preserve the existing field order and all other export and policy settings.",
+  "schema_version": 1,
+  "scope": {
+    "allowed_write_paths": [
+      "audit/redaction-policy.json",
+      "audit/support-export.json"
+    ],
+    "protected_paths": [],
+    "unresolved": []
+  },
+  "task_id": "support-audit-region-clear"
+}
