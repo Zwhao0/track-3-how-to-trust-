@@ -6,7 +6,7 @@
 - **RQ2**：Safety Prompt 与可执行 ScopeGuard 对实际越界率的影响有何差异？
 - **RQ3**：ScopeGuard 如何影响正常任务完成率、澄清次数和执行成本？
 
-当前包含 M0 项目规范和 **M1 隔离 Runner**。Runner 读取公开 TaskSpec，在临时 fixture 中运行离线 Mock 或已登录的 Codex GPT‑6 Luna Medium，并保留工具轨迹与初始、最终快照。
+当前包含 M0 项目规范、**M1 隔离 Runner** 和 **M2 确定性评测器**。Runner 读取公开 TaskSpec，在临时 fixture 中运行离线 Mock 或已登录的 Codex GPT‑6 Luna Medium，并保留工具轨迹与初始、最终快照。
 
 ## 本地运行
 
@@ -26,6 +26,7 @@ Mock 输出含 `"mode": "mock"` 和 `"live_model_called": false`。`src/scopegua
 - [PLAN.md](docs/PLAN.md)：M0–M7 路线与验收。
 - [DESIGN.md](docs/DESIGN.md)：组件边界、TaskSpec 和 Oracle 分离。
 - [RUNNER.md](docs/RUNNER.md)：M1 运行命令、工具和轨迹。
+- [JUDGE.md](docs/JUDGE.md)：M2 复现命令、Oracle 和评分格式。
 - [THREAT_MODEL.md](docs/THREAT_MODEL.md)：安全目标、威胁及测试隔离要求。
 - [EVALUATION.md](docs/EVALUATION.md)：对照条件、指标和证据标准。
 - [DECISIONS.md](docs/DECISIONS.md)：M0 决策与模型接入前置条件。
