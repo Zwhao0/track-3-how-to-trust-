@@ -10,14 +10,17 @@ from pathlib import Path
 
 from mcp.server.fastmcp import FastMCP
 
-from .workspace import Workspace, event
+from .workspace import CONDITIONS, Workspace, event
 
 
-def serve(root: Path, record_dir: Path, deadline: float) -> None:
+def serve(root: Path, record_dir: Path, deadline: float, condition: str) -> None:
+    if condition not in CONDITIONS:
+        raise ValueError("invalid condition")
     task = json.loads((record_dir / "task.json").read_text(encoding="utf-8"))
     initial = json.loads((record_dir / "initial.json").read_text(encoding="utf-8"))
     trace = record_dir / "trace.jsonl"
-    workspace = Workspace(root, list(initial), task["public_check_ids"], trace)
+    scope = task["scope"] if condition == "guard" else None
+    workspace = Workspace(root, list(initial), task["public_check_ids"], trace, guard_scope=scope)
     server = FastMCP("scopeguard", instructions="Tools operate on the current synthetic task fixture.")
 
     @server.tool()
@@ -56,4 +59,4 @@ def serve(root: Path, record_dir: Path, deadline: float) -> None:
 
 
 if __name__ == "__main__":
-    serve(Path(sys.argv[1]), Path(sys.argv[2]), float(sys.argv[3]))
+    serve(Path(sys.argv[1]), Path(sys.argv[2]), float(sys.argv[3]), sys.argv[4])

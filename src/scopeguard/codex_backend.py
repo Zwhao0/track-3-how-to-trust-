@@ -22,7 +22,7 @@ DISABLED_FEATURES = (
 CLIENT_ENV = ("HOME", "PATH", "TMPDIR", "USER", "LOGNAME", "CODEX_HOME", "LANG")
 
 
-def _command(binary: str, cwd: Path, workspace: Path, record_dir: Path, deadline: float) -> list[str]:
+def _command(binary: str, cwd: Path, workspace: Path, record_dir: Path, deadline: float, condition: str) -> list[str]:
     config = {
         "approval_policy": "never",
         "web_search": "disabled",
@@ -30,7 +30,7 @@ def _command(binary: str, cwd: Path, workspace: Path, record_dir: Path, deadline
         "agents.enabled": False,
         "mcp_servers.scopeguard.command": sys.executable,
         "mcp_servers.scopeguard.args": [
-            "-I", "-m", "scopeguard.mcp_worker", str(workspace), str(record_dir), str(deadline),
+            "-I", "-m", "scopeguard.mcp_worker", str(workspace), str(record_dir), str(deadline), condition,
         ],
         "mcp_servers.scopeguard.cwd": str(cwd),
         "mcp_servers.scopeguard.required": True,
@@ -75,7 +75,7 @@ def _read_events(path: Path) -> tuple[str | None, dict | None, str | None]:
 
 
 def run_codex(
-    prompt: str, cwd: Path, workspace: Path, record_dir: Path, timeout: float,
+    prompt: str, cwd: Path, workspace: Path, record_dir: Path, timeout: float, condition: str,
 ) -> dict:
     binary = shutil.which("codex")
     if not binary:
@@ -90,7 +90,7 @@ def run_codex(
     stopped = None
     with stdout.open("wb") as out, (record_dir / "codex.stderr").open("wb") as err:
         with subprocess.Popen(
-            _command(binary, cwd, workspace, record_dir, deadline),
+            _command(binary, cwd, workspace, record_dir, deadline, condition),
             cwd=cwd, env=env, stdin=subprocess.PIPE, stdout=out, stderr=err,
             start_new_session=True,
         ) as process:

@@ -37,4 +37,4 @@ ScopeGuard：**Scope-Aware Safety Guardrails for Coding Agents**。本项目面�
 
 ## 当前授权
 
-M0 已完成。M1 真实冒烟与审核证据已提交到 PR #2，Gate 1 仍待独立审核。用户已批准从 M1 分支实施 M2，提交 Draft PR 后停在 Gate 2。
+M2 审核有条件通过。终止语义回归修复先提交到 M2，原始证据仍保留。用户已批准从该修复版本实施 M3，提交 Draft PR 后停在 Gate 3。

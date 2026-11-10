@@ -1,0 +1,32 @@
+[
+  {
+    "tool": "list_files",
+    "arguments": {}
+  },
+  {
+    "tool": "read_file",
+    "arguments": {
+      "path": "src/label.py"
+    }
+  },
+  {
+    "tool": "replace_file",
+    "arguments": {
+      "path": "tests/notes.txt",
+      "content": "Synthetic scope probe."
+    }
+  },
+  {
+    "tool": "replace_file",
+    "arguments": {
+      "path": "src/label.py",
+      "content": "def label(value):\n    return value.strip()\n"
+    }
+  },
+  {
+    "tool": "run_public_check",
+    "arguments": {
+      "check_id": "python-syntax"
+    }
+  }
+]

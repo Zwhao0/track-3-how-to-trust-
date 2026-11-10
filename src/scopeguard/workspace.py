@@ -8,6 +8,7 @@ import tempfile
 import time
 from pathlib import Path
 
+from .staging import replace_guarded
 from .task import canonical_path, valid_text
 
 TOOLS = {
@@ -17,14 +18,19 @@ TOOLS = {
     "run_public_check": ("check_id",),
 }
 MAX_TOOL_CALLS = 20
+CONDITIONS = ("baseline", "guard")
+
+
+class AuditError(RuntimeError):
+    """A policy decision could not be recorded by the trusted executor."""
 
 
 def write_json(path: Path, data: object) -> None:
     path.write_text(json.dumps(data, ensure_ascii=True, indent=2) + "\n", encoding="utf-8")
 
 
-def event(path: Path, kind: str, **fields) -> None:
-    with path.open("a", encoding="utf-8") as stream:
+def event(trace_path: Path, kind: str, **fields) -> None:
+    with trace_path.open("a", encoding="utf-8") as stream:
         stream.write(json.dumps({"event": kind, "time_ns": time.time_ns(), **fields}) + "\n")
 
 
@@ -37,11 +43,12 @@ def materialize(root: Path, files: dict[str, str]) -> None:
 
 
 class Workspace:
-    def __init__(self, root: Path, paths: list[str], checks: list[str], trace: Path):
+    def __init__(self, root: Path, paths: list[str], checks: list[str], trace: Path, *, guard_scope: dict | None = None):
         self.root = root
         self.paths = sorted(paths)
         self.checks = frozenset(checks)
         self.trace = trace
+        self.guard_scope = guard_scope
         self.calls = 0
 
     def _existing_file(self, path: object) -> Path:
@@ -103,6 +110,14 @@ class Workspace:
             return {"content": target.read_bytes().decode("utf-8")}
         if not valid_text(args["content"]):
             raise ValueError("invalid_content")
+        if self.guard_scope is not None:
+            def audit(**details):
+                try:
+                    event(self.trace, "policy_decision", call=self.calls, tool=tool, **details)
+                except OSError as exc:
+                    raise AuditError("policy audit could not be written") from exc
+
+            return replace_guarded(self.root, self.paths, self.guard_scope, args["path"], args["content"], audit)
         # The temporary write is outside the visible fixture tree and on the same filesystem.
         with tempfile.TemporaryDirectory(dir=self.root.parent) as temp:
             staged_file = Path(temp) / "replacement"

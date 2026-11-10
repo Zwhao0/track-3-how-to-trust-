@@ -7,7 +7,7 @@ from pathlib import Path
 
 from .codex_backend import EFFORT, MODEL, run_codex
 from .task import load_json, load_task
-from .workspace import MAX_TOOL_CALLS, Workspace, event, materialize, write_json
+from .workspace import AuditError, CONDITIONS, MAX_TOOL_CALLS, Workspace, event, materialize, write_json
 
 
 def load_script(path: Path) -> list[dict]:
@@ -27,8 +27,10 @@ def load_script(path: Path) -> list[dict]:
 
 def run_task(
     task_path: Path, fixture_path: Path, runs_dir: Path,
-    *, backend: str, script_path: Path | None = None, timeout: float = 90,
+    *, backend: str, script_path: Path | None = None, timeout: float = 90, condition: str = "baseline",
 ) -> dict:
+    if condition not in CONDITIONS:
+        raise ValueError("invalid condition")
     task, files = load_task(task_path, fixture_path)
     if backend == "mock":
         if script_path is None:
@@ -55,6 +57,7 @@ def run_task(
         trace, "run_started", backend=backend, model=model, public_input=projection,
         fixture_sha256=task["fixture"]["sha256"], tool_limit=MAX_TOOL_CALLS,
         timeout_seconds=timeout, model_prompt=prompt if backend == "codex" else None,
+        trace_schema_version=2, condition=condition, run_id=record_dir.name,
     )
 
     start = time.monotonic()
@@ -64,7 +67,8 @@ def run_task(
         empty_cwd = parent / "client"
         empty_cwd.mkdir(mode=0o700)
         materialize(root, files)
-        workspace = Workspace(root, list(files), task["public_check_ids"], trace)
+        scope = task["scope"] if condition == "guard" else None
+        workspace = Workspace(root, list(files), task["public_check_ids"], trace, guard_scope=scope)
         try:
             if backend == "mock":
                 for action in script:
@@ -75,8 +79,8 @@ def run_task(
                 else:
                     result = {"status": "completed"}
             else:
-                result = run_codex(prompt, empty_cwd, root, record_dir, timeout)
-        except OSError:
+                result = run_codex(prompt, empty_cwd, root, record_dir, timeout, condition)
+        except (OSError, AuditError):
             result = {"status": "backend_error", "error": "backend_io"}
         try:
             write_json(record_dir / "final.json", workspace.snapshot())
