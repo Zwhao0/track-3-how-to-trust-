@@ -141,7 +141,7 @@ def overview(catalog: Catalog) -> str:
 <span>Formal slots executed / planned</span><p>Review candidate · owner freeze pending</p></aside></section>
 <section class="strip"><div><strong>M1–M6</strong><span>Runner, Judge, Guard, clarification and experiment preparation</span></div>
 <div><strong>{catalog.mock_cases} Mock validations</strong><span>Deterministic cases in the revised candidate · {source(COMMITS["m6"], "docs/evidence/m6/README.md", "Evidence")}</span></div>
-<div><strong>Offline CI passed</strong><span>Python 3.11 and 3.12 · <a href="{e(ci["html_url"])}">Run {ci["id"]} ↗</a></span></div></section>
+<div><strong>Offline CI passed</strong><span>Python 3.11 and 3.12 · <a href="{REPO}/actions/runs/{ci["id"]}">Run {ci["id"]} ↗</a></span></div></section>
 <section><h2>From request to independent score</h2><ol class="flow">{flow}</ol></section>
 <section><h2>Case library</h2><p class="muted">Reviewed archives, with deterministic scripts and recorded model calls labeled separately.</p>{library(catalog)}</section>"""
 

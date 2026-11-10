@@ -1,0 +1,22 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.11.16, pytest-8.4.2, pluggy-1.7.0
+rootdir: [repository root]
+configfile: pyproject.toml
+testpaths: tests
+collected 123 items
+
+tests/test_bootstrap.py .                                                [  0%]
+tests/test_m1_boundary.py ....                                           [  4%]
+tests/test_m1_runner.py ....                                             [  7%]
+tests/test_m2_artifacts.py .....                                         [ 11%]
+tests/test_m2_judge.py ..........................                        [ 32%]
+tests/test_m3_policy.py ........                                         [ 39%]
+tests/test_m3_staging.py ..............                                  [ 50%]
+tests/test_m4_clarification.py ......................                    [ 68%]
+tests/test_m4_evidence.py .........                                      [ 75%]
+tests/test_m5_manifest.py ......                                         [ 80%]
+tests/test_m6_analysis.py .....                                          [ 84%]
+tests/test_m6_experiment.py ............                                 [ 94%]
+tests/test_m7_demo.py .......                                            [100%]
+
+============================= 123 passed in 6.71s ==============================

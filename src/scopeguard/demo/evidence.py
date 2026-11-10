@@ -326,7 +326,7 @@ def load_catalog(root: Path = ROOT) -> Catalog:
         if (
             candidate["status"] != "review_candidate" or candidate["owner"] or candidate["reviewer"]
             or candidate["code_sha"] != COMMITS["m6"] or ci["head_sha"] != COMMITS["m6"]
-            or ci["conclusion"] != "success" or candidate["ci_run_id"] != ci["id"]
+            or ci["conclusion"] != "success" or type(ci["id"]) is not int or candidate["ci_run_id"] != ci["id"]
             or candidate["manifest_sha256"] != manifest_hash or validation["manifest_sha256"] != manifest_hash
             or candidate["config_sha256"] != reader.hashes[f"{PACKET}/run_config.json"]
             or config["schedule_sha256"] != reader.hashes[f"{PACKET}/schedule.json"]
