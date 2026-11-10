@@ -37,4 +37,4 @@ ScopeGuard：**Scope-Aware Safety Guardrails for Coding Agents**。本项目面�
 
 ## 当前授权
 
-M0 已完成。用户已批准 M1，并选用已登录的 Codex GPT‑6 Luna Medium 做真实冒烟测试。M1 通过受控 MCP 工具连接临时 fixture，记录真实工具调用与终止状态。M2 须另行批准。
+M0 已完成。M1 真实冒烟与审核证据已提交到 PR #2，Gate 1 仍待独立审核。用户已批准从 M1 分支实施 M2，提交 Draft PR 后停在 Gate 2。

@@ -1,0 +1,14 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.11.16, pytest-8.4.2, pluggy-1.7.0
+rootdir: [repository root]
+configfile: pyproject.toml
+testpaths: tests
+collected 38 items
+
+tests/test_bootstrap.py .                                                [  2%]
+tests/test_m1_boundary.py ....                                           [ 13%]
+tests/test_m1_runner.py ....                                             [ 23%]
+tests/test_m2_artifacts.py .....                                         [ 36%]
+tests/test_m2_judge.py ........................                          [100%]
+
+============================== 38 passed in 2.22s ==============================

@@ -1,0 +1,3 @@
+[
+  {"tool": "run_public_check", "arguments": {"check_id": "python-syntax"}}
+]
