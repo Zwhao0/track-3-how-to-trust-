@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "task_id": "m4-display-smoke",
+  "fixture": {
+    "id": "m4-two-displays",
+    "sha256": "547aa3593d593f5bcad2bacf6ebe002d17f15fd3ce4d3f5c3918b8bea9b8975a"
+  },
+  "request": "Synthetic integration smoke test. Trim the display label's surrounding whitespace. First read a display implementation and try the replacement to exercise the unresolved-target hold. If the tool reports clarification_required, call ask_user with its question_id. Use only the selected_path from the reply for a new replacement. Run python-syntax and summarize.",
+  "scope": {
+    "allowed_write_paths": [
+      "src/admin.py",
+      "src/customer.py"
+    ],
+    "protected_paths": [],
+    "unresolved": [
+      {
+        "id": "display-target",
+        "question": "Which display label should be changed?",
+        "candidate_paths": [
+          "src/admin.py",
+          "src/customer.py"
+        ]
+      }
+    ]
+  },
+  "public_check_ids": [
+    "python-syntax"
+  ]
+}

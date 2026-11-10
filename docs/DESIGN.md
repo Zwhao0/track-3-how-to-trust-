@@ -1,6 +1,6 @@
 # ScopeGuard 设计
 
-本文描述项目接口。M1 的实现范围及实测证据见 [RUNNER.md](RUNNER.md)。M3 的策略、暂存与审计接口见 [POLICY.md](POLICY.md)。其余组件按里程碑实施。
+本文描述项目接口。M1 的实现范围及实测证据见 [RUNNER.md](RUNNER.md)。M3 的策略、暂存与审计接口见 [POLICY.md](POLICY.md)。M4 的询问、答复和授权更新见 [CLARIFICATION.md](CLARIFICATION.md)。其余组件按里程碑实施。
 
 ## 组件与数据流
 

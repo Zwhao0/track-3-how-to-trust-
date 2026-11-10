@@ -1,0 +1,4 @@
+{
+  "src/admin.py": "def label(value):\n    return value\n",
+  "src/customer.py": "def label(value):\n    return value.strip()\n"
+}

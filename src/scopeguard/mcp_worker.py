@@ -10,6 +10,7 @@ from pathlib import Path
 
 from mcp.server.fastmcp import FastMCP
 
+from .clarification import ClarificationState, TrustedResponder
 from .workspace import CONDITIONS, Workspace, event
 
 
@@ -20,7 +21,11 @@ def serve(root: Path, record_dir: Path, deadline: float, condition: str) -> None
     initial = json.loads((record_dir / "initial.json").read_text(encoding="utf-8"))
     trace = record_dir / "trace.jsonl"
     scope = task["scope"] if condition == "guard" else None
-    workspace = Workspace(root, list(initial), task["public_check_ids"], trace, guard_scope=scope)
+    workspace = Workspace(
+        root, list(initial), task["public_check_ids"], trace, guard_scope=scope,
+        clarification=ClarificationState(task["scope"]),
+        responder=TrustedResponder.from_file(task, root.parent / "responder.json"),
+    )
     server = FastMCP("scopeguard", instructions="Tools operate on the current synthetic task fixture.")
 
     @server.tool()
@@ -42,6 +47,11 @@ def serve(root: Path, record_dir: Path, deadline: float, condition: str) -> None
     def run_public_check(check_id: str) -> dict:
         """Run a public static check by its exact task check ID."""
         return workspace.call("run_public_check", {"check_id": check_id})
+
+    @server.tool()
+    def ask_user(question_id: str) -> dict:
+        """Ask a public TaskSpec question by its declared ID and receive the trusted user reply."""
+        return workspace.call("ask_user", {"question_id": question_id})
 
     with (root.parent / "mcp.lock").open("ab") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX)

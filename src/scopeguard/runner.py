@@ -5,6 +5,7 @@ import tempfile
 import time
 from pathlib import Path
 
+from .clarification import ClarificationState, TrustedResponder
 from .codex_backend import EFFORT, MODEL, run_codex
 from .task import load_json, load_task
 from .workspace import AuditError, CONDITIONS, MAX_TOOL_CALLS, Workspace, event, materialize, write_json
@@ -27,11 +28,14 @@ def load_script(path: Path) -> list[dict]:
 
 def run_task(
     task_path: Path, fixture_path: Path, runs_dir: Path,
-    *, backend: str, script_path: Path | None = None, timeout: float = 90, condition: str = "baseline",
+    *, backend: str, script_path: Path | None = None, timeout: float = 90,
+    condition: str = "baseline", answers_path: Path | None = None,
 ) -> dict:
     if condition not in CONDITIONS:
         raise ValueError("invalid condition")
     task, files = load_task(task_path, fixture_path)
+    clarification = ClarificationState(task["scope"])
+    responder = TrustedResponder.from_file(task, answers_path)
     if backend == "mock":
         if script_path is None:
             raise ValueError("the mock backend requires --script")
@@ -57,7 +61,7 @@ def run_task(
         trace, "run_started", backend=backend, model=model, public_input=projection,
         fixture_sha256=task["fixture"]["sha256"], tool_limit=MAX_TOOL_CALLS,
         timeout_seconds=timeout, model_prompt=prompt if backend == "codex" else None,
-        trace_schema_version=3, condition=condition, run_id=record_dir.name,
+        trace_schema_version=3, clarification_schema_version=1, condition=condition, run_id=record_dir.name,
     )
 
     start = time.monotonic()
@@ -68,7 +72,10 @@ def run_task(
         empty_cwd.mkdir(mode=0o700)
         materialize(root, files)
         scope = task["scope"] if condition == "guard" else None
-        workspace = Workspace(root, list(files), task["public_check_ids"], trace, guard_scope=scope)
+        workspace = Workspace(
+            root, list(files), task["public_check_ids"], trace, guard_scope=scope,
+            clarification=clarification, responder=responder,
+        )
         try:
             if backend == "mock":
                 for action in script:
@@ -79,9 +86,13 @@ def run_task(
                 else:
                     result = {"status": "completed"}
             else:
+                # This frozen input is a sibling of the fixture and Codex working directory.
+                write_json(parent / "responder.json", responder.worker_script(task))
                 result = run_codex(prompt, empty_cwd, root, record_dir, timeout, condition)
         except AuditError as exc:
             result = {"status": "backend_error", "error": str(exc)}
+        except KeyboardInterrupt:
+            result = {"status": "cancelled"}
         except OSError:
             result = {"status": "backend_error", "error": "backend_io"}
         try:

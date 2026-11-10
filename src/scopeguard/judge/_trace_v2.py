@@ -63,7 +63,9 @@ def _validate_decision(event, call, result, task, initial) -> None:
         raise ValueError("policy_result_mismatch")
 
 
-def decode_v2(records: list, run_id: str, task: dict, initial: dict) -> tuple[str, list[dict], list[dict]]:
+def decode_v2(
+    records: list, run_id: str, task: dict, initial: dict, *, scopes: dict | None = None,
+) -> tuple[str, list[dict], list[dict]]:
     start = records[0]
     if type(start["trace_schema_version"]) is not int or start["trace_schema_version"] != 2:
         raise ValueError("unsupported_trace_version")
@@ -105,7 +107,8 @@ def decode_v2(records: list, run_id: str, task: dict, initial: dict) -> tuple[st
         if needs_policy != (policy is not None):
             raise ValueError("missing_or_unexpected_policy_event")
         if policy is not None:
-            _validate_decision(policy, call, result, task, initial)
+            policy_task = task if scopes is None else {**task, "scope": scopes[call["call"]]}
+            _validate_decision(policy, call, result, policy_task, initial)
             decisions.append({k: v for k, v in policy.items() if k not in {"event", "time_ns"}})
         if error == "clarification_required":
             row = {**row, "result": {k: v for k, v in result.items() if k != "question_id"}}

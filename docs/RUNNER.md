@@ -60,7 +60,7 @@ macOS arm64 使用已登录 ChatGPT 的 Codex CLI `0.167.0-alpha.3.2`，请求�
 
 `uv run --locked --offline python -m pytest` 在 Python 3.12.14 通过 9 项，Python 3.11.16 复测也通过 9 项。覆盖成功运行、未知工具和越界路径、链接拒绝、Oracle 字段拒绝、静态检查不执行代码及超时回收。原始运行目录保留在本地。Codex/MCP 路径已实测，Responses API 直连尚未验证。正式组间比较需另行冻结并使用同一个后端。
 
-M3 的 Baseline 与 Guard 运行写入显式 Trace v2。格式与复现命令见 [POLICY.md](POLICY.md#trace-v2)。
+M3 的初始归档使用显式 Trace v2。当前 Baseline 与 Guard 运行写入 Trace v3，记录提交意图和澄清授权。参见 [M3 Trace v2](POLICY.md#trace-v2) 与 [M4 Trace v3](CLARIFICATION.md#audit-and-judging)。
 
 ## M1 run format compatibility
 

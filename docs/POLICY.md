@@ -26,7 +26,7 @@ Errors before policy evaluation appear as shared validation errors or `staging_f
 
 ## Trace v2
 
-New runs emit `trace_schema_version=2`, `condition`, and `run_id` in `run_started`. For Guard calls that reach the policy, `policy_decision` sits between the matching `tool_call` and `tool_result`. It records `call`, `tool`, `path`, `decision`, `reason_code`, nullable `question_id`, `proposed_diff` (added, removed, changed) and `applied`. Baseline emits the same version with no policy events.
+Original M3 runs emit `trace_schema_version=2`, `condition`, and `run_id` in `run_started`. For Guard calls that reach the policy, `policy_decision` sits between the matching `tool_call` and `tool_result`. It records `call`, `tool`, `path`, `decision`, `reason_code`, nullable `question_id`, `proposed_diff` (added, removed, changed) and `applied`. Baseline emits the same version with no policy events.
 
 The judge validates v2-specific order, policy/result association and metadata before using the legacy field checks for shared records. The v1 decoder still accepts historical M1 evidence. V2 scores include condition and a separate `audit.policy_decisions` list. The judge uses the Oracle and final diff independently to determine correctness and actual scope violations.
 
