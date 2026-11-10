@@ -4,6 +4,7 @@ import argparse
 import json
 from pathlib import Path
 
+from scopeguard.workspace import CONDITIONS
 from scopeguard.benchmark import _metadata, _resolve
 from scopeguard.judge import evaluate, write_score
 from scopeguard.runner import run_task
@@ -14,7 +15,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--task-id", required=True)
-    parser.add_argument("--condition", choices=("baseline", "guard"), required=True)
+    parser.add_argument("--condition", choices=CONDITIONS, required=True)
     parser.add_argument("--runs-dir", type=Path, default=Path("runs/m5-pilot"))
     parser.add_argument("--timeout", type=float, default=90)
     args = parser.parse_args()

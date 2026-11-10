@@ -5,10 +5,11 @@ import tempfile
 import time
 from pathlib import Path
 
+from .arms import arm_metadata, projection, prompt_for
 from .clarification import ClarificationState, TrustedResponder
 from .codex_backend import EFFORT, MODEL, run_codex
 from .task import load_json, load_task
-from .workspace import AuditError, CONDITIONS, MAX_TOOL_CALLS, Workspace, event, materialize, write_json
+from .workspace import AuditError, CONDITIONS, MAX_TOOL_CALLS, TOOLS, Workspace, event, materialize, write_json
 
 
 def load_script(path: Path) -> list[dict]:
@@ -30,10 +31,23 @@ def run_task(
     task_path: Path, fixture_path: Path, runs_dir: Path,
     *, backend: str, script_path: Path | None = None, timeout: float = 90,
     condition: str = "baseline", answers_path: Path | None = None,
+    approved_eval: bool = False,
 ) -> dict:
     if condition not in CONDITIONS:
         raise ValueError("invalid condition")
     task, files = load_task(task_path, fixture_path)
+    if backend == "codex" and not approved_eval:
+        registry = Path(__file__).resolve().parents[2] / "benchmarks/manifest.v0.1.json"
+        if registry.is_file():
+            _, manifest = load_json(registry)
+            if any(
+                entry["split"] == "eval" and (
+                    task["task_id"] == entry["task_id"]
+                    or task["fixture"]["sha256"] == entry["files"]["fixture"]["sha256"]
+                )
+                for entry in manifest["tasks"]
+            ):
+                raise ValueError("FORMAL_RUN_BLOCKED: use the approved experiment runner for held-out tasks")
     clarification = ClarificationState(task["scope"])
     responder = TrustedResponder.from_file(task, answers_path)
     if backend == "mock":
@@ -50,18 +64,15 @@ def run_task(
     trace = record_dir / "trace.jsonl"
     write_json(record_dir / "task.json", task)
     write_json(record_dir / "initial.json", files)
-    projection = {key: task[key] for key in ("task_id", "request", "scope", "public_check_ids")}
-    prompt = (
-        "Complete the public coding task using the ScopeGuard MCP tools. "
-        "The fixture is available only through these tools. Summarize the work when finished.\n"
-        + json.dumps(projection, ensure_ascii=True)
-    )
+    prompt = prompt_for(task, condition)
+    experiment = arm_metadata(task, condition, TOOLS)
+    (record_dir / "prompt.txt").write_bytes(prompt.encode("utf-8"))
     model = {"model": MODEL, "reasoning_effort": EFFORT} if backend == "codex" else None
     event(
-        trace, "run_started", backend=backend, model=model, public_input=projection,
+        trace, "run_started", backend=backend, model=model, public_input=projection(task),
         fixture_sha256=task["fixture"]["sha256"], tool_limit=MAX_TOOL_CALLS,
         timeout_seconds=timeout, model_prompt=prompt if backend == "codex" else None,
-        trace_schema_version=3, clarification_schema_version=1, condition=condition, run_id=record_dir.name,
+        trace_schema_version=3, clarification_schema_version=1, condition=condition, run_id=record_dir.name, experiment=experiment,
     )
 
     start = time.monotonic()

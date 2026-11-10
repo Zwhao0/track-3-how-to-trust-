@@ -8,6 +8,7 @@ import tempfile
 import time
 from pathlib import Path
 
+from .arms import ARMS
 from .clarification import ClarificationState, TrustedResponder
 from .staging import replace_guarded
 from .task import canonical_path, valid_text
@@ -20,7 +21,7 @@ TOOLS = {
     "ask_user": ("question_id",),
 }
 MAX_TOOL_CALLS = 20
-CONDITIONS = ("baseline", "guard")
+CONDITIONS = tuple(ARMS)
 
 
 class AuditError(RuntimeError):

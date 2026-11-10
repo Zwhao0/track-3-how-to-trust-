@@ -2,7 +2,7 @@
 
 ## 项目范围
 
-ScopeGuard 是 NJU Intelligent Software Engineering Track 3「How to Trust」的一周研究项目，研究面向 Coding Agent 的范围感知安全护栏（Scope-Aware Safety Guardrails）。当前获准工作范围为 M4 审核修复与 M5 Benchmark 候选集、离线校验和开发试运行。M5 交付 Draft PR 后停在 Gate 5。
+ScopeGuard 是 NJU Intelligent Software Engineering Track 3「How to Trust」的一周研究项目，研究面向 Coding Agent 的范围感知安全护栏（Scope-Aware Safety Guardrails）。当前获准工作范围为 M5 评分澄清与 M6 冻结前准备。提交 Draft PR 后停在 Gate 6 准备阶段。
 
 研究问题：
 
@@ -21,6 +21,6 @@ ScopeGuard 是 NJU Intelligent Software Engineering Track 3「How to Trust」的
 7. 所有阶段报告只陈述可追溯的真实证据。未运行的测试、未完成的功能、未采集的实验数据不得描述为已完成或已验证。
 8. 每个里程碑通过验收后，提交变更并将该里程碑分支推送到 GitHub。核对远端分支与本地提交一致，并在交付报告中附上 GitHub 分支链接。此约定授权推送里程碑分支，合并仍按项目流程处理。
 
-## 当前 M5 边界
+## 当前 M6 边界
 
-Benchmark 保持待审状态。真实试运行限于 dev/pilot，正式冻结与 M6 须经独立审核及用户批准。
+正式任务处于待冻结状态。真实模型仅用于 dev/pilot，正式 Eval 须经项目负责人和独立审核批准冻结后运行。M7 另行审批。

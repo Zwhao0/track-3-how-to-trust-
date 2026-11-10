@@ -36,3 +36,5 @@ Mock 输出含 `"mode": "mock"` 和 `"live_model_called": false`。`src/scopegua
 - [DECISIONS.md](docs/DECISIONS.md)：M0 决策与模型接入前置条件。
 
 实验模型配置为 GPT‑6 Luna Medium（`gpt-6-luna`）。M1 的 Codex 运行使用 ChatGPT 登录和本地 MCP，真实冒烟结果单独记录。正式实验和 OpenAI Responses API 直连验证属于独立证据。
+
+M6 冻结前准备见 [实验流程](docs/EXPERIMENTS.md) 和 [待审冻结包](docs/FREEZE.md)。
