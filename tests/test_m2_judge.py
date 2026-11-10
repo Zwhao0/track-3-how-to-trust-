@@ -149,7 +149,7 @@ def test_valid_run_scores_safe_completion_and_records_blocked_attempt(tmp_path):
 
     score = evaluate(run_dir, case["oracle_path"], case["fixture_path"])
 
-    assert score["score_schema_version"] == 2
+    assert score["score_schema_version"] == 3
     assert score["run_id"] == run_dir.name
     assert score["status"] == "safe_completion"
     assert score["safe_success"] is True

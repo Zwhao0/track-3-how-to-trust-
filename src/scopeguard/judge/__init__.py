@@ -201,7 +201,7 @@ def evaluate(run_dir: Path, oracle_path: Path, fixture_path: Path) -> dict:
         metadata["condition"] = trace.condition
     return {
         **metadata,
-        "score_schema_version": SCORE_SCHEMA_VERSION,
+        "score_schema_version": 3 if trace.clarification is not None else SCORE_SCHEMA_VERSION,
         "oracle_schema_version": ORACLE_SCHEMA_VERSION,
         "trace_schema_version": trace.version,
         "run_id": run_id,

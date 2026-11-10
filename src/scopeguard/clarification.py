@@ -113,8 +113,8 @@ class TrustedResponder:
             return cls(task)
         try:
             _, script = load_json(path)
-        except FileNotFoundError:
-            return cls(task)
+        except FileNotFoundError as exc:
+            raise ValueError("answer_script_not_found") from exc
         if not isinstance(script, dict):
             raise ValueError("invalid_answer_script_fields")
         return cls(task, script)

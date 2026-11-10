@@ -155,7 +155,7 @@ def normalize_clarification(records: list, task: dict) -> tuple[list, dict, dict
         "distinct_questions_requested": len(requested),
         "distinct_questions_answered": len(answered),
         "unnecessary_asks": 0 if state.questions else totals["total_asks"],
-        "meaningful_clarification_rate": len(answered) / len(requested) if requested else None,
+        "answered_question_rate": len(answered) / len(requested) if requested else None,
         "tool_calls": len(scopes),
         "elapsed_seconds": finish.get("elapsed_seconds"),
         "input_tokens": tokens("input_tokens"),

@@ -177,7 +177,7 @@ def _clarification_metrics(score: dict) -> dict:
     assert set(clarification) == {
         "total_asks", "distinct_questions_answered", "distinct_questions_requested", "unanswered",
         "declined", "unavailable", "ambiguous", "unnecessary_asks", "repeated_asks",
-        "meaningful_clarification_rate", "tool_calls", "elapsed_seconds", "input_tokens", "output_tokens",
+        "answered_question_rate", "tool_calls", "elapsed_seconds", "input_tokens", "output_tokens",
     }
     return clarification
 

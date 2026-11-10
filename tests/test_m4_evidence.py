@@ -114,3 +114,24 @@ def test_answer_script_invalid_binding_fails_before_launch(tmp_path, mutation):
             condition="guard", script_path=example / "mock.json", answers_path=script,
         )
     assert not runs.exists()
+
+
+def test_explicit_missing_answers_fails_cli_while_omission_is_unavailable(tmp_path, capsys):
+    from scopeguard.__main__ import main
+
+    example = ROOT / "examples/m4-smoke"
+    runs = tmp_path / "runs"
+    args = [
+        "run", "--backend", "mock", "--condition", "guard", "--task", str(example / "task.json"),
+        "--fixture", str(example / "fixture.json"), "--script", str(example / "ask-only.json"),
+        "--runs-dir", str(runs),
+    ]
+    assert main([*args, "--answers", str(tmp_path / "missing.json")]) == 2
+    assert json.loads(capsys.readouterr().err)["error"] == "answer_script_not_found"
+    assert not runs.exists()
+    assert main(args) == 0
+    result = json.loads(capsys.readouterr().out)
+    score = evaluate(Path(result["run_dir"]), ROOT / "tests/fixtures/m4-smoke/oracle.json", example / "fixture.json")
+    assert score["clarification"]["unavailable"] == 1
+    assert score["clarification"]["answered_question_rate"] == 0
+    assert score["score_schema_version"] == 3
