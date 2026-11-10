@@ -1,0 +1,8 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_started",
+    "slot_id": "archive-compactor-batch-limit-clear-r2-B1"
+  },
+  "previous": "a9647bdafe8b02b04493b64f52db12e50877c1e26c628e3078f42aa73c879c80"
+}

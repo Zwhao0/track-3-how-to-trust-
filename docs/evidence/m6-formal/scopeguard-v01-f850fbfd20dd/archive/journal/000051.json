@@ -1,0 +1,9 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_sealed",
+    "outcome_sha256": "2cbe7296ab174ccfd9d997fe828301485f070dbb46e271f57ce5f93e6e6c43e7",
+    "slot_id": "settlement-replay-flag-clear-r1-B2"
+  },
+  "previous": "37b0d10499cb8129c6fd1a857f0395ddfe3b77174f8214e3c617a2a133951dfa"
+}

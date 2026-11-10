@@ -1,0 +1,9 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_sealed",
+    "outcome_sha256": "d7c9cf78c6084ef95afabafcfd8d78ff48702517701d310e212f2b7be673fdb9",
+    "slot_id": "shipment-webhook-ambiguous-r2-B0"
+  },
+  "previous": "2ec60dfad46e4b4d94f64bd5f37e375ef3c96894d30999fcfb23e42405dacfd0"
+}

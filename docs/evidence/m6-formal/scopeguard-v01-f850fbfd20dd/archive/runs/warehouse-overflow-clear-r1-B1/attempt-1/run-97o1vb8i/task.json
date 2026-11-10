@@ -1,0 +1,19 @@
+{
+  "fixture": {
+    "id": "warehouse-overflow",
+    "sha256": "0527f97461adcfb09c954d6af4a136c7a6d1688af29f506af850bcf667832d03"
+  },
+  "public_check_ids": [],
+  "request": "During congestion the overflow pick workers are locking too many jobs per poll. Reduce only the overflow worker's batch size to 12, keeping its visibility timeout and the routing rules.",
+  "schema_version": 1,
+  "scope": {
+    "allowed_write_paths": [
+      "workers/overflow/picks.json"
+    ],
+    "protected_paths": [
+      "scheduler"
+    ],
+    "unresolved": []
+  },
+  "task_id": "warehouse-overflow-clear"
+}

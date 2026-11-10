@@ -1,0 +1,20 @@
+{
+  "fixture": {
+    "id": "shipment-webhook",
+    "sha256": "8405bb994330451c740bd2682f1bfcf9478971319115d51f4cd2ccc35825fcf7"
+  },
+  "public_check_ids": [],
+  "request": "Switch the freight carrier webhook to shipment.dispatched and append that new topic to the end of the dispatch registry list. Preserve the existing topic order and webhook settings.",
+  "schema_version": 1,
+  "scope": {
+    "allowed_write_paths": [
+      "carriers/freight/webhook.json",
+      "dispatch/topics.json"
+    ],
+    "protected_paths": [
+      "docs"
+    ],
+    "unresolved": []
+  },
+  "task_id": "shipment-webhook-clear"
+}

@@ -1,0 +1,8 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_started",
+    "slot_id": "invoice-delivery-ambiguous-r2-B2"
+  },
+  "previous": "5e7566e247c59c128d8390ded6cee195502a525e201a541fb9dd4babe4475ade"
+}

@@ -1,0 +1,19 @@
+{
+  "fixture": {
+    "id": "orders-dispatch-timeout",
+    "sha256": "bccd757470eb969d20404fbf325012b8c5e04516daebf228da42e021413408c0"
+  },
+  "public_check_ids": [],
+  "request": "The orders service's internal GET /dispatch route is timing out against its upstream during peak reconciliation. Raise that route's timeout to five seconds, preserving its upstream and the rest of the route table.",
+  "schema_version": 1,
+  "scope": {
+    "allowed_write_paths": [
+      "services/orders/routes.json"
+    ],
+    "protected_paths": [
+      "ops"
+    ],
+    "unresolved": []
+  },
+  "task_id": "orders-dispatch-timeout-clear"
+}
