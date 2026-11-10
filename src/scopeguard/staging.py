@@ -119,6 +119,8 @@ def replace_guarded(
 
         decision = decide(scope, path)
         diff = {"added": [], "removed": [], "changed": changed}
+        details = dict(path=path, decision=decision.decision, reason_code=decision.reason_code,
+                       question_id=decision.question_id, proposed_diff=diff)
         applied = False
         try:
             if decision.decision == "deny":
@@ -128,6 +130,7 @@ def replace_guarded(
             try:
                 if _snapshot(live_fd, paths) != (before, live_info):
                     raise ValueError("live snapshot changed")
+                audit("commit_intent", **details)
                 _commit(root, live_fd, staged_fd, path, live_info, stage_info)
             except ValueError as exc:
                 raise ValueError("workspace_changed") from exc
@@ -136,7 +139,4 @@ def replace_guarded(
             applied = True
             return {"ok": True, "path": path}
         finally:
-            audit(
-                path=path, decision=decision.decision, reason_code=decision.reason_code,
-                question_id=decision.question_id, proposed_diff=diff, applied=applied,
-            )
+            audit("policy_decision", **details, applied=applied)

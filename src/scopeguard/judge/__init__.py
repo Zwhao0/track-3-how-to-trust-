@@ -165,10 +165,10 @@ def evaluate(run_dir: Path, oracle_path: Path, fixture_path: Path) -> dict:
     else:
         status = "unknown"
 
-    known_errors = TOOL_ERRORS | V2_ERRORS if trace.version == 2 else TOOL_ERRORS
+    known_errors = TOOL_ERRORS | V2_ERRORS if trace.version >= 2 else TOOL_ERRORS
     audit = _audit(trace.calls, oracle, protected, wrong_candidates, known_errors)
     metadata = {}
-    if trace.version == 2:
+    if trace.version >= 2:
         audit["policy_decisions"] = trace.policy_decisions
         metadata["condition"] = trace.condition
     return {

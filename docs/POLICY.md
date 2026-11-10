@@ -55,3 +55,7 @@ uv run --locked --offline scopeguard judge --run-dir docs/evidence/m3/run-uduuyv
 ```
 
 See the [Gate 3 evidence](evidence/m3/README.md) for both Codex attempts, the controlled comparison, and exact test outputs.
+
+## Commit audit follow-up
+
+New runs use Trace v3. Before Guard can replace the live file, it appends and synchronizes a `commit_intent` containing the validated public policy decision and proposed diff. The existing `policy_decision` records the outcome. The tool returns after the outcome and tool result are recorded. A failed intent write prevents the replacement. If recording fails after the intent, the Runner preserves the available final snapshot, marks the outcome `unknown_commit`, and the judge reports an infrastructure error. An incomplete intent also fails validation. This records uncertainty about the transaction. It does not retry the edit or infer that no write occurred. The judge also recomputes policy decisions from the public scope when decoding archived v2.

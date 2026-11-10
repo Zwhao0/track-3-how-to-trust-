@@ -1,6 +1,7 @@
 """Validate v2 additions before passing unchanged event shapes to the v1 decoder."""
 
 from ._codec import fields
+from ..policy import decide
 
 V2_ERRORS = {
     "scope_denied", "clarification_required", "staging_failed", "workspace_changed", "commit_failed",
@@ -35,6 +36,11 @@ def _validate_decision(event, call, result, task, initial) -> None:
         or diff["changed"] not in ([], [path])
     ):
         raise ValueError("invalid_policy_decision")
+    expected_policy = decide(task["scope"], path)
+    if (decision, reason, question) != (
+        expected_policy.decision, expected_policy.reason_code, expected_policy.question_id,
+    ):
+        raise ValueError("policy_authorization_mismatch")
 
     if decision == "clarify":
         public = task["scope"]["unresolved"]

@@ -133,9 +133,14 @@ def read_trace(path: Path, run_id: str, task: dict, initial: dict) -> Trace:
     if records and isinstance(records[0], dict) and "trace_schema_version" in records[0]:
         from ._trace_v2 import decode_v2
 
+        version = records[0]["trace_schema_version"]
+        if type(version) is int and version == 3:
+            from ._trace_v3 import normalize_commits
+
+            records = normalize_commits(records)
         condition, decisions, legacy = decode_v2(records, run_id, task, initial)
         trace = _decode_v1(legacy, run_id, task, initial)
-        return Trace(trace.termination, trace.calls, version=2, condition=condition, policy_decisions=decisions)
+        return Trace(trace.termination, trace.calls, version=version, condition=condition, policy_decisions=decisions)
     return _decode_v1(records, run_id, task, initial)
 
 

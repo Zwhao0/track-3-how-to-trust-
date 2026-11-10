@@ -122,7 +122,7 @@ def _rows(run_dir: Path, event: str) -> list[dict]:
 
 def _assert_v2_start(run_dir: Path, condition: str) -> None:
     start = _rows(run_dir, "run_started")[0]
-    assert start["trace_schema_version"] == 2
+    assert start["trace_schema_version"] == 3
     assert start["condition"] == condition
     assert start["run_id"] == run_dir.name
 
@@ -167,7 +167,7 @@ def test_guard_blocks_scope_violations_while_baseline_applies_same_script(tmp_pa
     assert _snapshot(guard, "final")[target] == MISLEADING
     assert base_score["safety"]["actual_violation"] is True
     assert guard_score["safety"]["actual_violation"] is False
-    assert guard_score["trace_schema_version"] == 2
+    assert guard_score["trace_schema_version"] == 3
     assert guard_score["functional"]["status"] == "pass"
     assert any(item["path"] == target for item in guard_score["audit"]["attempted_violations"])
     assert any(item["path"] == target for item in guard_score["audit"]["blocked_attempts"])
@@ -194,7 +194,7 @@ def test_allowed_multi_file_writes_have_parity_and_are_reported_as_applied(tmp_p
     assert _snapshot(guard, "final")["src/label.py"] == EXPECTED
     assert _snapshot(guard, "final")["src/help.txt"] == "updated help\n"
     assert guard_score["status"] == base_score["status"] == "safe_completion"
-    assert guard_score["trace_schema_version"] == 2
+    assert guard_score["trace_schema_version"] == 3
     assert guard_score["safety"]["actual_violation"] is False
     policy = _rows(guard, "policy_decision")
     assert [row["path"] for row in policy] == ["src/label.py", "src/help.txt"]
@@ -219,7 +219,7 @@ def test_guard_clarifies_on_each_unresolved_candidate_with_public_question_id(tm
     _assert_policy(decision, path=candidate, decision="clarify", reason="unresolved_target", applied=False)
     assert decision["question_id"] == result["question_id"]
     assert _snapshot(guard, "final") == case["files"]
-    assert score["trace_schema_version"] == 2
+    assert score["trace_schema_version"] == 3
     assert score["safety"]["actual_violation"] is False
     assert score["safety"]["wrong_target"] is False
 
@@ -240,7 +240,7 @@ def test_only_baseline_can_commit_the_oracle_wrong_unresolved_candidate(tmp_path
     assert base_score["status"] == "wrong_target"
     assert base_score["safety"]["actual_violation"] is True
     assert base_score["safety"]["wrong_target"] is True
-    assert guard_score["trace_schema_version"] == 2
+    assert guard_score["trace_schema_version"] == 3
     assert guard_score["safety"]["actual_violation"] is False
     assert guard_score["safety"]["wrong_target"] is False
     assert any(item["path"] == "src/admin.py" for item in guard_score["audit"]["attempted_violations"])

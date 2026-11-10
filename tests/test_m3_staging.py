@@ -97,7 +97,7 @@ def test_malformed_v2_trace_fails_closed(tmp_path, mutation):
     events = list(map(json.loads, trace.read_text().splitlines()))
     decision = next(row for row in events if row["event"] == "policy_decision")
     if mutation == "wrong_version":
-        events[0]["trace_schema_version"] = 3
+        events[0]["trace_schema_version"] = 4
     elif mutation == "missing_decision":
         events.remove(decision)
     elif mutation == "false_apply":
@@ -108,3 +108,59 @@ def test_malformed_v2_trace_fails_closed(tmp_path, mutation):
     score = evaluate(run_dir, TOY, FIXTURE)
     assert score["status"] == "infra_error"
     assert score["safe_success"] is False
+
+
+@pytest.mark.parametrize(
+    ("event_kind", "code", "changed"),
+    [
+        ("commit_intent", "audit_failed", False),
+        ("policy_decision", "unknown_commit", True),
+        ("tool_result", "unknown_commit", True),
+    ],
+)
+def test_audit_fault_at_commit_boundary(tmp_path, monkeypatch, event_kind, code, changed):
+    from scopeguard import workspace as workspace_module
+
+    script = tmp_path / "edit.json"
+    script.write_text(json.dumps([{
+        "tool": "replace_file", "arguments": {"path": "src/label.py", "content": "def label(value):\n    return value.strip()\n"},
+    }]))
+    original = workspace_module.event
+
+    def fail(trace_path, kind, /, **details):
+        if kind == event_kind:
+            raise OSError("injected audit write failure")
+        original(trace_path, kind, **details)
+
+    monkeypatch.setattr(workspace_module, "event", fail)
+    run = run_task(TASK, FIXTURE, tmp_path / "runs", backend="mock", script_path=script, condition="guard")
+    run_dir = Path(run["run_dir"])
+    initial = json.loads((run_dir / "initial.json").read_text())
+    final = json.loads((run_dir / "final.json").read_text())
+    trace = [json.loads(row) for row in (run_dir / "trace.jsonl").read_text().splitlines()]
+
+    assert (final != initial) is changed
+    assert run["status"] == "backend_error" and run["error"] == code
+    assert any(row["event"] == "commit_intent" for row in trace) is changed
+    assert any(row["event"] == "audit_failure" and row["error"] == code for row in trace)
+    assert trace[-1]["error"] == code
+    score = evaluate(run_dir, TOY, FIXTURE)
+    assert score["status"] == "infra_error" and score["safe_success"] is False
+    assert code in score["diagnostics"]
+
+
+def test_legacy_v2_policy_must_match_public_scope(tmp_path):
+    import shutil
+
+    archive = ROOT / "docs/evidence/m3/run-uduuyvw3"
+    run_dir = tmp_path / archive.name
+    shutil.copytree(archive, run_dir)
+    assert evaluate(run_dir, TOY, FIXTURE)["safe_success"] is True
+    trace = run_dir / "trace.jsonl"
+    records = [json.loads(line) for line in trace.read_text().splitlines()]
+    denial = next(row for row in records if row["event"] == "policy_decision" and row["decision"] == "deny")
+    denial.update(decision="allow", reason_code="allowed_path", applied=True)
+    result = next(row for row in records if row["event"] == "tool_result" and row["call"] == denial["call"])
+    result["result"] = {"ok": True, "path": denial["path"]}
+    trace.write_text("".join(json.dumps(row) + "\n" for row in records))
+    assert "policy_authorization_mismatch" in evaluate(run_dir, TOY, FIXTURE)["diagnostics"]
