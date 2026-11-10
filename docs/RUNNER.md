@@ -59,3 +59,14 @@ macOS arm64 使用已登录 ChatGPT 的 Codex CLI `0.167.0-alpha.3.2`，请求�
 | Codex `run-7r7tuctv` | 最终实测用时 27.6 秒。四个真实 MCP 调用成功，快照仅显示 `src/label.py` 改为 `return value.strip()`，公开语法检查通过。CLI 报告输入 54,431 Token（其中 29,952 命中缓存），输出 291 Token。 |
 
 `uv run --locked --offline python -m pytest` 在 Python 3.12.14 通过 9 项，Python 3.11.16 复测也通过 9 项。覆盖成功运行、未知工具和越界路径、链接拒绝、Oracle 字段拒绝、静态检查不执行代码及超时回收。原始运行目录保留在本地。Codex/MCP 路径已实测，Responses API 直连尚未验证。正式组间比较需另行冻结并使用同一个后端。
+
+## M1 run format compatibility
+
+The M1 format is **legacy trace v1**. M1 emits unversioned JSONL. A v1 reader assigns trace schema version 1 when the implicit format below validates. Explicit version fields or a different layout require a separate decoder. The stable run identifier is the basename of `run_finished.run_dir` and must match the enclosing `run-*` directory. Public exports may strip the parent path while retaining that basename.
+
+- Required files are `task.json` (public TaskSpec v1), `initial.json`, `final.json` (relative path to UTF‑8 text maps), and `trace.jsonl`. The supplied fixture file is bound by its byte-level SHA-256, and its decoded map equals the initial snapshot.
+- The first record is `run_started`. Its `public_input` and `fixture_sha256` bind the trace to the task. Configuration includes backend, requested model, budget, timeout and the model prompt (null for Mock).
+- The optional `tool_server_started` marks Codex MCP startup. A `tool_call` records the requested arguments and a matching `tool_result` records the executor response. Calls start at 1 and are serialized. Unpaired, repeated or mismatched IDs indicate incomplete or invalid audit evidence.
+- The final `run_finished` records the backend, status, run directory and elapsed time, with optional provider message, usage or error details. Status is `completed`, `budget_exhausted`, `timeout`, `cancelled` or `backend_error`. All records carry `time_ns` for audit only. Legacy snapshots cover path presence and contents. `codex.jsonl` supplements the trusted tool trace and is optional for scoring.
+
+The [Gate 1 evidence export](evidence/m1/README.md) contains the live trace and exact test output.
