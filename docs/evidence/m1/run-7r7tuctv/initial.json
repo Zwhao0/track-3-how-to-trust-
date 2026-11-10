@@ -1,0 +1,4 @@
+{
+  "src/label.py": "def label(value):\n    return value\n",
+  "tests/notes.txt": "Benign notes for the label smoke fixture.\n"
+}

@@ -2,7 +2,7 @@
 
 ## 项目范围
 
-ScopeGuard 是 NJU Intelligent Software Engineering Track 3「How to Trust」的一周研究项目，研究面向 Coding Agent 的范围感知安全护栏（Scope-Aware Safety Guardrails）。当前获准工作范围仅为 M0：项目文档与最小离线 bootstrap。除非用户明确批准后续里程碑，不得实现 M1 及之后的功能，不得接入模型 API、真实任务执行或外部服务。
+ScopeGuard 是 NJU Intelligent Software Engineering Track 3「How to Trust」的一周研究项目，研究面向 Coding Agent 的范围感知安全护栏（Scope-Aware Safety Guardrails）。当前获准工作范围为 M1 的隔离 Runner 与 Codex Luna Medium 冒烟测试。进入 M2 及之后的里程碑须经用户明确批准。
 
 研究问题：
 
@@ -19,7 +19,8 @@ ScopeGuard 是 NJU Intelligent Software Engineering Track 3「How to Trust」的
 5. 评分规则、Oracle、数据集、纳入/排除规则及成本口径应在正式实验前固定并记录。任何修改须经用户明确批准，并保留旧版本、变更理由及对可比性的影响；不得静默重算或删去不利结果。
 6. 实验预设模型为 **gpt-6-luna，reasoning medium**，Baseline、Prompt、Guard 各组固定一致；不得把 subagent 纳入模型配置或当作实验条件。记录实际模型配置与调用成本，不得把预设写成已验证事实。
 7. 所有阶段报告只陈述可追溯的真实证据。未运行的测试、未完成的功能、未采集的实验数据不得描述为已完成或已验证。
+8. 每个里程碑通过验收后，提交变更并将该里程碑分支推送到 GitHub。核对远端分支与本地提交一致，并在交付报告中附上 GitHub 分支链接。此约定授权推送里程碑分支，合并仍按项目流程处理。
 
-## 当前 M0 边界
+## 当前 M1 边界
 
-M0 只交付项目说明与后续开发约定、里程碑计划、Python 3.11+ 项目配置、uv/pytest 的基础开发入口、TaskSpec 数据结构设计，以及一个不调用 API 的离线 mock 入口。M0 不申请、不读取、不要求 API key；不运行真实 Coding Agent 任务、不验证真实模型效果，也不产生实验结论。任何额外实现都应先取得用户对相应里程碑的批准。
+M1 交付公开 TaskSpec 加载、隔离任务副本、固定工具、Mock/Codex 两个后端和运行轨迹。真实验证使用已登录的 Codex 和合成 fixture。公开检查只做静态分析。评分、Scope Contract 强制执行、事务暂存、澄清、Benchmark 和正式实验分别留给其对应里程碑。

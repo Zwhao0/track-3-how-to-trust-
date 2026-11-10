@@ -21,3 +21,7 @@ M1 须先得到用户对里程碑的批准。离线 Runner 验收可以使用 Mo
 - `UV_PROJECT_ENVIRONMENT=.venv/m0-py311 uv run --python 3.11 --locked python -m pytest` 在 Python 3.11.16 下通过 1 项。
 - `uv run --locked --offline scopeguard mock` 返回 `{"milestone": "M0", "mode": "mock", "live_model_called": false}`；`uv build --out-dir .venv/m0-dist` 成功生成源码分发包和 wheel。
 - TaskSpec 的两份文档示例已解析为 JSON，任务 ID、schema 版本及 fixture 摘要一致；公开示例不包含私有评分字段。这不是运行时隔离验证。
+
+## M1 接入决策
+
+D06。按用户批准，M1 真实冒烟改用已登录的 Codex CLI 与私有 MCP，模型配置仍为 `gpt-6-luna` + `medium`。该路径已验证真实模型可以调用受控工具并写入临时 fixture。CLI 用量包含 Codex 的上下文和工具开销，正式实验需要锁定客户端版本、后端、预算与采集口径。实测和复现命令见 [RUNNER.md](RUNNER.md)。

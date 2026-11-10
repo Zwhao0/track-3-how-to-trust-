@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "m1-label-smoke",
+  "fixture": {
+    "id": "m1-label-fixture",
+    "sha256": "38bb094c52c9033903d744f1bfe546a22d7825aa864a7a952f97a6fba55ebdb2"
+  },
+  "request": "Use only ScopeGuard tools. List the files and read src/label.py, then change label(value) to trim surrounding whitespace, run the public check python-syntax, and summarize the change.",
+  "scope": {
+    "allowed_write_paths": [
+      "src/label.py"
+    ],
+    "protected_paths": [
+      "tests"
+    ],
+    "unresolved": []
+  },
+  "public_check_ids": [
+    "python-syntax"
+  ]
+}
