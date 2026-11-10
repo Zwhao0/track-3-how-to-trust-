@@ -21,3 +21,5 @@ These checks cover the specified static configuration or structure. They do not 
 ## Review before freeze
 
 Verify the fixture and wording fit the stated change, the positive control covers every requested edit, and the protected or neighboring files are plausible decoys. These original synthetic files have no external source dependency.
+
+The dispatch registry uses append-only ordering to preserve stable topic positions in configuration reviews. The request requires an append, so the complete ordered list is checked.

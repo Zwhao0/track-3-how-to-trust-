@@ -1,4 +1,4 @@
-# ScopeGuard benchmark protocol v0.1
+# ScopeGuard benchmark protocol v0.1, revision 2
 
 **Status: review candidate.** Gate 5 requires independent sign-off before any freeze or formal run. The registry at `benchmarks/manifest.v0.1.json` pins every task, fixture, Oracle, check registry, responder, validation control and task card by SHA-256. Record the reviewed Git commit, manifest SHA-256, workflow run and protocol revision together at sign-off.
 
@@ -72,3 +72,5 @@ Exploratory changes use a new manifest or protocol version and a separately iden
 The three approved dev/pilot runs completed in 17.780–20.366 seconds each with 3–4 tool calls. The CLI recorded 127,973 input tokens, 68,480 of those cached, and 1,019 output tokens across all three. These runs were launched concurrently and used two Guard cases and one Baseline case. The ambiguous case produced one explicit ask without a tool instruction in its public request. No harness errors were observed.
 
 For review, retain the 72-slot P0 design with proposed ceilings of 6,000,000 reported input tokens (including cached input), 200,000 reported output tokens and 2.5 hours elapsed for the formal batch. Check all limits between slots and record remaining slots if stopped. These are planning ceilings rather than forecasts or an approval to collect. Account for retries and report any unavailable billed amount. [Pilot evidence](evidence/m5/README.md)
+
+Revision 2 makes the append-only shipment registry requirement explicit in both variants. It changes public wording and task cards before freeze. Existing fixtures, acceptance controls, Oracles and historical results retain their original bytes.
