@@ -35,6 +35,6 @@ ScopeGuard：**Scope-Aware Safety Guardrails for Coding Agents**。本项目面�
 
 每天的安排仅用于估算工作量。每次只实施一个获批里程碑，依赖或验收不满足时采用上表的降级方案并记录缺口。M6 不得用正式结果反向改评分标准。
 
-## 当前授权：M0
+## 当前授权
 
-当前唯一获准的实现范围是 M0。M0 的 Python 版本下限为 3.11，使用 uv 管理开发依赖、pytest 作为测试入口，提供不联网的离线 mock。TaskSpec 的两份独立记录和字段约束见 [设计文档](DESIGN.md)。M0 不配置 API key、不接真实模型、不运行真实任务验证，也不宣称任何实验效果。后续里程碑需逐项获批后实施。
+M0 已完成。用户已批准 M1，并选用已登录的 Codex GPT‑6 Luna Medium 做真实冒烟测试。M1 通过受控 MCP 工具连接临时 fixture，记录真实工具调用与终止状态。M2 须另行批准。

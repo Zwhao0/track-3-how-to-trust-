@@ -6,7 +6,7 @@
 - **RQ2**：Safety Prompt 与可执行 ScopeGuard 对实际越界率的影响有何差异？
 - **RQ3**：ScopeGuard 如何影响正常任务完成率、澄清次数和执行成本？
 
-当前只包含 **M0**：项目规范、TaskSpec 与隐藏 Oracle 的隔离设计、Python 包骨架和离线 Mock 入口。Runner、Policy、Evaluator、实验和 Dashboard 均未实现。Mock 只验证包可安装和入口可运行，不能用于回答研究问题。
+当前包含 M0 项目规范和 **M1 隔离 Runner**。Runner 读取公开 TaskSpec，在临时 fixture 中运行离线 Mock 或已登录的 Codex GPT‑6 Luna Medium，并保留工具轨迹与初始、最终快照。
 
 ## 本地运行
 
@@ -25,8 +25,9 @@ Mock 输出含 `"mode": "mock"` 和 `"live_model_called": false`。`src/scopegua
 - [AGENTS.md](AGENTS.md)：里程碑、合并及实验数据约束。
 - [PLAN.md](docs/PLAN.md)：M0–M7 路线与验收。
 - [DESIGN.md](docs/DESIGN.md)：组件边界、TaskSpec 和 Oracle 分离。
+- [RUNNER.md](docs/RUNNER.md)：M1 运行命令、工具和轨迹。
 - [THREAT_MODEL.md](docs/THREAT_MODEL.md)：安全目标、威胁及测试隔离要求。
 - [EVALUATION.md](docs/EVALUATION.md)：对照条件、指标和证据标准。
 - [DECISIONS.md](docs/DECISIONS.md)：M0 决策与模型接入前置条件。
 
-实验模型固定为 GPT‑6 Luna Medium（`gpt-6-luna`，`reasoning.effort=medium`）。M0 环境未发现项目可用的 API 凭据，真实函数调用与项目权限尚未验证；相关工作须等 M1 获批后进行。
+实验模型配置为 GPT‑6 Luna Medium（`gpt-6-luna`）。M1 的 Codex 运行使用 ChatGPT 登录和本地 MCP，真实冒烟结果单独记录。正式实验和 OpenAI Responses API 直连验证属于独立证据。

@@ -13,6 +13,11 @@ dependencies = []
 [project.scripts]
 scopeguard = "scopeguard.__main__:main"
 
+[project.optional-dependencies]
+codex = [
+    "mcp>=1.26,<2",
+]
+
 [dependency-groups]
 dev = ["pytest>=8.4,<9"]
 
