@@ -6,6 +6,7 @@ import sys
 from collections.abc import Sequence
 from pathlib import Path
 
+from .demo.cli import dispatch as demo_dispatch, register as register_demo
 from .experiment_cli import dispatch as experiment_dispatch, register as register_experiment
 from .runner import run_task
 from .workspace import CONDITIONS
@@ -36,7 +37,10 @@ def main(argv: Sequence[str] | None = None) -> int:
     validate.add_argument("--output", type=Path, default=Path("runs/benchmark/validation_report.json"))
     validate.add_argument("--prototype", action="store_true")
     register_experiment(commands)
+    register_demo(commands)
     options = parser.parse_args(argv)
+    if options.mode == "demo":
+        return demo_dispatch(options)
     if options.mode == "experiment":
         return experiment_dispatch(options)
     if options.mode == "benchmark":

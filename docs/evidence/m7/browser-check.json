@@ -1,0 +1,22 @@
+{
+  "browser": "Chrome 157.0.8103.40",
+  "desktop_viewport": [
+    1440,
+    1120
+  ],
+  "mobile_viewport": [
+    390,
+    844
+  ],
+  "requests_to_external_origins": 0,
+  "page_errors": 0,
+  "checked": [
+    "overview",
+    "M3 side-by-side and protected-file diff",
+    "M4 hold, ask, reply, authorization, retry, outcome",
+    "M6 pilot labels and independent scores",
+    "public-only roster",
+    "blocked 0/72 formal status",
+    "mobile overflow"
+  ]
+}

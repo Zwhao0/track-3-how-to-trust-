@@ -6,19 +6,33 @@
 - **RQ2**：Safety Prompt 与可执行 ScopeGuard 对实际越界率的影响有何差异？
 - **RQ3**：ScopeGuard 如何影响正常任务完成率、澄清次数和执行成本？
 
-当前包含 M0 项目规范、**M1 隔离 Runner** 、**M2 确定性评测器**、**M3 执行护栏**、**M4 可信澄清**和 **M5 Benchmark 候选集**。Runner 读取公开 TaskSpec，在临时 fixture 中运行离线 Mock 或已登录的 Codex GPT‑6 Luna Medium，并保留工具轨迹与初始、最终快照。
+项目包含隔离 Runner、独立 Judge、范围策略与暂存写入、可信澄清、Benchmark 候选集、三组实验调度和只读证据 Dashboard。正式评测状态为 **`FORMAL_RUN_BLOCKED`**，已运行 **0 / 72** 个计划槽位。
 
-## 本地运行
+## 60 秒启动课堂回放
 
-需要 Python 3.11+ 和 `uv`，仓库默认选择 Python 3.12。首次安装依赖可能需要联网；Mock 和基础测试不需要模型网络或 API Key。
+在仓库根目录用 Python 3.11 或更高版本运行。Dashboard 使用标准库，启动无需安装图形依赖、联网或登录 Codex。
+
+```bash
+PYTHONPATH=src python3 -m scopeguard demo serve
+```
+
+打开浏览器中的 `http://127.0.0.1:8765/`。可查看 M3 同脚本对照、M4 真实澄清轨迹和 M6 同任务三组 Pilot。无法使用浏览器时，将命令中的 `serve` 改为 `replay --case run-ipwb50oo`。若默认 `python3` 低于 3.11，可使用已缓存的 `uv run --locked --offline scopeguard demo serve`。
+
+![ScopeGuard Dashboard 实际截图](docs/evidence/m7/overview.png)
+
+[课堂演示与备用方案](docs/DEMO.md) · [研究报告](docs/REPORT.md) · [课堂 PPT](docs/ScopeGuard.pptx) · [可编辑幻灯片源](docs/SLIDES.md) · [验证证据](docs/evidence/m7/README.md)
+
+## 本地验证
+
+首次安装测试依赖可能需要联网。锁定环境就绪后可离线运行以下命令。
 
 ```bash
 uv sync --locked
-uv run --locked python -m pytest
-uv run --locked scopeguard mock
+uv run --locked --offline python -m pytest
+uv run --locked --offline scopeguard demo verify
 ```
 
-Mock 输出含 `"mode": "mock"` 和 `"live_model_called": false`。`src/scopeguard/` 是包源码，`tests/` 是 pytest 测试入口，`uv.lock` 记录依赖解析结果。
+`src/scopeguard/` 包含实现，`tests/` 包含自动测试，`uv.lock` 锁定测试与可选 Codex 依赖。
 
 ## 文档导航
 
@@ -35,6 +49,6 @@ Mock 输出含 `"mode": "mock"` 和 `"live_model_called": false`。`src/scopegua
 - [EVALUATION.md](docs/EVALUATION.md)：对照条件、指标和证据标准。
 - [DECISIONS.md](docs/DECISIONS.md)：M0 决策与模型接入前置条件。
 
-实验模型配置为 GPT‑6 Luna Medium（`gpt-6-luna`）。M1 的 Codex 运行使用 ChatGPT 登录和本地 MCP，真实冒烟结果单独记录。正式实验和 OpenAI Responses API 直连验证属于独立证据。
+实验请求模型为 GPT‑6 Luna Medium（`gpt-6-luna`）。M6 的真实 Pilot 每组一次，使用同一个开发任务。三次独立评分均为 `safe_completion`，样本只用于验证集成。
 
-M6 冻结前准备见 [实验流程](docs/EXPERIMENTS.md) 和 [待审冻结包](docs/FREEZE.md)。
+M6 冻结前准备见 [实验流程](docs/EXPERIMENTS.md) 和 [待审冻结包](docs/FREEZE.md)。发布前的归档和合并决策见 [发布准备](docs/RELEASE.md)。公开发布前由项目所有者确认许可。
