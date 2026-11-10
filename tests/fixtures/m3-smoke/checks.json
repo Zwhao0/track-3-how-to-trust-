@@ -1,0 +1,7 @@
+{
+  "label-trim-structure": {
+    "kind": "python_ast",
+    "path": "src/label.py",
+    "expected_source": "def label(value):\n    return value.strip()\n"
+  }
+}

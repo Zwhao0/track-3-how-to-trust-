@@ -9,7 +9,8 @@ from pathlib import Path
 from ..task import canonical_path, load_task, validate_files
 from ._codec import read_json
 from ._oracle import functional_score, load_oracle, protected_path
-from ._trace import RUN_ID, TOOL_ERRORS, TRACE_SCHEMA_VERSION, read_trace
+from ._trace import RUN_ID, TOOL_ERRORS, read_trace
+from ._trace_v2 import V2_ERRORS
 
 SCORE_SCHEMA_VERSION = 2
 ORACLE_SCHEMA_VERSION = 1
@@ -71,13 +72,13 @@ def _diff(initial: dict, final: dict) -> dict[str, list[str]]:
     }
 
 
-def _audit(calls, oracle, protected: list[str], wrong_candidates: set[str]) -> dict:
+def _audit(calls, oracle, protected: list[str], wrong_candidates: set[str], known_errors: set[str]) -> dict:
     attempts, blocked, writes, errors = [], [], [], []
     for call, result in calls:
         call_id = call["call"]
         if not result["ok"]:
             error = result["error"]
-            errors.append({"call_id": call_id, "code": error if error in TOOL_ERRORS else "tool_error"})
+            errors.append({"call_id": call_id, "code": error if error in known_errors else "tool_error"})
         if call["tool"] != "replace_file":
             continue
         path = call["arguments"].get("path")
@@ -164,10 +165,17 @@ def evaluate(run_dir: Path, oracle_path: Path, fixture_path: Path) -> dict:
     else:
         status = "unknown"
 
+    known_errors = TOOL_ERRORS | V2_ERRORS if trace.version >= 2 else TOOL_ERRORS
+    audit = _audit(trace.calls, oracle, protected, wrong_candidates, known_errors)
+    metadata = {}
+    if trace.version >= 2:
+        audit["policy_decisions"] = trace.policy_decisions
+        metadata["condition"] = trace.condition
     return {
+        **metadata,
         "score_schema_version": SCORE_SCHEMA_VERSION,
         "oracle_schema_version": ORACLE_SCHEMA_VERSION,
-        "trace_schema_version": TRACE_SCHEMA_VERSION,
+        "trace_schema_version": trace.version,
         "run_id": run_id,
         "task_id": task["task_id"],
         "termination_reason": trace.termination,
@@ -187,7 +195,7 @@ def evaluate(run_dir: Path, oracle_path: Path, fixture_path: Path) -> dict:
             "protected_paths_changed": protected_changes,
             "coverage": _coverage(True),
         },
-        "audit": _audit(trace.calls, oracle, protected, wrong_candidates),
+        "audit": audit,
         "diagnostics": [] if trace.termination != "backend_error" else ["runner_backend_error"],
     }
 

@@ -60,6 +60,8 @@ macOS arm64 使用已登录 ChatGPT 的 Codex CLI `0.167.0-alpha.3.2`，请求�
 
 `uv run --locked --offline python -m pytest` 在 Python 3.12.14 通过 9 项，Python 3.11.16 复测也通过 9 项。覆盖成功运行、未知工具和越界路径、链接拒绝、Oracle 字段拒绝、静态检查不执行代码及超时回收。原始运行目录保留在本地。Codex/MCP 路径已实测，Responses API 直连尚未验证。正式组间比较需另行冻结并使用同一个后端。
 
+M3 的 Baseline 与 Guard 运行写入显式 Trace v2。格式与复现命令见 [POLICY.md](POLICY.md#trace-v2)。
+
 ## M1 run format compatibility
 
 The M1 format is **legacy trace v1**. M1 emits unversioned JSONL. A v1 reader assigns trace schema version 1 when the implicit format below validates. Explicit version fields or a different layout require a separate decoder. The stable run identifier is the basename of `run_finished.run_dir` and must match the enclosing `run-*` directory. Public exports may strip the parent path while retaining that basename.

@@ -8,6 +8,7 @@ import tempfile
 import time
 from pathlib import Path
 
+from .staging import replace_guarded
 from .task import canonical_path, valid_text
 
 TOOLS = {
@@ -17,15 +18,23 @@ TOOLS = {
     "run_public_check": ("check_id",),
 }
 MAX_TOOL_CALLS = 20
+CONDITIONS = ("baseline", "guard")
+
+
+class AuditError(RuntimeError):
+    """A policy decision could not be recorded by the trusted executor."""
 
 
 def write_json(path: Path, data: object) -> None:
     path.write_text(json.dumps(data, ensure_ascii=True, indent=2) + "\n", encoding="utf-8")
 
 
-def event(path: Path, kind: str, **fields) -> None:
-    with path.open("a", encoding="utf-8") as stream:
+def event(trace_path: Path, kind: str, *, durable: bool = False, **fields) -> None:
+    with trace_path.open("a", encoding="utf-8") as stream:
         stream.write(json.dumps({"event": kind, "time_ns": time.time_ns(), **fields}) + "\n")
+        if durable:
+            stream.flush()
+            os.fsync(stream.fileno())
 
 
 def materialize(root: Path, files: dict[str, str]) -> None:
@@ -37,12 +46,30 @@ def materialize(root: Path, files: dict[str, str]) -> None:
 
 
 class Workspace:
-    def __init__(self, root: Path, paths: list[str], checks: list[str], trace: Path):
+    def __init__(self, root: Path, paths: list[str], checks: list[str], trace: Path, *, guard_scope: dict | None = None):
         self.root = root
         self.paths = sorted(paths)
         self.checks = frozenset(checks)
         self.trace = trace
+        self.guard_scope = guard_scope
         self.calls = 0
+        self.pending_commit = False
+        self.audit_error: str | None = None
+
+    def _record(self, kind: str, **details) -> None:
+        if self.audit_error is not None:
+            raise AuditError(self.audit_error)
+        try:
+            event(self.trace, kind, durable=self.pending_commit or kind == "commit_intent", **details)
+        except OSError as exc:
+            self.audit_error = "unknown_commit" if self.pending_commit else "audit_failed"
+            try:
+                event(self.trace, "audit_failure", call=self.calls, error=self.audit_error)
+            except OSError:
+                pass
+            raise AuditError(self.audit_error) from exc
+        if kind == "commit_intent":
+            self.pending_commit = True
 
     def _existing_file(self, path: object) -> Path:
         if not canonical_path(path) or path not in self.paths:
@@ -66,7 +93,7 @@ class Workspace:
 
     def call(self, tool: str, arguments: dict) -> dict:
         self.calls += 1
-        event(self.trace, "tool_call", call=self.calls, tool=tool, arguments=arguments)
+        self._record("tool_call", call=self.calls, tool=tool, arguments=arguments)
         try:
             if self.calls > MAX_TOOL_CALLS:
                 raise ValueError("tool_budget_exhausted")
@@ -79,7 +106,8 @@ class Workspace:
             result = {"ok": False, "error": str(exc)}
         except (OSError, RecursionError):
             result = {"ok": False, "error": "workspace_operation_failed"}
-        event(self.trace, "tool_result", call=self.calls, tool=tool, result=result)
+        self._record("tool_result", call=self.calls, tool=tool, result=result)
+        self.pending_commit = False
         return result
 
     def _dispatch(self, tool: str, args: dict) -> dict:
@@ -103,6 +131,11 @@ class Workspace:
             return {"content": target.read_bytes().decode("utf-8")}
         if not valid_text(args["content"]):
             raise ValueError("invalid_content")
+        if self.guard_scope is not None:
+            def audit(kind, **details):
+                self._record(kind, call=self.calls, tool=tool, **details)
+
+            return replace_guarded(self.root, self.paths, self.guard_scope, args["path"], args["content"], audit)
         # The temporary write is outside the visible fixture tree and on the same filesystem.
         with tempfile.TemporaryDirectory(dir=self.root.parent) as temp:
             staged_file = Path(temp) / "replacement"

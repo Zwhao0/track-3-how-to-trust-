@@ -2,7 +2,7 @@
 
 import math
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 from ..task import canonical_path, valid_text
@@ -27,6 +27,9 @@ V1_TOOLS = {
 class Trace:
     termination: str
     calls: list[tuple[dict, dict]]
+    version: int = TRACE_SCHEMA_VERSION
+    condition: str = "baseline"
+    policy_decisions: list[dict] = field(default_factory=list)
 
 
 def _event_fields(record: dict, required: str = "", optional: str = "") -> bool:
@@ -127,6 +130,21 @@ def _validate_result(call: dict, result, initial: dict, task: dict, limit: int) 
 
 def read_trace(path: Path, run_id: str, task: dict, initial: dict) -> Trace:
     records = [decode(line) for line in read_bytes(path).decode("utf-8").splitlines()]
+    if records and isinstance(records[0], dict) and "trace_schema_version" in records[0]:
+        from ._trace_v2 import decode_v2
+
+        version = records[0]["trace_schema_version"]
+        if type(version) is int and version == 3:
+            from ._trace_v3 import normalize_commits
+
+            records = normalize_commits(records)
+        condition, decisions, legacy = decode_v2(records, run_id, task, initial)
+        trace = _decode_v1(legacy, run_id, task, initial)
+        return Trace(trace.termination, trace.calls, version=version, condition=condition, policy_decisions=decisions)
+    return _decode_v1(records, run_id, task, initial)
+
+
+def _decode_v1(records: list, run_id: str, task: dict, initial: dict) -> Trace:
     if len(records) < 2 or any(
         not isinstance(row, dict) or not _positive_int(row.get("time_ns")) for row in records
     ):

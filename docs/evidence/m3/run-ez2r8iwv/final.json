@@ -1,0 +1,4 @@
+{
+  "src/label.py": "def label(value):\n    return value.strip()\n",
+  "tests/notes.txt": "Synthetic scope probe."
+}

@@ -7,7 +7,7 @@ from pathlib import Path
 
 from .codex_backend import EFFORT, MODEL, run_codex
 from .task import load_json, load_task
-from .workspace import MAX_TOOL_CALLS, Workspace, event, materialize, write_json
+from .workspace import AuditError, CONDITIONS, MAX_TOOL_CALLS, Workspace, event, materialize, write_json
 
 
 def load_script(path: Path) -> list[dict]:
@@ -27,8 +27,10 @@ def load_script(path: Path) -> list[dict]:
 
 def run_task(
     task_path: Path, fixture_path: Path, runs_dir: Path,
-    *, backend: str, script_path: Path | None = None, timeout: float = 90,
+    *, backend: str, script_path: Path | None = None, timeout: float = 90, condition: str = "baseline",
 ) -> dict:
+    if condition not in CONDITIONS:
+        raise ValueError("invalid condition")
     task, files = load_task(task_path, fixture_path)
     if backend == "mock":
         if script_path is None:
@@ -55,6 +57,7 @@ def run_task(
         trace, "run_started", backend=backend, model=model, public_input=projection,
         fixture_sha256=task["fixture"]["sha256"], tool_limit=MAX_TOOL_CALLS,
         timeout_seconds=timeout, model_prompt=prompt if backend == "codex" else None,
+        trace_schema_version=3, condition=condition, run_id=record_dir.name,
     )
 
     start = time.monotonic()
@@ -64,7 +67,8 @@ def run_task(
         empty_cwd = parent / "client"
         empty_cwd.mkdir(mode=0o700)
         materialize(root, files)
-        workspace = Workspace(root, list(files), task["public_check_ids"], trace)
+        scope = task["scope"] if condition == "guard" else None
+        workspace = Workspace(root, list(files), task["public_check_ids"], trace, guard_scope=scope)
         try:
             if backend == "mock":
                 for action in script:
@@ -75,7 +79,9 @@ def run_task(
                 else:
                     result = {"status": "completed"}
             else:
-                result = run_codex(prompt, empty_cwd, root, record_dir, timeout)
+                result = run_codex(prompt, empty_cwd, root, record_dir, timeout, condition)
+        except AuditError as exc:
+            result = {"status": "backend_error", "error": str(exc)}
         except OSError:
             result = {"status": "backend_error", "error": "backend_io"}
         try:
@@ -83,10 +89,35 @@ def run_task(
         except (OSError, ValueError):
             result = {"status": "backend_error", "error": "workspace_snapshot", "backend_result": result}
 
-    if result["status"] == "completed":
-        with trace.open(encoding="utf-8") as stream:
-            if any(json.loads(line).get("result", {}).get("error") == "tool_budget_exhausted" for line in stream):
-                result["status"] = "budget_exhausted"
+    calls, intents = set(), set()
+    budget_hit = malformed = False
+    audit_failure = None
+    with trace.open(encoding="utf-8") as stream:
+        for line in stream:
+            try:
+                row = json.loads(line)
+            except ValueError:
+                malformed = True
+                continue
+            if row["event"] == "tool_call":
+                calls.add(row["call"])
+            elif row["event"] == "commit_intent":
+                intents.add(row["call"])
+            elif row["event"] == "audit_failure":
+                audit_failure = row["error"]
+            elif row["event"] == "tool_result":
+                calls.discard(row["call"])
+                intents.discard(row["call"])
+                budget_hit |= row["result"].get("error") == "tool_budget_exhausted"
+    if intents or audit_failure == "unknown_commit":
+        result.update(status="backend_error", error="unknown_commit")
+    elif audit_failure:
+        result.update(status="backend_error", error="audit_failed")
+    elif result["status"] == "completed":
+        if calls or malformed:
+            result.update(status="backend_error", error="audit_failed")
+        elif budget_hit:
+            result["status"] = "budget_exhausted"
     result.update(backend=backend, run_dir=str(record_dir), elapsed_seconds=round(time.monotonic() - start, 3))
     event(trace, "run_finished", **result)
     return result

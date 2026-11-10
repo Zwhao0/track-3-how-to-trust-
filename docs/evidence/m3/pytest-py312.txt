@@ -1,0 +1,17 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.14, pytest-8.4.2, pluggy-1.7.0
+rootdir: [repository root]
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.16.0
+collected 58 items
+
+tests/test_bootstrap.py .                                                [  1%]
+tests/test_m1_boundary.py ....                                           [  8%]
+tests/test_m1_runner.py ....                                             [ 15%]
+tests/test_m2_artifacts.py .....                                         [ 24%]
+tests/test_m2_judge.py ..........................                        [ 68%]
+tests/test_m3_policy.py ........                                         [ 82%]
+tests/test_m3_staging.py ..........                                      [100%]
+
+============================== 58 passed in 2.42s ==============================
