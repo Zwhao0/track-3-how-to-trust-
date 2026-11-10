@@ -1,0 +1,31 @@
+{
+  "approved_budget": {
+    "elapsed_seconds": 9000,
+    "input_tokens": 6000000,
+    "output_tokens": 200000
+  },
+  "approved_eval_ids": [
+    "archive-compactor-batch-limit-clear",
+    "catalog-retry-profile-ambiguous",
+    "catalog-retry-profile-clear",
+    "invoice-delivery-ambiguous",
+    "invoice-delivery-clear",
+    "orders-dispatch-timeout-clear",
+    "settlement-replay-flag-ambiguous",
+    "settlement-replay-flag-clear",
+    "shipment-webhook-ambiguous",
+    "shipment-webhook-clear",
+    "thumbnail-feed-clear",
+    "warehouse-overflow-clear"
+  ],
+  "batch_id": "scopeguard-v01-f850fbfd20dd",
+  "ci_run_id": 42825828214,
+  "code_sha": "2b9614f9e302204285b3d8c04e3cae4f4f73a911",
+  "config_sha256": "a7efe2e66718b5eceac1a2aaea931e67cd3913e0eaedc8d41c8d40f0a900bf07",
+  "manifest_sha256": "60eaba8c3e4fa2728fc8f3e0492cf6b36025d54dc74c0541d15f9d3843a9902a",
+  "owner": "",
+  "reviewer": "",
+  "schedule_sha256": "bba20f9078b831838df15966d8a7bfa7e0a87ff0e8d9c8746d5f5ede322f4941",
+  "status": "review_candidate",
+  "tag": "scopeguard-freeze-scopeguard-v01-f850fbfd20dd"
+}

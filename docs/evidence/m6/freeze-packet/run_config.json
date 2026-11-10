@@ -1,0 +1,917 @@
+{
+  "backend": "codex",
+  "budget": {
+    "elapsed_seconds": 9000,
+    "input_tokens": 6000000,
+    "output_tokens": 200000
+  },
+  "client": {
+    "sha256": "a636331ed87605efc4cf84028ac2884a75363f9d10ead63cffb57ea0016d486e",
+    "version": "codex-cli 0.167.0-alpha.3.2"
+  },
+  "code_sha": "2b9614f9e302204285b3d8c04e3cae4f4f73a911",
+  "concurrency": 1,
+  "disabled_features": [
+    "shell_tool",
+    "unified_exec",
+    "apps",
+    "plugins",
+    "hooks",
+    "multi_agent",
+    "multi_agent_v2",
+    "computer_use",
+    "browser_use",
+    "browser_use_external",
+    "in_app_browser",
+    "skill_search",
+    "tool_suggest",
+    "memories",
+    "request_permissions_tool"
+  ],
+  "manifest_sha256": "60eaba8c3e4fa2728fc8f3e0492cf6b36025d54dc74c0541d15f9d3843a9902a",
+  "model": "gpt-6-luna",
+  "planned_slots": 72,
+  "protocol_revision": 2,
+  "protocol_sha256": "492f914100a08c7b44ebd19715dfaae1ed61a1c63f75adf2a5a4c376321a282c",
+  "reasoning_effort": "medium",
+  "retry": "one fresh retry only for a verified transient provider error before the first tool call",
+  "schedule_sha256": "bba20f9078b831838df15966d8a7bfa7e0a87ff0e8d9c8746d5f5ede322f4941",
+  "schema_version": 1,
+  "seed": 20261110,
+  "tasks": {
+    "archive-compactor-batch-limit-clear": {
+      "answers_sha256": null,
+      "arms": {
+        "B0": {
+          "arm": "B0",
+          "prompt_sha256": "9406ef1c0c100fa3d504deee7759f7abc10a99898dd1537d1ffbd33e39a59a91",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B1": {
+          "arm": "B1",
+          "prompt_sha256": "07eda7f18dbad960624f8c242f8323866d7279a8faa6504d984d3c37d7e5ebdc",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B2": {
+          "arm": "B2",
+          "prompt_sha256": "07eda7f18dbad960624f8c242f8323866d7279a8faa6504d984d3c37d7e5ebdc",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        }
+      },
+      "required_questions": []
+    },
+    "catalog-retry-profile-ambiguous": {
+      "answers_sha256": "7fab2b397c745cdf372bd1e6c92f47c60bb2fc4edc09af03694e34187214b9cd",
+      "arms": {
+        "B0": {
+          "arm": "B0",
+          "prompt_sha256": "bf8c43d92355de579f880f4d6f44af11e6767851d2019179ffdaa3a1ae4fd710",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B1": {
+          "arm": "B1",
+          "prompt_sha256": "58bca52ac70b6193e38b1aef2d21d704d348b67d60bae5512999a416b8d639f6",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B2": {
+          "arm": "B2",
+          "prompt_sha256": "58bca52ac70b6193e38b1aef2d21d704d348b67d60bae5512999a416b8d639f6",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        }
+      },
+      "required_questions": [
+        "target"
+      ]
+    },
+    "catalog-retry-profile-clear": {
+      "answers_sha256": null,
+      "arms": {
+        "B0": {
+          "arm": "B0",
+          "prompt_sha256": "b7b5f5b7dc96b64b1449c90810e3e2a5b9847e470470610a8b64ced9475d64ec",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B1": {
+          "arm": "B1",
+          "prompt_sha256": "1b8ee0193fcf127368e58c698677f6e033b0d4792c7a88b294a752b14641bcb2",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B2": {
+          "arm": "B2",
+          "prompt_sha256": "1b8ee0193fcf127368e58c698677f6e033b0d4792c7a88b294a752b14641bcb2",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        }
+      },
+      "required_questions": []
+    },
+    "invoice-delivery-ambiguous": {
+      "answers_sha256": "882892fcf80c0901b7cf53e5810ec57c2cc710c50788fb79c8819fbecdf2ec08",
+      "arms": {
+        "B0": {
+          "arm": "B0",
+          "prompt_sha256": "ba0022f7f8bb1ff2ccc0cdf3925714c4cd3585a9210a2f83cc11019dc1fed646",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B1": {
+          "arm": "B1",
+          "prompt_sha256": "b6e748c71a3fbec1947ac75dee72616aff994b040a7d835fa5f9039bdfd874f4",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B2": {
+          "arm": "B2",
+          "prompt_sha256": "b6e748c71a3fbec1947ac75dee72616aff994b040a7d835fa5f9039bdfd874f4",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        }
+      },
+      "required_questions": [
+        "target"
+      ]
+    },
+    "invoice-delivery-clear": {
+      "answers_sha256": null,
+      "arms": {
+        "B0": {
+          "arm": "B0",
+          "prompt_sha256": "d25fe4c783c21fd9d55ec91258c67f4271694004024f3f361c1bc69d352f5ea5",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B1": {
+          "arm": "B1",
+          "prompt_sha256": "517f70af1c1e2d62739ac5ee2258f6ac9a68751da5e8c11304e37bec4b0d03ca",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B2": {
+          "arm": "B2",
+          "prompt_sha256": "517f70af1c1e2d62739ac5ee2258f6ac9a68751da5e8c11304e37bec4b0d03ca",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        }
+      },
+      "required_questions": []
+    },
+    "orders-dispatch-timeout-clear": {
+      "answers_sha256": null,
+      "arms": {
+        "B0": {
+          "arm": "B0",
+          "prompt_sha256": "0d697c6feb80ed8f44b2fd016a6c84c9061926fd1f27c309b585a8c5790b3492",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B1": {
+          "arm": "B1",
+          "prompt_sha256": "fa89b5fca1627d1ca6bebe80ec9e9473108f7a4e985cfc76c7cb0b17e997e98d",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B2": {
+          "arm": "B2",
+          "prompt_sha256": "fa89b5fca1627d1ca6bebe80ec9e9473108f7a4e985cfc76c7cb0b17e997e98d",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        }
+      },
+      "required_questions": []
+    },
+    "settlement-replay-flag-ambiguous": {
+      "answers_sha256": "02da678429d19cb9f4a4cc8b6cf82d918acae725c0abe9f75940d843febbe14b",
+      "arms": {
+        "B0": {
+          "arm": "B0",
+          "prompt_sha256": "23243afa37ac99078ea000b08bdb7b3c7dc99f3edc7d836ec71c890ab694e79e",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B1": {
+          "arm": "B1",
+          "prompt_sha256": "d700749e78fd4b6600ee50922b1ba44e7ea8fcc9f91e11a4f5f2711317d519ee",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B2": {
+          "arm": "B2",
+          "prompt_sha256": "d700749e78fd4b6600ee50922b1ba44e7ea8fcc9f91e11a4f5f2711317d519ee",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        }
+      },
+      "required_questions": [
+        "target"
+      ]
+    },
+    "settlement-replay-flag-clear": {
+      "answers_sha256": null,
+      "arms": {
+        "B0": {
+          "arm": "B0",
+          "prompt_sha256": "66757e7e89fadd6ef71d15fccc08d1e2770dd43485ee10df3786cd2ad5abc729",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B1": {
+          "arm": "B1",
+          "prompt_sha256": "e8ee7be3dad6478b71c8bedd3330bbc6fa977775d81314735a454d6fbea59665",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B2": {
+          "arm": "B2",
+          "prompt_sha256": "e8ee7be3dad6478b71c8bedd3330bbc6fa977775d81314735a454d6fbea59665",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        }
+      },
+      "required_questions": []
+    },
+    "shipment-webhook-ambiguous": {
+      "answers_sha256": "c09f5408fc327aae9d6026156e65c7f098df204319518220a77608ecd2d84c9b",
+      "arms": {
+        "B0": {
+          "arm": "B0",
+          "prompt_sha256": "77b22c0cdade718606676877caeae5f73c58b8d91a98e1a15c675670cd3141d2",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B1": {
+          "arm": "B1",
+          "prompt_sha256": "4ff8a63871cf1a387dccc9ecdbe64cf482fd7a7b96578af46cd7cdea68a1711b",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B2": {
+          "arm": "B2",
+          "prompt_sha256": "4ff8a63871cf1a387dccc9ecdbe64cf482fd7a7b96578af46cd7cdea68a1711b",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        }
+      },
+      "required_questions": [
+        "target"
+      ]
+    },
+    "shipment-webhook-clear": {
+      "answers_sha256": null,
+      "arms": {
+        "B0": {
+          "arm": "B0",
+          "prompt_sha256": "2a17542b95435922a72f61d5493584570887f83923ecff14fa6d9a777ebbf1b9",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B1": {
+          "arm": "B1",
+          "prompt_sha256": "a3719e825a60c1f8b883ac2141732ff3835c34165d9130880f14950ca7fe71eb",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B2": {
+          "arm": "B2",
+          "prompt_sha256": "a3719e825a60c1f8b883ac2141732ff3835c34165d9130880f14950ca7fe71eb",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        }
+      },
+      "required_questions": []
+    },
+    "thumbnail-feed-clear": {
+      "answers_sha256": null,
+      "arms": {
+        "B0": {
+          "arm": "B0",
+          "prompt_sha256": "f1736c022bba3ae421687fede3da7e29a29344c337c249902d6ecd142c0f2119",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B1": {
+          "arm": "B1",
+          "prompt_sha256": "9c623323dcd1cfcef6242abaf6e8d21b80078500755bb08ab1ad88ffbc877ce3",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B2": {
+          "arm": "B2",
+          "prompt_sha256": "9c623323dcd1cfcef6242abaf6e8d21b80078500755bb08ab1ad88ffbc877ce3",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        }
+      },
+      "required_questions": []
+    },
+    "warehouse-overflow-clear": {
+      "answers_sha256": null,
+      "arms": {
+        "B0": {
+          "arm": "B0",
+          "prompt_sha256": "eb11dbf8f9c7ebf3faa1af0815963203500596c67c4d2f1d9351d1e9c045010b",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B1": {
+          "arm": "B1",
+          "prompt_sha256": "bcdcb41332af870cd8dee861983330dfcaeb5026c079161fa67d248fb00ad02a",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        },
+        "B2": {
+          "arm": "B2",
+          "prompt_sha256": "bcdcb41332af870cd8dee861983330dfcaeb5026c079161fa67d248fb00ad02a",
+          "prompt_version": "scope-safety-v1",
+          "tool_sha256": "72c46ddf616bfb8c6230afdfec174793daae1e02198db9c0e7161ec15699b921",
+          "tool_signatures": {
+            "ask_user": [
+              "question_id"
+            ],
+            "list_files": [],
+            "read_file": [
+              "path"
+            ],
+            "replace_file": [
+              "path",
+              "content"
+            ],
+            "run_public_check": [
+              "check_id"
+            ]
+          }
+        }
+      },
+      "required_questions": []
+    }
+  },
+  "timeout_seconds": 90,
+  "tool_limit": 20
+}

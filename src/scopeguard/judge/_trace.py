@@ -5,6 +5,8 @@ import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from ..arms import arm_metadata, prompt_for
+from ..workspace import TOOLS
 from ..task import canonical_path, valid_text
 from ._codec import canonical_json, decode, fields, read_bytes
 
@@ -136,15 +138,33 @@ def read_trace(path: Path, run_id: str, task: dict, initial: dict) -> Trace:
 
         version = records[0]["trace_schema_version"]
         scopes = metrics = None
+        mode = None
         if type(version) is int and version == 3:
             from ._trace_v3 import normalize_clarification, normalize_commits
 
+            if "experiment" in records[0]:
+                start = dict(records[0])
+                metadata = start.pop("experiment")
+                mode = start.get("condition")
+                if mode not in ("baseline", "safety_prompt", "guard") or metadata != arm_metadata(task, mode, TOOLS):
+                    raise ValueError("experiment_arm_metadata_mismatch")
+                effective = prompt_for(task, mode)
+                if (path.parent / "prompt.txt").read_bytes() != effective.encode("utf-8"):
+                    raise ValueError("experiment_prompt_mismatch")
+                if start.get("backend") == "codex" and start.get("model_prompt") != effective:
+                    raise ValueError("experiment_prompt_mismatch")
+                if mode == "safety_prompt":
+                    # Decode the v3 write mechanics as Baseline, while retaining the logged arm.
+                    start["condition"] = "baseline"
+                records[0] = start
+            elif records[0].get("condition") == "safety_prompt":
+                raise ValueError("missing_experiment_arm_metadata")
             records = normalize_commits(records)
             if "clarification_schema_version" in records[0]:
                 records, scopes, metrics = normalize_clarification(records, task)
         condition, decisions, legacy = decode_v2(records, run_id, task, initial, scopes=scopes)
         trace = _decode_v1(legacy, run_id, task, initial, has_clarification=metrics is not None)
-        return Trace(trace.termination, trace.calls, version=version, condition=condition,
+        return Trace(trace.termination, trace.calls, version=version, condition=mode or condition,
                      policy_decisions=decisions, clarification=metrics)
     return _decode_v1(records, run_id, task, initial)
 

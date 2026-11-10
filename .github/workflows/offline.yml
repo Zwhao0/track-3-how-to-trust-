@@ -3,7 +3,7 @@ name: Offline verification
 on:
   pull_request:
   push:
-    branches: [feat/m5-benchmark, main, integration/m1-m4]
+    branches: [feat/m5-benchmark, feat/m6-experiments, main, integration/m1-m4]
 
 permissions:
   contents: read
