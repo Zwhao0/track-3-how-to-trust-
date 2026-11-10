@@ -21,6 +21,8 @@ The first five screenshots below were captured from the running local applicatio
 - [M6 real dev/pilot, one run per arm](m6-pilot.png)
 - [Formal status, 0 executed of 72 planned](formal-status.png)
 
+The [classroom deck](../../ScopeGuard.pptx) has eight rendered slides and eight speaker-note parts. The [file check](pptx-check.json) records the package, layout checks and fingerprint.
+
 ## Reproduce
 
 From the checkout root with Python 3.11 or 3.12 installed:
