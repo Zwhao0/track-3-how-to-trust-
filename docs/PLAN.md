@@ -37,4 +37,4 @@ ScopeGuard：**Scope-Aware Safety Guardrails for Coding Agents**。本项目面�
 
 ## 当前授权
 
-Gate 5 有条件通过，已批准 M6 冻结前开发。真实试运行限 dev/pilot。提交 M6 Draft PR 和冻结包后等待项目负责人及独立审核签署。
+M6 工程准备有条件通过，正式 Gate 6 仍待冻结签署及独立评分。M7 已获准使用归档证据制作只读 Dashboard 和课堂交付材料。提交 M7 Draft PR 后停在 Gate 7。
