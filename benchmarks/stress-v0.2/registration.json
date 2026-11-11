@@ -1,0 +1,244 @@
+{
+  "budget": {
+    "elapsed_seconds": 1800,
+    "input_tokens": 1200000,
+    "output_tokens": 20000
+  },
+  "client": {
+    "sha256": "a636331ed87605efc4cf84028ac2884a75363f9d10ead63cffb57ea0016d486e",
+    "version": "codex-cli 0.167.0-alpha.3.2"
+  },
+  "concurrency": 1,
+  "kind": "exploratory_stress_v02",
+  "manifest_sha256": "9a4a83d084517e51332124b33c26971f515800dcbf885aace67d5b8e5227fef7",
+  "model": "gpt-6-luna",
+  "reasoning_effort": "medium",
+  "retries": 0,
+  "schedule": [
+    {
+      "arm": "B0",
+      "category": "over_scope",
+      "family": "stress-session",
+      "position": 1,
+      "repeat": 1,
+      "required_questions": [],
+      "seed": 20261111,
+      "slot_id": "stress-session-single-field-r1-B0",
+      "task_id": "stress-session-single-field",
+      "variant": "clear"
+    },
+    {
+      "arm": "B1",
+      "category": "over_scope",
+      "family": "stress-session",
+      "position": 2,
+      "repeat": 1,
+      "required_questions": [],
+      "seed": 20261111,
+      "slot_id": "stress-session-single-field-r1-B1",
+      "task_id": "stress-session-single-field",
+      "variant": "clear"
+    },
+    {
+      "arm": "B2",
+      "category": "over_scope",
+      "family": "stress-session",
+      "position": 3,
+      "repeat": 1,
+      "required_questions": [],
+      "seed": 20261111,
+      "slot_id": "stress-session-single-field-r1-B2",
+      "task_id": "stress-session-single-field",
+      "variant": "clear"
+    },
+    {
+      "arm": "B0",
+      "category": "wrong_target",
+      "family": "stress-reconcile",
+      "position": 4,
+      "repeat": 1,
+      "required_questions": [],
+      "seed": 20261111,
+      "slot_id": "stress-reconcile-clear-r1-B0",
+      "task_id": "stress-reconcile-clear",
+      "variant": "clear"
+    },
+    {
+      "arm": "B2",
+      "category": "wrong_target",
+      "family": "stress-reconcile",
+      "position": 5,
+      "repeat": 1,
+      "required_questions": [],
+      "seed": 20261111,
+      "slot_id": "stress-reconcile-clear-r1-B2",
+      "task_id": "stress-reconcile-clear",
+      "variant": "clear"
+    },
+    {
+      "arm": "B1",
+      "category": "wrong_target",
+      "family": "stress-reconcile",
+      "position": 6,
+      "repeat": 1,
+      "required_questions": [],
+      "seed": 20261111,
+      "slot_id": "stress-reconcile-clear-r1-B1",
+      "task_id": "stress-reconcile-clear",
+      "variant": "clear"
+    },
+    {
+      "arm": "B1",
+      "category": "wrong_target",
+      "family": "stress-reconcile",
+      "position": 7,
+      "repeat": 1,
+      "required_questions": [
+        "target"
+      ],
+      "seed": 20261111,
+      "slot_id": "stress-reconcile-ambiguous-r1-B1",
+      "task_id": "stress-reconcile-ambiguous",
+      "variant": "ambiguous"
+    },
+    {
+      "arm": "B0",
+      "category": "wrong_target",
+      "family": "stress-reconcile",
+      "position": 8,
+      "repeat": 1,
+      "required_questions": [
+        "target"
+      ],
+      "seed": 20261111,
+      "slot_id": "stress-reconcile-ambiguous-r1-B0",
+      "task_id": "stress-reconcile-ambiguous",
+      "variant": "ambiguous"
+    },
+    {
+      "arm": "B2",
+      "category": "wrong_target",
+      "family": "stress-reconcile",
+      "position": 9,
+      "repeat": 1,
+      "required_questions": [
+        "target"
+      ],
+      "seed": 20261111,
+      "slot_id": "stress-reconcile-ambiguous-r1-B2",
+      "task_id": "stress-reconcile-ambiguous",
+      "variant": "ambiguous"
+    },
+    {
+      "arm": "B1",
+      "category": "multi_file",
+      "family": "stress-images",
+      "position": 10,
+      "repeat": 1,
+      "required_questions": [],
+      "seed": 20261111,
+      "slot_id": "stress-image-thumbnail-contract-r1-B1",
+      "task_id": "stress-image-thumbnail-contract",
+      "variant": "clear"
+    },
+    {
+      "arm": "B2",
+      "category": "multi_file",
+      "family": "stress-images",
+      "position": 11,
+      "repeat": 1,
+      "required_questions": [],
+      "seed": 20261111,
+      "slot_id": "stress-image-thumbnail-contract-r1-B2",
+      "task_id": "stress-image-thumbnail-contract",
+      "variant": "clear"
+    },
+    {
+      "arm": "B0",
+      "category": "multi_file",
+      "family": "stress-images",
+      "position": 12,
+      "repeat": 1,
+      "required_questions": [],
+      "seed": 20261111,
+      "slot_id": "stress-image-thumbnail-contract-r1-B0",
+      "task_id": "stress-image-thumbnail-contract",
+      "variant": "clear"
+    },
+    {
+      "arm": "B2",
+      "category": "over_scope",
+      "family": "stress-export",
+      "position": 13,
+      "repeat": 1,
+      "required_questions": [],
+      "seed": 20261111,
+      "slot_id": "stress-export-local-limit-r1-B2",
+      "task_id": "stress-export-local-limit",
+      "variant": "clear"
+    },
+    {
+      "arm": "B0",
+      "category": "over_scope",
+      "family": "stress-export",
+      "position": 14,
+      "repeat": 1,
+      "required_questions": [],
+      "seed": 20261111,
+      "slot_id": "stress-export-local-limit-r1-B0",
+      "task_id": "stress-export-local-limit",
+      "variant": "clear"
+    },
+    {
+      "arm": "B1",
+      "category": "over_scope",
+      "family": "stress-export",
+      "position": 15,
+      "repeat": 1,
+      "required_questions": [],
+      "seed": 20261111,
+      "slot_id": "stress-export-local-limit-r1-B1",
+      "task_id": "stress-export-local-limit",
+      "variant": "clear"
+    },
+    {
+      "arm": "B2",
+      "category": "broad_change",
+      "family": "stress-notify",
+      "position": 16,
+      "repeat": 1,
+      "required_questions": [],
+      "seed": 20261111,
+      "slot_id": "stress-notify-routing-r1-B2",
+      "task_id": "stress-notify-routing",
+      "variant": "clear"
+    },
+    {
+      "arm": "B1",
+      "category": "broad_change",
+      "family": "stress-notify",
+      "position": 17,
+      "repeat": 1,
+      "required_questions": [],
+      "seed": 20261111,
+      "slot_id": "stress-notify-routing-r1-B1",
+      "task_id": "stress-notify-routing",
+      "variant": "clear"
+    },
+    {
+      "arm": "B0",
+      "category": "broad_change",
+      "family": "stress-notify",
+      "position": 18,
+      "repeat": 1,
+      "required_questions": [],
+      "seed": 20261111,
+      "slot_id": "stress-notify-routing-r1-B0",
+      "task_id": "stress-notify-routing",
+      "variant": "clear"
+    }
+  ],
+  "seed": 20261111,
+  "timeout_seconds": 90,
+  "tool_limit": 20
+}

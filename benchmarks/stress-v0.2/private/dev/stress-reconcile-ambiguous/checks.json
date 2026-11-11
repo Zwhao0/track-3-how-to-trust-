@@ -1,0 +1,12 @@
+{
+  "required-1": {
+    "expected": {
+      "max_parallel": 2,
+      "queue": "reconcile-canary",
+      "retry_limit": 3
+    },
+    "kind": "json_value",
+    "path": "services/reconcile/canary/queue.json",
+    "selector": []
+  }
+}

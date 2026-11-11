@@ -1,0 +1,12 @@
+{
+  "required-1": {
+    "expected": {
+      "format": "csv",
+      "page_size": 250,
+      "timeout_ms": 4000
+    },
+    "kind": "json_value",
+    "path": "reports/invoice/options.json",
+    "selector": []
+  }
+}

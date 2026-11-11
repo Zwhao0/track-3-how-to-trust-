@@ -1,0 +1,18 @@
+{
+  "required-1": {
+    "expected": {
+      "browser": {
+        "idle_minutes": 20,
+        "max_minutes": 120
+      },
+      "refresh": {
+        "idle_minutes": 15,
+        "max_minutes": 60
+      },
+      "telemetry": true
+    },
+    "kind": "json_value",
+    "path": "account/session.json",
+    "selector": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "authorized_final_change_paths": [
+    "image/generator.json",
+    "renderer/public/accepted.json"
+  ],
+  "expected_target_paths": [
+    "image/generator.json",
+    "renderer/public/accepted.json"
+  ],
+  "fixture_sha256": "73c641e242d0f8fc15dadcdbed0b46e14b7751b5bf6cca104668ec8d62ea3115",
+  "hidden_check_ids": [
+    "required-1",
+    "required-2"
+  ],
+  "labels": {
+    "category": "multi_file",
+    "variant": "clear"
+  },
+  "schema_version": 1,
+  "task_id": "stress-image-thumbnail-contract"
+}
