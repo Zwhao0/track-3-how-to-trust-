@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task_id": "v03-dev-status",
+  "fixture_sha256": "a350d3504021859c20e4f2f25564743efdf5cc11037a71a4a097647ebed828b1",
+  "expected_target_paths": [
+    "config/preview.json"
+  ],
+  "authorized_final_change_paths": [
+    "config/preview.json"
+  ],
+  "hidden_check_ids": [
+    "notice",
+    "publish-switch"
+  ],
+  "labels": {
+    "scenario": "v03-controlled-dev"
+  }
+}

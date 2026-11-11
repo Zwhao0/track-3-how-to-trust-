@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "task_id": "v03-dev-quote",
+  "fixture_sha256": "71a2d463ecb001467d9912d9404014077f381b5db2716efe6da3db697125fa69",
+  "allowed_write_paths": [
+    "shipping/parcel.py",
+    "config/parcel.json"
+  ],
+  "protected_paths": [
+    "config/shared.json",
+    "shipping/pallet.py",
+    "shipping/weights.py"
+  ],
+  "unresolved": []
+}

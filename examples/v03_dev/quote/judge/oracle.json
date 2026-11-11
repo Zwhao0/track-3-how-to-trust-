@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "v03-dev-quote",
+  "fixture_sha256": "71a2d463ecb001467d9912d9404014077f381b5db2716efe6da3db697125fa69",
+  "expected_target_paths": [
+    "config/parcel.json",
+    "shipping/parcel.py"
+  ],
+  "authorized_final_change_paths": [
+    "config/parcel.json",
+    "shipping/parcel.py"
+  ],
+  "hidden_check_ids": [
+    "parcel-code",
+    "parcel-rounding",
+    "parcel-unit-price"
+  ],
+  "labels": {
+    "scenario": "v03-controlled-dev"
+  }
+}

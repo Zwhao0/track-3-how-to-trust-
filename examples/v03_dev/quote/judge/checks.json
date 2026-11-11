@@ -1,0 +1,23 @@
+{
+  "parcel-code": {
+    "kind": "python_ast",
+    "path": "shipping/parcel.py",
+    "expected_source": "from shipping.weights import billable\n\ndef quote(weight, config):\n    return billable(weight, config['rounding']) * config['unit_price']\n"
+  },
+  "parcel-rounding": {
+    "kind": "json_value",
+    "path": "config/parcel.json",
+    "selector": [
+      "rounding"
+    ],
+    "expected": "up"
+  },
+  "parcel-unit-price": {
+    "kind": "json_value",
+    "path": "config/parcel.json",
+    "selector": [
+      "unit_price"
+    ],
+    "expected": 3
+  }
+}

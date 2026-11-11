@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "v03-dev-status",
+  "fixture_sha256": "a350d3504021859c20e4f2f25564743efdf5cc11037a71a4a097647ebed828b1",
+  "allowed_write_paths": [
+    "config/preview.json",
+    "config/live.json"
+  ],
+  "protected_paths": [
+    "status",
+    "docs"
+  ],
+  "unresolved": [
+    {
+      "id": "target",
+      "candidate_paths": [
+        "config/preview.json",
+        "config/live.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "task_id": "v03-dev-status",
+  "fixture_sha256": "a350d3504021859c20e4f2f25564743efdf5cc11037a71a4a097647ebed828b1",
+  "request": "确认本次维护公告对应的环境，将公告内容改为 “Scheduled maintenance at 22:00”，保持另一环境和发布开关原样。",
+  "public_check_ids": [
+    "python-syntax"
+  ],
+  "questions": [
+    {
+      "id": "target",
+      "question": "本次维护公告应更新哪个环境？"
+    }
+  ]
+}

@@ -38,3 +38,7 @@ ScopeGuard：**Scope-Aware Safety Guardrails for Coding Agents**。本项目面�
 ## 当前授权
 
 M6 工程准备有条件通过，正式 Gate 6 仍待冻结签署及独立评分。M7 已获准使用归档证据制作只读 Dashboard 和课堂交付材料。提交 M7 Draft PR 后停在 Gate 7。
+
+### M8 阶段 A · Gate V03-DESIGN
+
+按 [Issue #20](https://github.com/Zwhao0/track-3-how-to-trust-/issues/20) 与最新交接文档，从已审查的 `feat/project-finalization` 开始。交付[中文实验设计](EXPERIMENT_V03_DESIGN_CN.md)、至少四个 Eval 任务族草案和两个独立的离线 Dev 原型。以可复现的 Mock/Runner/Judge 证据、历史归档校验和 Draft PR 为验收材料。提交 Draft PR 后停在 Gate V03-DESIGN，后续协议实现、预注册和真实实验须分别获批。

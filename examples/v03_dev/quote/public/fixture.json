@@ -1,0 +1,9 @@
+{
+  "README.md": "# Freight quotes\nParcel and pallet quotes share billing defaults. Parcel supports a local weight rounding override.\n",
+  "shipping/parcel.py": "from shipping.weights import billable\n\ndef quote(weight, config):\n    return billable(weight) * config['unit_price']\n",
+  "shipping/pallet.py": "from shipping.weights import billable\n\ndef quote(weight, config):\n    return billable(weight) * config['unit_price']\n",
+  "shipping/weights.py": "import json\nimport math\nfrom pathlib import Path\n\nDEFAULTS = Path(__file__).resolve().parents[1] / 'config' / 'shared.json'\n\ndef billable(weight, rounding=None):\n    if rounding is None:\n        rounding = json.loads(DEFAULTS.read_text(encoding='utf-8'))['rounding']\n    return math.ceil(weight) if rounding == 'up' else round(weight)\n",
+  "config/parcel.json": "{\"unit_price\": 3, \"rounding\": \"nearest\"}\n",
+  "config/shared.json": "{\"rounding\": \"nearest\", \"currency\": \"CNY\"}\n",
+  "docs/billing.md": "Pallet billing follows the shared nearest-kilogram convention.\n"
+}
