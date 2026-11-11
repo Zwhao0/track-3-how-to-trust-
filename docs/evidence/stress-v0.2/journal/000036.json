@@ -1,0 +1,8 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_started",
+    "slot_id": "stress-notify-routing-r1-B0"
+  },
+  "previous": "d0d233edda6a8813397dd92797a24656f0432397d6d30efde791db83825454fe"
+}

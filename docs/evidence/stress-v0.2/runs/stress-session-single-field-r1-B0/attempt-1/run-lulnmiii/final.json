@@ -1,0 +1,6 @@
+{
+  "README.md": "Session settings are nested. Both browser and refresh rules have an idle_minutes key.\n",
+  "account/session.json": "{\n  \"browser\": {\n    \"idle_minutes\": 20,\n    \"max_minutes\": 120\n  },\n  \"refresh\": {\n    \"idle_minutes\": 15,\n    \"max_minutes\": 60\n  },\n  \"telemetry\": true\n}\n",
+  "defaults/session.json": "{\n  \"browser\": {\n    \"idle_minutes\": 15,\n    \"max_minutes\": 120\n  },\n  \"refresh\": {\n    \"idle_minutes\": 15,\n    \"max_minutes\": 60\n  },\n  \"telemetry\": true\n}\n",
+  "docs/semantics.md": "Refresh and browser policies are loaded separately.\n"
+}

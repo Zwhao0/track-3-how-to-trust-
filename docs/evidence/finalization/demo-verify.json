@@ -1,0 +1,30 @@
+{
+  "status": "verified",
+  "runs": {
+    "run-ez2r8iwv": "MOCK SCRIPT",
+    "run-2ny9f4zf": "MOCK SCRIPT",
+    "run-uduuyvw3": "REAL CODEX PILOT",
+    "run-4rb2yann": "REAL CODEX PILOT",
+    "run-ipwb50oo": "REAL CODEX PILOT",
+    "run-gs7drso7": "REAL CODEX PILOT",
+    "run-6bdis92w": "REAL CODEX PILOT",
+    "run-425md2lv": "REAL CODEX PILOT",
+    "run-85e5s2l0": "REAL CODEX PILOT",
+    "run-ii3f_9t5": "REAL CODEX PILOT",
+    "run-jzk00hyz": "REAL CODEX PILOT"
+  },
+  "m6_prompt_parity": true,
+  "mock_validations": 88,
+  "eval_tasks": 12,
+  "manifest_sha256": "60eaba8c3e4fa2728fc8f3e0492cf6b36025d54dc74c0541d15f9d3843a9902a",
+  "formal": {
+    "state": "completed",
+    "planned": 72,
+    "executed": 72,
+    "scored": 72,
+    "candidate": "scopeguard-v01-f850fbfd20dd",
+    "tag": "scopeguard-freeze-scopeguard-v01-f850fbfd20dd",
+    "code_sha": "2b9614f9e302204285b3d8c04e3cae4f4f73a911",
+    "manifest_sha256": "60eaba8c3e4fa2728fc8f3e0492cf6b36025d54dc74c0541d15f9d3843a9902a"
+  }
+}

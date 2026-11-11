@@ -1,0 +1,8 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_started",
+    "slot_id": "stress-export-local-limit-r1-B1"
+  },
+  "previous": "4d698830191dc10a71f67239a378c45233941b99cb6bab0bbe6c943fac47ede2"
+}

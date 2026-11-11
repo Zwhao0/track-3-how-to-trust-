@@ -2,7 +2,7 @@
 
 > **交接日期：2026-11-11。** 面向项目负责人在新 ChatGPT 窗口的自主学习、真实试用、课堂演示和继续提出修改意见。**本文件不是“全部 P0/P1 已通过”的声明。**
 >
-> **最后优化任务：** [Issue #18](https://github.com/Zwhao0/track-3-how-to-trust-/issues/18)，覆盖正式结果、受控对照、中文 Dashboard、探索性压力测试、中文 PPT 和最后整合。**当前交接分支** `feat/project-finalization` 来源于 `feat/m7-dashboard` @ `3cfd85e`；本分支此时**尚未整合**正式 M6 结果分支，不要将旧 Dashboard 显示的 0/72 当成最新状态。
+> **最后优化任务：** [Issue #18](https://github.com/Zwhao0/track-3-how-to-trust-/issues/18)，覆盖正式结果、受控对照、中文 Dashboard、探索性压力测试、中文 PPT 和最后整合。当前交接分支 `feat/project-finalization` 已整合签名正式结果、中文 Dashboard、受控验证与 v0.2 探索归档。
 
 ## 1. 一句话：我们做了什么？
 
@@ -28,7 +28,7 @@
 - M6 v0.1 使用 12 个合成 Eval 实例、8 个 task family、三组、两次重复，共 **72 计划 / 72 执行 / 72 独立评分**。
 - B0：**24/24 Safe Completion**，B1：**24/24**，B2：**24/24**。**72 次中实际越界 0，越界尝试 0。**
 - B2 记录 **30 次 ALLOW、0 次 DENY、0 次策略要求的澄清 hold**。在没有违规尝试的样本中，**无法估计拦截率**，要显示 N/A，不能标成 0% 或 100%。
-- 24 个必要澄清（四个模糊任务 × 三组 × 两次）均被主动询问并获得预设回复；无多余询问。
+- 24 个必要澄清（四个模糊任务 × 三组 × 两次）均被主动询问并获得预设回复，B0、B1、B2 各 8/8，无多余询问。三组都有 `ask_user`，B2 会额外阻止澄清前的候选目标写入。
 - 平均整次运行时间：B0 **26.927s**、B1 **29.283s**、B2 **30.897s**。B2 对 B1 平均 **+1.614s**，描述性区间跨 0，既不能断言显著慢也不能断言更快。整次运行时间**不是 Guard 单独计算开销**。
 - 解释：**天花板效应**。TaskSpec 已公开准确文件范围，任务以小型配置/静态文本修改为主，高能力 Agent 自己就没有提出违规修改。**这证明本样本上 B0 表现良好，不能证实 B2 增量自然安全收益，也不能断言 B2 与 B1 等价。**
 
@@ -64,7 +64,7 @@ cat handoff.md
 python3 --version  # 需要 Python 3.11+
 ```
 
-**分支提醒：** `feat/project-finalization` 初始只含旧 M7 的离线 UI + 本 handoff。正式结果目前在单独 PR #17；必须完成 Issue #18 的整合才会出现在同一个 Dashboard。
+中文界面读取正式签名归档并校验固定指纹。启动和命令行复现见[中文快速开始](docs/QUICKSTART_CN.md)。
 
 ### Step 1 — 无需模型登录，查看已归档演示
 
@@ -73,7 +73,7 @@ PYTHONPATH=src python3 -m scopeguard demo verify
 PYTHONPATH=src python3 -m scopeguard demo serve
 ```
 
-浏览器打开 **http://127.0.0.1:8765/**；查看 Overview、M3 comparison、M4 clarification、M6 pilot、Benchmark、Formal。当前离线 UI 的 Formal 页**仍可能显示旧的 0/72**，这是**待整合的展示版本**，并不是最新正式数据。
+浏览器打开 **http://127.0.0.1:8765/**，依次查看「写入对照」「受控验证」「澄清回放」「正式结果」。正式页显示 72 计划、72 执行和 72 已评分。
 
 **推荐 2–3 分钟现场顺序：**
 
@@ -123,7 +123,7 @@ uv run --locked --offline scopeguard judge --run-dir <上面输出的run_dir> --
 | --- | --- |
 | `feat/m7-dashboard` @ `3cfd85e` | **英文** Dashboard、离线回放、截图和演示文档；不含新正式结果 |
 | `feat/m6-formal-results` @ `8a123c5` | 已完成 72 次正式签署结果、报告和归档；不含 M7 UI |
-| **`feat/project-finalization`** | 当前交接基线、此文件；尚待将 M6 正式结果历史保留地整合 |
+| **`feat/project-finalization`** | 中文工作台、受控验证和签名正式结果 |
 | 冻结执行 SHA `2b9614f` | 不能修改或重写原始结果的执行版本 |
 | GitHub 默认 `feat/m0-bootstrap` | 旧版本；不是可直接展示的最新项目 |
 
@@ -133,7 +133,9 @@ uv run --locked --offline scopeguard judge --run-dir <上面输出的run_dir> --
 - [Issue #16 中文化/专业 UI](https://github.com/Zwhao0/track-3-how-to-trust-/issues/16)
 - [Issue #15 全项目 P0/P1 验收](https://github.com/Zwhao0/track-3-how-to-trust-/issues/15)
 
-**未完成，不能标“项目正式 Done”：** M6 signed result 与 M7 合并、中文专业 Dashboard、中文可编辑 PPT/中文报告、用户现场试用和录屏、必要时独立 v0.2 探索性任务、可信 overhead 测量、CI 回归、canonical `main` 和开源许可决定。P0/P1 必须用真实产物验收，P2 可选择放弃。
+v0.2 探索执行并复评分 18/18，B0、B1、B2 各安全完成 6/6。写入提前和同文件字段误改的机制边界可在「受控验证」查看。[v0.2 结果](docs/evidence/stress-v0.2/README.md)
+
+当前两项交付的操作入口见[中文快速开始](docs/QUICKSTART_CN.md)与[课堂演示](docs/DEMO_CN.md)。中文可编辑 PPT、课堂录屏、canonical `main` 和开源许可仍待收尾。
 
 ## 7. 新窗口建议的第一句话
 

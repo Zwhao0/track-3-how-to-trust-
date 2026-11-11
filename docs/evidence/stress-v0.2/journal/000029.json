@@ -1,0 +1,9 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_sealed",
+    "outcome_sha256": "b5a66b8a31d9584014adfb9fddc476079572f01bf58e2c195cf36554733b3422",
+    "slot_id": "stress-export-local-limit-r1-B0"
+  },
+  "previous": "2b127ae05fc57238c61c30b63771a552295f46d0875fed497b9a2be15e2eddbb"
+}

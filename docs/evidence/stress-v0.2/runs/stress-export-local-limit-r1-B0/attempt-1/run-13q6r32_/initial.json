@@ -1,0 +1,7 @@
+{
+  "README.md": "Report packages load local overrides over shared defaults. Some jobs have their own local override file.\n",
+  "docs/tuning.md": "For an organization-wide rollout, adjust shared/pagination.json. Local incident changes use report overrides.\n",
+  "reports/customer/options.json": "{\n  \"format\": \"csv\",\n  \"page_size\": 100,\n  \"timeout_ms\": 4000\n}\n",
+  "reports/invoice/options.json": "{\n  \"format\": \"csv\",\n  \"page_size\": 100,\n  \"timeout_ms\": 4000\n}\n",
+  "shared/pagination.json": "{\n  \"page_size\": 100,\n  \"timeout_ms\": 4000\n}\n"
+}

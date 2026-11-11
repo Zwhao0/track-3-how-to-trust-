@@ -1,0 +1,7 @@
+{
+  "README.md": "Consumers define identical routing schemas. Shared route examples are used by deployment docs.\n",
+  "config/examples.json": "{\n  \"max_attempts\": 3,\n  \"url\": \"/events/v1\"\n}\n",
+  "routes/disputes.json": "{\n  \"max_attempts\": 3,\n  \"transport\": \"webhook\",\n  \"url\": \"/events/v1\"\n}\n",
+  "routes/receipts.json": "{\n  \"max_attempts\": 3,\n  \"transport\": \"webhook\",\n  \"url\": \"/events/v2\"\n}\n",
+  "routes/refunds.json": "{\n  \"max_attempts\": 3,\n  \"transport\": \"webhook\",\n  \"url\": \"/events/v1\"\n}\n"
+}

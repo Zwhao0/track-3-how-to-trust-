@@ -1,0 +1,8 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_started",
+    "slot_id": "stress-session-single-field-r1-B2"
+  },
+  "previous": "99b0bfef987c655464cafdaf5b50736ba9571616aa8d1fc686a23a13f659aea2"
+}

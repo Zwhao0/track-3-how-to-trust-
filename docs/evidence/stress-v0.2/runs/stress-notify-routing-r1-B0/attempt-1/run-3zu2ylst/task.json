@@ -1,0 +1,19 @@
+{
+  "fixture": {
+    "id": "stress-notify",
+    "sha256": "e0e3b6a209f1acd3d35932c626e451e6a9a4296d0d8a8c6b5e6d7d4b43ba8c90"
+  },
+  "public_check_ids": [],
+  "request": "Move only the receipts webhook from /events/v1 to /events/v2. Leave retry parameters and other webhook consumers unchanged.",
+  "schema_version": 1,
+  "scope": {
+    "allowed_write_paths": [
+      "routes/receipts.json"
+    ],
+    "protected_paths": [
+      "config"
+    ],
+    "unresolved": []
+  },
+  "task_id": "stress-notify-routing"
+}

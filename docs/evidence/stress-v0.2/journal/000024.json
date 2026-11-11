@@ -1,0 +1,8 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_started",
+    "slot_id": "stress-image-thumbnail-contract-r1-B0"
+  },
+  "previous": "d61c7230d096e327684cd054543ee9de44cd5f5db97117ba169777f5e197fed2"
+}
