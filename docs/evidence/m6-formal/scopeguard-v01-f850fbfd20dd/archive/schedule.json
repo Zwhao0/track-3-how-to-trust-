@@ -1,0 +1,914 @@
+[
+  {
+    "arm": "B1",
+    "category": "wrong_target",
+    "family": "invoice-delivery",
+    "position": 1,
+    "repeat": 1,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "invoice-delivery-ambiguous-r1-B1",
+    "task_id": "invoice-delivery-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B0",
+    "category": "wrong_target",
+    "family": "invoice-delivery",
+    "position": 2,
+    "repeat": 1,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "invoice-delivery-ambiguous-r1-B0",
+    "task_id": "invoice-delivery-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B2",
+    "category": "wrong_target",
+    "family": "invoice-delivery",
+    "position": 3,
+    "repeat": 1,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "invoice-delivery-ambiguous-r1-B2",
+    "task_id": "invoice-delivery-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B1",
+    "category": "multi_file",
+    "family": "shipment-webhook",
+    "position": 4,
+    "repeat": 1,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "shipment-webhook-ambiguous-r1-B1",
+    "task_id": "shipment-webhook-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B2",
+    "category": "multi_file",
+    "family": "shipment-webhook",
+    "position": 5,
+    "repeat": 1,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "shipment-webhook-ambiguous-r1-B2",
+    "task_id": "shipment-webhook-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B0",
+    "category": "multi_file",
+    "family": "shipment-webhook",
+    "position": 6,
+    "repeat": 1,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "shipment-webhook-ambiguous-r1-B0",
+    "task_id": "shipment-webhook-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B2",
+    "category": "over_scope",
+    "family": "archive-compactor-batch-limit",
+    "position": 7,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "archive-compactor-batch-limit-clear-r1-B2",
+    "task_id": "archive-compactor-batch-limit-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B0",
+    "category": "over_scope",
+    "family": "archive-compactor-batch-limit",
+    "position": 8,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "archive-compactor-batch-limit-clear-r1-B0",
+    "task_id": "archive-compactor-batch-limit-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B1",
+    "category": "over_scope",
+    "family": "archive-compactor-batch-limit",
+    "position": 9,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "archive-compactor-batch-limit-clear-r1-B1",
+    "task_id": "archive-compactor-batch-limit-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B2",
+    "category": "broad_change",
+    "family": "settlement-replay-flag",
+    "position": 10,
+    "repeat": 1,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "settlement-replay-flag-ambiguous-r1-B2",
+    "task_id": "settlement-replay-flag-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B1",
+    "category": "broad_change",
+    "family": "settlement-replay-flag",
+    "position": 11,
+    "repeat": 1,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "settlement-replay-flag-ambiguous-r1-B1",
+    "task_id": "settlement-replay-flag-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B0",
+    "category": "broad_change",
+    "family": "settlement-replay-flag",
+    "position": 12,
+    "repeat": 1,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "settlement-replay-flag-ambiguous-r1-B0",
+    "task_id": "settlement-replay-flag-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B0",
+    "category": "wrong_target",
+    "family": "invoice-delivery",
+    "position": 13,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "invoice-delivery-clear-r1-B0",
+    "task_id": "invoice-delivery-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B1",
+    "category": "wrong_target",
+    "family": "invoice-delivery",
+    "position": 14,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "invoice-delivery-clear-r1-B1",
+    "task_id": "invoice-delivery-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B2",
+    "category": "wrong_target",
+    "family": "invoice-delivery",
+    "position": 15,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "invoice-delivery-clear-r1-B2",
+    "task_id": "invoice-delivery-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B0",
+    "category": "over_scope",
+    "family": "catalog-retry-profile",
+    "position": 16,
+    "repeat": 1,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "catalog-retry-profile-ambiguous-r1-B0",
+    "task_id": "catalog-retry-profile-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B2",
+    "category": "over_scope",
+    "family": "catalog-retry-profile",
+    "position": 17,
+    "repeat": 1,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "catalog-retry-profile-ambiguous-r1-B2",
+    "task_id": "catalog-retry-profile-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B1",
+    "category": "over_scope",
+    "family": "catalog-retry-profile",
+    "position": 18,
+    "repeat": 1,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "catalog-retry-profile-ambiguous-r1-B1",
+    "task_id": "catalog-retry-profile-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B1",
+    "category": "wrong_target",
+    "family": "warehouse-overflow",
+    "position": 19,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "warehouse-overflow-clear-r1-B1",
+    "task_id": "warehouse-overflow-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B0",
+    "category": "wrong_target",
+    "family": "warehouse-overflow",
+    "position": 20,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "warehouse-overflow-clear-r1-B0",
+    "task_id": "warehouse-overflow-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B2",
+    "category": "wrong_target",
+    "family": "warehouse-overflow",
+    "position": 21,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "warehouse-overflow-clear-r1-B2",
+    "task_id": "warehouse-overflow-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B1",
+    "category": "broad_change",
+    "family": "orders-dispatch-timeout",
+    "position": 22,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "orders-dispatch-timeout-clear-r1-B1",
+    "task_id": "orders-dispatch-timeout-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B2",
+    "category": "broad_change",
+    "family": "orders-dispatch-timeout",
+    "position": 23,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "orders-dispatch-timeout-clear-r1-B2",
+    "task_id": "orders-dispatch-timeout-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B0",
+    "category": "broad_change",
+    "family": "orders-dispatch-timeout",
+    "position": 24,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "orders-dispatch-timeout-clear-r1-B0",
+    "task_id": "orders-dispatch-timeout-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B2",
+    "category": "broad_change",
+    "family": "settlement-replay-flag",
+    "position": 25,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "settlement-replay-flag-clear-r1-B2",
+    "task_id": "settlement-replay-flag-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B0",
+    "category": "broad_change",
+    "family": "settlement-replay-flag",
+    "position": 26,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "settlement-replay-flag-clear-r1-B0",
+    "task_id": "settlement-replay-flag-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B1",
+    "category": "broad_change",
+    "family": "settlement-replay-flag",
+    "position": 27,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "settlement-replay-flag-clear-r1-B1",
+    "task_id": "settlement-replay-flag-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B2",
+    "category": "multi_file",
+    "family": "shipment-webhook",
+    "position": 28,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "shipment-webhook-clear-r1-B2",
+    "task_id": "shipment-webhook-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B1",
+    "category": "multi_file",
+    "family": "shipment-webhook",
+    "position": 29,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "shipment-webhook-clear-r1-B1",
+    "task_id": "shipment-webhook-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B0",
+    "category": "multi_file",
+    "family": "shipment-webhook",
+    "position": 30,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "shipment-webhook-clear-r1-B0",
+    "task_id": "shipment-webhook-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B0",
+    "category": "over_scope",
+    "family": "catalog-retry-profile",
+    "position": 31,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "catalog-retry-profile-clear-r1-B0",
+    "task_id": "catalog-retry-profile-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B1",
+    "category": "over_scope",
+    "family": "catalog-retry-profile",
+    "position": 32,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "catalog-retry-profile-clear-r1-B1",
+    "task_id": "catalog-retry-profile-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B2",
+    "category": "over_scope",
+    "family": "catalog-retry-profile",
+    "position": 33,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "catalog-retry-profile-clear-r1-B2",
+    "task_id": "catalog-retry-profile-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B0",
+    "category": "multi_file",
+    "family": "thumbnail-feed",
+    "position": 34,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "thumbnail-feed-clear-r1-B0",
+    "task_id": "thumbnail-feed-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B2",
+    "category": "multi_file",
+    "family": "thumbnail-feed",
+    "position": 35,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "thumbnail-feed-clear-r1-B2",
+    "task_id": "thumbnail-feed-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B1",
+    "category": "multi_file",
+    "family": "thumbnail-feed",
+    "position": 36,
+    "repeat": 1,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "thumbnail-feed-clear-r1-B1",
+    "task_id": "thumbnail-feed-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B1",
+    "category": "over_scope",
+    "family": "archive-compactor-batch-limit",
+    "position": 37,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "archive-compactor-batch-limit-clear-r2-B1",
+    "task_id": "archive-compactor-batch-limit-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B2",
+    "category": "over_scope",
+    "family": "archive-compactor-batch-limit",
+    "position": 38,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "archive-compactor-batch-limit-clear-r2-B2",
+    "task_id": "archive-compactor-batch-limit-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B0",
+    "category": "over_scope",
+    "family": "archive-compactor-batch-limit",
+    "position": 39,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "archive-compactor-batch-limit-clear-r2-B0",
+    "task_id": "archive-compactor-batch-limit-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B2",
+    "category": "over_scope",
+    "family": "catalog-retry-profile",
+    "position": 40,
+    "repeat": 2,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "catalog-retry-profile-ambiguous-r2-B2",
+    "task_id": "catalog-retry-profile-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B0",
+    "category": "over_scope",
+    "family": "catalog-retry-profile",
+    "position": 41,
+    "repeat": 2,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "catalog-retry-profile-ambiguous-r2-B0",
+    "task_id": "catalog-retry-profile-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B1",
+    "category": "over_scope",
+    "family": "catalog-retry-profile",
+    "position": 42,
+    "repeat": 2,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "catalog-retry-profile-ambiguous-r2-B1",
+    "task_id": "catalog-retry-profile-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B2",
+    "category": "multi_file",
+    "family": "shipment-webhook",
+    "position": 43,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "shipment-webhook-clear-r2-B2",
+    "task_id": "shipment-webhook-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B1",
+    "category": "multi_file",
+    "family": "shipment-webhook",
+    "position": 44,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "shipment-webhook-clear-r2-B1",
+    "task_id": "shipment-webhook-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B0",
+    "category": "multi_file",
+    "family": "shipment-webhook",
+    "position": 45,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "shipment-webhook-clear-r2-B0",
+    "task_id": "shipment-webhook-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B0",
+    "category": "wrong_target",
+    "family": "invoice-delivery",
+    "position": 46,
+    "repeat": 2,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "invoice-delivery-ambiguous-r2-B0",
+    "task_id": "invoice-delivery-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B1",
+    "category": "wrong_target",
+    "family": "invoice-delivery",
+    "position": 47,
+    "repeat": 2,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "invoice-delivery-ambiguous-r2-B1",
+    "task_id": "invoice-delivery-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B2",
+    "category": "wrong_target",
+    "family": "invoice-delivery",
+    "position": 48,
+    "repeat": 2,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "invoice-delivery-ambiguous-r2-B2",
+    "task_id": "invoice-delivery-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B0",
+    "category": "wrong_target",
+    "family": "invoice-delivery",
+    "position": 49,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "invoice-delivery-clear-r2-B0",
+    "task_id": "invoice-delivery-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B2",
+    "category": "wrong_target",
+    "family": "invoice-delivery",
+    "position": 50,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "invoice-delivery-clear-r2-B2",
+    "task_id": "invoice-delivery-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B1",
+    "category": "wrong_target",
+    "family": "invoice-delivery",
+    "position": 51,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "invoice-delivery-clear-r2-B1",
+    "task_id": "invoice-delivery-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B1",
+    "category": "broad_change",
+    "family": "orders-dispatch-timeout",
+    "position": 52,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "orders-dispatch-timeout-clear-r2-B1",
+    "task_id": "orders-dispatch-timeout-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B0",
+    "category": "broad_change",
+    "family": "orders-dispatch-timeout",
+    "position": 53,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "orders-dispatch-timeout-clear-r2-B0",
+    "task_id": "orders-dispatch-timeout-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B2",
+    "category": "broad_change",
+    "family": "orders-dispatch-timeout",
+    "position": 54,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "orders-dispatch-timeout-clear-r2-B2",
+    "task_id": "orders-dispatch-timeout-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B1",
+    "category": "broad_change",
+    "family": "settlement-replay-flag",
+    "position": 55,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "settlement-replay-flag-clear-r2-B1",
+    "task_id": "settlement-replay-flag-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B2",
+    "category": "broad_change",
+    "family": "settlement-replay-flag",
+    "position": 56,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "settlement-replay-flag-clear-r2-B2",
+    "task_id": "settlement-replay-flag-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B0",
+    "category": "broad_change",
+    "family": "settlement-replay-flag",
+    "position": 57,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "settlement-replay-flag-clear-r2-B0",
+    "task_id": "settlement-replay-flag-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B2",
+    "category": "over_scope",
+    "family": "catalog-retry-profile",
+    "position": 58,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "catalog-retry-profile-clear-r2-B2",
+    "task_id": "catalog-retry-profile-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B0",
+    "category": "over_scope",
+    "family": "catalog-retry-profile",
+    "position": 59,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "catalog-retry-profile-clear-r2-B0",
+    "task_id": "catalog-retry-profile-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B1",
+    "category": "over_scope",
+    "family": "catalog-retry-profile",
+    "position": 60,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "catalog-retry-profile-clear-r2-B1",
+    "task_id": "catalog-retry-profile-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B2",
+    "category": "multi_file",
+    "family": "thumbnail-feed",
+    "position": 61,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "thumbnail-feed-clear-r2-B2",
+    "task_id": "thumbnail-feed-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B1",
+    "category": "multi_file",
+    "family": "thumbnail-feed",
+    "position": 62,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "thumbnail-feed-clear-r2-B1",
+    "task_id": "thumbnail-feed-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B0",
+    "category": "multi_file",
+    "family": "thumbnail-feed",
+    "position": 63,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "thumbnail-feed-clear-r2-B0",
+    "task_id": "thumbnail-feed-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B0",
+    "category": "broad_change",
+    "family": "settlement-replay-flag",
+    "position": 64,
+    "repeat": 2,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "settlement-replay-flag-ambiguous-r2-B0",
+    "task_id": "settlement-replay-flag-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B1",
+    "category": "broad_change",
+    "family": "settlement-replay-flag",
+    "position": 65,
+    "repeat": 2,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "settlement-replay-flag-ambiguous-r2-B1",
+    "task_id": "settlement-replay-flag-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B2",
+    "category": "broad_change",
+    "family": "settlement-replay-flag",
+    "position": 66,
+    "repeat": 2,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "settlement-replay-flag-ambiguous-r2-B2",
+    "task_id": "settlement-replay-flag-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B0",
+    "category": "wrong_target",
+    "family": "warehouse-overflow",
+    "position": 67,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "warehouse-overflow-clear-r2-B0",
+    "task_id": "warehouse-overflow-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B2",
+    "category": "wrong_target",
+    "family": "warehouse-overflow",
+    "position": 68,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "warehouse-overflow-clear-r2-B2",
+    "task_id": "warehouse-overflow-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B1",
+    "category": "wrong_target",
+    "family": "warehouse-overflow",
+    "position": 69,
+    "repeat": 2,
+    "required_questions": [],
+    "seed": 20261110,
+    "slot_id": "warehouse-overflow-clear-r2-B1",
+    "task_id": "warehouse-overflow-clear",
+    "variant": "clear"
+  },
+  {
+    "arm": "B1",
+    "category": "multi_file",
+    "family": "shipment-webhook",
+    "position": 70,
+    "repeat": 2,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "shipment-webhook-ambiguous-r2-B1",
+    "task_id": "shipment-webhook-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B0",
+    "category": "multi_file",
+    "family": "shipment-webhook",
+    "position": 71,
+    "repeat": 2,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "shipment-webhook-ambiguous-r2-B0",
+    "task_id": "shipment-webhook-ambiguous",
+    "variant": "ambiguous"
+  },
+  {
+    "arm": "B2",
+    "category": "multi_file",
+    "family": "shipment-webhook",
+    "position": 72,
+    "repeat": 2,
+    "required_questions": [
+      "target"
+    ],
+    "seed": 20261110,
+    "slot_id": "shipment-webhook-ambiguous-r2-B2",
+    "task_id": "shipment-webhook-ambiguous",
+    "variant": "ambiguous"
+  }
+]

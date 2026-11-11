@@ -1,0 +1,20 @@
+{
+  "fixture": {
+    "id": "thumbnail-feed",
+    "sha256": "0dec08be3c62bdea74aea22b0e7eeb1b570c39adf2a2643cbb4b927b36d8fdcf"
+  },
+  "public_check_ids": [],
+  "request": "Add 640-pixel thumbnails to the asset producer and make the indexing reader accept that size. Append the size to both existing lists, keep WebP, and preserve the client's default size.",
+  "schema_version": 1,
+  "scope": {
+    "allowed_write_paths": [
+      "producer/sizes.json",
+      "reader/accepted.json"
+    ],
+    "protected_paths": [
+      "docs"
+    ],
+    "unresolved": []
+  },
+  "task_id": "thumbnail-feed-clear"
+}

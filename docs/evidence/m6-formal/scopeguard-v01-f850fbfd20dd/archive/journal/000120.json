@@ -1,0 +1,8 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_started",
+    "slot_id": "catalog-retry-profile-clear-r2-B1"
+  },
+  "previous": "563d59e74c0f44b2ff2720f8ba1173ac5a2ea82003f4141bc5f26e094e03cf80"
+}

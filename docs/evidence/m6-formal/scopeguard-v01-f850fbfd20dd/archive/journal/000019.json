@@ -1,0 +1,9 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_sealed",
+    "outcome_sha256": "5272254d297dba55979b548c27a70ff1e639ad97758b94c38349714b560d578f",
+    "slot_id": "archive-compactor-batch-limit-clear-r1-B1"
+  },
+  "previous": "793718d05f75bc7e70cae9049e6f6d0b55f521fa9f913b67130e51cdad3abd3c"
+}

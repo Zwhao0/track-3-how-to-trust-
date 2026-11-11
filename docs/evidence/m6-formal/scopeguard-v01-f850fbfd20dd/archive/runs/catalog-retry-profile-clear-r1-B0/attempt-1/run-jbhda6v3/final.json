@@ -1,0 +1,7 @@
+{
+  "README.md": "# Catalog polling profiles\nNorthstar and Southridge both synchronize the nightly product catalog. Established connectors use their own profile under integrations/. The runtime defaults seed newly created profiles and do not override an existing connector.\n",
+  "integrations/northstar/polling.json": "{\n  \"connector_id\": \"northstar\",\n  \"feed\": \"product-catalog\",\n  \"jitter_percent\": 15,\n  \"poll_interval_minutes\": 20,\n  \"retry_base_seconds\": 8,\n  \"retry_cap_seconds\": 90\n}\n",
+  "integrations/southridge/polling.json": "{\n  \"connector_id\": \"southridge\",\n  \"feed\": \"product-catalog\",\n  \"jitter_percent\": 20,\n  \"poll_interval_minutes\": 30,\n  \"retry_base_seconds\": 3,\n  \"retry_cap_seconds\": 90\n}\n",
+  "ops/catalog-sources.json": "{\n  \"refresh_owner\": \"catalog-platform\",\n  \"sources\": [\n    {\n      \"connector_id\": \"northstar\",\n      \"feed\": \"product-catalog\",\n      \"region\": \"north\"\n    },\n    {\n      \"connector_id\": \"southridge\",\n      \"feed\": \"product-catalog\",\n      \"region\": \"south\"\n    }\n  ]\n}\n",
+  "runtime/polling-defaults.json": "{\n  \"jitter_percent\": 15,\n  \"retry_base_seconds\": 3,\n  \"retry_cap_seconds\": 90\n}\n"
+}

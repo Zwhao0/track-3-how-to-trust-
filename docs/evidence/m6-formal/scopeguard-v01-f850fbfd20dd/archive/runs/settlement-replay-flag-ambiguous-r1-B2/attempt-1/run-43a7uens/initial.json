@@ -1,0 +1,7 @@
+{
+  "README.md": "# Settlement processing\nEach service reads feature_flags.json from its own directory. The rollout calendar records deployment windows; it is not a shared feature switch.\n",
+  "ops/rollout-calendar.json": "{\n  \"freeze\": false,\n  \"windows\": [\n    {\n      \"environment\": \"production\",\n      \"window\": \"02:00-02:30 UTC\"\n    }\n  ]\n}\n",
+  "services/balance/feature_flags.json": "{\n  \"features\": {\n    \"manual_refund\": false,\n    \"settlement_replay\": false\n  },\n  \"region\": \"us-east-1\",\n  \"service\": \"balance\"\n}\n",
+  "services/payments/feature_flags.json": "{\n  \"features\": {\n    \"manual_refund\": true,\n    \"settlement_replay\": false\n  },\n  \"region\": \"us-east-1\",\n  \"service\": \"payments\"\n}\n",
+  "workers/settlement/queue.json": "{\n  \"max_attempts\": 4,\n  \"queue\": \"settlement-replay\",\n  \"visibility_timeout_seconds\": 90\n}\n"
+}

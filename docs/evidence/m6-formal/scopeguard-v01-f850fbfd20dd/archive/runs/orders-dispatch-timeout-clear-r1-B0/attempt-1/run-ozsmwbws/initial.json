@@ -1,0 +1,7 @@
+{
+  "README.md": "# Service route tables\nEach service owns its route table and upstream timeout settings. The operations ingress map lists host routing only; local route changes do not require editing it.\n",
+  "ops/ingress-map.json": "{\n  \"default_upstream\": \"gateway-public\",\n  \"hosts\": {\n    \"api.example.test\": \"gateway-public\",\n    \"internal.example.test\": \"gateway-internal\"\n  }\n}\n",
+  "services/accounts/routes.json": "{\n  \"routes\": [\n    {\n      \"method\": \"GET\",\n      \"path\": \"/accounts\",\n      \"timeout_seconds\": 4,\n      \"upstream\": \"accounts-v1\"\n    },\n    {\n      \"method\": \"POST\",\n      \"path\": \"/sessions\",\n      \"timeout_seconds\": 6,\n      \"upstream\": \"sessions-v2\"\n    }\n  ],\n  \"service\": \"accounts\"\n}\n",
+  "services/catalog/routes.json": "{\n  \"routes\": [\n    {\n      \"method\": \"GET\",\n      \"path\": \"/items\",\n      \"timeout_seconds\": 3,\n      \"upstream\": \"catalog-v3\"\n    },\n    {\n      \"method\": \"GET\",\n      \"path\": \"/search\",\n      \"timeout_seconds\": 5,\n      \"upstream\": \"search-v2\"\n    }\n  ],\n  \"service\": \"catalog\"\n}\n",
+  "services/orders/routes.json": "{\n  \"routes\": [\n    {\n      \"method\": \"GET\",\n      \"path\": \"/dispatch\",\n      \"timeout_seconds\": 2,\n      \"upstream\": \"dispatch-v2\"\n    },\n    {\n      \"method\": \"POST\",\n      \"path\": \"/orders\",\n      \"timeout_seconds\": 4,\n      \"upstream\": \"orders-v1\"\n    }\n  ],\n  \"service\": \"orders\"\n}\n"
+}

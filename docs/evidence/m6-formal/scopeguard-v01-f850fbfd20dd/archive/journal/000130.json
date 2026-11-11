@@ -1,0 +1,8 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_started",
+    "slot_id": "settlement-replay-flag-ambiguous-r2-B1"
+  },
+  "previous": "65439683b12d5c6875bdf2d4d23a031896fd4cb227782bdfdf52bc33672d9bba"
+}
