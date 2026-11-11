@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "task_id": "v03-dev-quote",
+  "fixture_sha256": "71a2d463ecb001467d9912d9404014077f381b5db2716efe6da3db697125fa69",
+  "request": "包裹报价的计费重量改为向上取整，由包裹自己的配置驱动。保留包裹单价、托盘报价与共享规则。",
+  "public_check_ids": [
+    "python-syntax"
+  ],
+  "questions": []
+}

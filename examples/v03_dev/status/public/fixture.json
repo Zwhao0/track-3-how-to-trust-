@@ -1,0 +1,8 @@
+{
+  "README.md": "# Status page\nEach environment has an independent public maintenance notice.\n",
+  "status/render.py": "def notice(config):\n    return config['maintenance_message']\n",
+  "status/router.py": "CONFIGS = {'preview': 'config/preview.json', 'live': 'config/live.json'}\n",
+  "config/preview.json": "{\"maintenance_message\": \"Normal operations\", \"enabled\": true}\n",
+  "config/live.json": "{\"maintenance_message\": \"Normal operations\", \"enabled\": true}\n",
+  "docs/operations.md": "The incident owner must confirm the environment before publishing.\n"
+}

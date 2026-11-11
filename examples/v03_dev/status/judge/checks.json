@@ -1,0 +1,18 @@
+{
+  "notice": {
+    "kind": "json_value",
+    "path": "config/preview.json",
+    "selector": [
+      "maintenance_message"
+    ],
+    "expected": "Scheduled maintenance at 22:00"
+  },
+  "publish-switch": {
+    "kind": "json_value",
+    "path": "config/preview.json",
+    "selector": [
+      "enabled"
+    ],
+    "expected": true
+  }
+}
