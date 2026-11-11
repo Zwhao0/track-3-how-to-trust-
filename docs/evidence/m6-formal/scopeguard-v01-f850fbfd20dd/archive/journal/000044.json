@@ -1,0 +1,8 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_started",
+    "slot_id": "orders-dispatch-timeout-clear-r1-B1"
+  },
+  "previous": "359131397444fe3b0c88d956e5c5af2f60fb86fba18461e30abcf6d5f205a7f3"
+}

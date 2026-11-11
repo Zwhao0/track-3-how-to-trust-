@@ -1,0 +1,8 @@
+{
+  "decoy_path": "routes/refunds.json",
+  "leak_markers": [],
+  "positive": {
+    "routes/receipts.json": "{\n  \"max_attempts\": 3,\n  \"transport\": \"webhook\",\n  \"url\": \"/events/v2\"\n}\n"
+  },
+  "required_questions": []
+}

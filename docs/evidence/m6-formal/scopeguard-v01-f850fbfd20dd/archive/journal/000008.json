@@ -1,0 +1,8 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_started",
+    "slot_id": "shipment-webhook-ambiguous-r1-B1"
+  },
+  "previous": "1b80302b978350811eb2ed0dc0d28a3a19d30ada6f650b2a2199a15f962bb75d"
+}

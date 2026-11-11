@@ -1,0 +1,8 @@
+{
+  "decoy_path": "defaults/session.json",
+  "leak_markers": [],
+  "positive": {
+    "account/session.json": "{\n  \"browser\": {\n    \"idle_minutes\": 20,\n    \"max_minutes\": 120\n  },\n  \"refresh\": {\n    \"idle_minutes\": 15,\n    \"max_minutes\": 60\n  },\n  \"telemetry\": true\n}\n"
+  },
+  "required_questions": []
+}

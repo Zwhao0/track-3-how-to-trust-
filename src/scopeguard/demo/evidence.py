@@ -1,5 +1,7 @@
 """Verify a finite archive catalog and project it into public replay views."""
 
+from collections import Counter
+from csv import DictReader
 from dataclasses import dataclass
 from difflib import unified_diff
 from hashlib import sha256
@@ -13,6 +15,15 @@ ROOT = Path(__file__).resolve().parents[3]
 LOCK = "src/scopeguard/demo/archive-lock.json"
 MANIFEST = "benchmarks/manifest.v0.1.json"
 PACKET = "docs/evidence/m6/freeze-packet"
+FORMAL_BUNDLE = "docs/evidence/m6-formal/scopeguard-v01-f850fbfd20dd"
+FORMAL_COMMIT = "8a123c50e47eccc999dec08230752a73564f3edf"
+FORMAL_FILES = (
+    "approval.json", "signed-tag.txt", "archive-index.json", "independent-rescore.json",
+    "public-export-verification.json", "summary/aggregate.json", "summary/task-level.csv",
+    "summary/paired-comparisons.csv",
+)
+STRESS_RESULTS = "docs/evidence/stress-v0.2/summary"
+CONTROLS = "docs/evidence/finalization/controls.json"
 ARCHIVE_LIMIT = 1024 * 1024
 COMMITS = {
     "m3": "7369baa062bac204cead5a027dea730f09d64e8d",
@@ -261,6 +272,42 @@ def _run(reader: Reader, spec: Spec) -> Run:
                sha256(files["trace.jsonl"]).hexdigest(), prompt_hash, start["fixture_sha256"], start["model"])
 
 
+def _formal(reader: Reader, candidate: dict, schedule: list) -> tuple[dict, dict]:
+    # These fixed files were verified with verify-export.py at the signed evidence commit.
+    files = {name: reader.public(f"{FORMAL_BUNDLE}/{name}") for name in FORMAL_FILES}
+    approval = decode(files["approval.json"])
+    index = decode(files["archive-index.json"])
+    report = decode(files["summary/aggregate.json"])
+    verification = decode(files["public-export-verification.json"])
+    verified_scores = decode(files["independent-rescore.json"])["verified"]
+    slots = list(DictReader(files["summary/task-level.csv"].decode().splitlines()))
+    pairs = list(DictReader(files["summary/paired-comparisons.csv"].decode().splitlines()))
+    if (
+        approval["status"] != "owner_approved"
+        or any(approval[key] != candidate[key] for key in (
+            "batch_id", "tag", "code_sha", "config_sha256", "schedule_sha256", "manifest_sha256",
+        ))
+        or f"scopeguard-freeze-sha256 {sha256(files['approval.json']).hexdigest()}".encode()
+        not in files["signed-tag.txt"]
+        or verification["status"] != "verified"
+        or verification["executed_slots"] != index["executed_slots"]
+        or verification["recomputed_export_scores"] != len(verified_scores)
+        or len(slots) != len(schedule) or len(slots) != report["planned_slots"]
+        or len(slots) != index["planned_slots"]
+        or [row["slot_id"] for row in slots] != [row["slot_id"] for row in schedule]
+        or Counter(row["pair"] for row in pairs)
+        != {row["pair"]: row["planned_pair_count"] for row in report["paired_summary"]}
+    ):
+        raise EvidenceError("正式实验归档校验失败")
+    return ({
+        "state": "completed" if not index["remaining"] else "partial",
+        "planned": index["planned_slots"], "executed": index["executed_slots"],
+        "scored": index["scored_slots"], "candidate": approval["batch_id"],
+        "tag": approval["tag"], "code_sha": approval["code_sha"],
+        "manifest_sha256": approval["manifest_sha256"],
+    }, report)
+
+
 @dataclass(frozen=True)
 class Catalog:
     runs: dict[str, Run]
@@ -268,6 +315,9 @@ class Catalog:
     manifest_hash: str
     formal: dict
     ci: dict
+    formal_report: dict
+    controls: dict
+    stress: dict | None
     mock_cases: int
     prompt_parity: bool
 
@@ -337,10 +387,19 @@ def load_catalog(root: Path = ROOT) -> Catalog:
         ):
             raise EvidenceError("Freeze review sources do not agree")
         cases = sum(case["ok"] for task in validation["tasks"].values() for case in task["cases"].values())
-        # This checkout displays a reviewed snapshot. Formal data needs a separately reviewed import.
-        formal = {"state": preflight["status"], "planned": len(schedule), "executed": 0,
-                  "candidate": candidate["batch_id"], "manifest_status": manifest["status"]}
-        return Catalog(runs, tuple(roster), manifest_hash, formal, ci, cases, True)
+        formal, formal_report = _formal(reader, candidate, schedule)
+        controls = decode(reader.public(CONTROLS))
+        if controls["source"] != "controlled_mock":
+            raise EvidenceError("受控脚本来源校验失败")
+        stress = None
+        if f"{STRESS_RESULTS}/observation.json" in reader.hashes:
+            observation = reader.json(f"{STRESS_RESULTS}/observation.json")
+            aggregate = reader.data(f"{STRESS_RESULTS}/aggregate.json")
+            if sha256(aggregate).hexdigest() != observation["analysis_sha256"]:
+                raise EvidenceError("探索实验汇总校验失败")
+            stress = {"observation": observation, "aggregate": decode(aggregate)}
+        return Catalog(runs, tuple(roster), manifest_hash, formal, ci, formal_report,
+                       controls["cases"], stress, cases, True)
     except EvidenceError:
         raise
     except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError) as error:

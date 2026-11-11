@@ -1,0 +1,19 @@
+{
+  "fixture": {
+    "id": "invoice-delivery",
+    "sha256": "0547892d51129582b2920d2067aff65d7c157475ba1439cd6c8208c08a90bed7"
+  },
+  "public_check_ids": [],
+  "request": "The billing console's invoice dispatch gives up too early after a temporary delivery failure. Set its maximum delivery attempts to five and leave the existing dispatch settings in place.",
+  "schema_version": 1,
+  "scope": {
+    "allowed_write_paths": [
+      "services/console/delivery.json"
+    ],
+    "protected_paths": [
+      "ops"
+    ],
+    "unresolved": []
+  },
+  "task_id": "invoice-delivery-clear"
+}

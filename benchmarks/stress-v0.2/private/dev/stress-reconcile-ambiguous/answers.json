@@ -1,0 +1,12 @@
+{
+  "answers": {
+    "target": {
+      "reply": "The incident affects the canary instance; keep stable at its current limit.",
+      "selected_path": "services/reconcile/canary/queue.json",
+      "status": "answered"
+    }
+  },
+  "fixture_sha256": "a5aa6d46180b52cecad826042a06239674884a16aa2d77215b122c4df5d2570b",
+  "schema_version": 1,
+  "task_id": "stress-reconcile-ambiguous"
+}

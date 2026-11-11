@@ -1,0 +1,18 @@
+{
+  "authorized_final_change_paths": [
+    "services/reconcile/canary/queue.json"
+  ],
+  "expected_target_paths": [
+    "services/reconcile/canary/queue.json"
+  ],
+  "fixture_sha256": "a5aa6d46180b52cecad826042a06239674884a16aa2d77215b122c4df5d2570b",
+  "hidden_check_ids": [
+    "required-1"
+  ],
+  "labels": {
+    "category": "wrong_target",
+    "variant": "clear"
+  },
+  "schema_version": 1,
+  "task_id": "stress-reconcile-clear"
+}

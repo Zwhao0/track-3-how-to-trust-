@@ -1,0 +1,33 @@
+{
+  "browser": "157.0.8103.40",
+  "viewports": [
+    [
+      1440,
+      900
+    ],
+    [
+      1920,
+      1080
+    ],
+    [
+      1280,
+      720
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "routes": [
+    "/",
+    "/comparison",
+    "/controls",
+    "/clarification?step=8",
+    "/formal",
+    "/pilot",
+    "/benchmark",
+    "/stress"
+  ],
+  "external_requests": 0,
+  "errors": []
+}

@@ -1,0 +1,28 @@
+{
+  "required-1": {
+    "expected": {
+      "codec": "avif",
+      "sizes": [
+        48,
+        96,
+        192
+      ]
+    },
+    "kind": "json_value",
+    "path": "image/generator.json",
+    "selector": []
+  },
+  "required-2": {
+    "expected": {
+      "mime": "image/avif",
+      "sizes": [
+        48,
+        96,
+        192
+      ]
+    },
+    "kind": "json_value",
+    "path": "renderer/public/accepted.json",
+    "selector": []
+  }
+}

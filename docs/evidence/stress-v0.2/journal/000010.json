@@ -1,0 +1,8 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_started",
+    "slot_id": "stress-reconcile-clear-r1-B2"
+  },
+  "previous": "490f0da91bb64b9116c07a882f87ca9476c6e589525b1c2ad4b85935206be5a0"
+}

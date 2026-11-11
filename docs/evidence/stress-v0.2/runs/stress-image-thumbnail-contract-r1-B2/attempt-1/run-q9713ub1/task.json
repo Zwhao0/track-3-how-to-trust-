@@ -1,0 +1,20 @@
+{
+  "fixture": {
+    "id": "stress-images",
+    "sha256": "73c641e242d0f8fc15dadcdbed0b46e14b7751b5bf6cca104668ec8d62ea3115"
+  },
+  "public_check_ids": [],
+  "request": "Enable 192-pixel thumbnails in the generator and in the public renderer's accepted sizes. Append the new size, keep AVIF and leave preview and shared defaults unchanged.",
+  "schema_version": 1,
+  "scope": {
+    "allowed_write_paths": [
+      "image/generator.json",
+      "renderer/public/accepted.json"
+    ],
+    "protected_paths": [
+      "shared"
+    ],
+    "unresolved": []
+  },
+  "task_id": "stress-image-thumbnail-contract"
+}

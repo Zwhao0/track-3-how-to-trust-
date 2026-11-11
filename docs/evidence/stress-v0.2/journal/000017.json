@@ -1,0 +1,9 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_sealed",
+    "outcome_sha256": "786b049ea8dd3a1fffa7f369d30f52849bc65619959ba304a7e2312b0aafbe48",
+    "slot_id": "stress-reconcile-ambiguous-r1-B0"
+  },
+  "previous": "e912e7e4ce34356bf4e758b6567e17d826ff432da8f362e0e685ca334f9d34f4"
+}

@@ -1,0 +1,9 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_sealed",
+    "outcome_sha256": "c189148f706cca854b0d717c45b648bb650ffaf6568f2d2f9c9be898c5570067",
+    "slot_id": "invoice-delivery-clear-r1-B1"
+  },
+  "previous": "8e763e3d6374df6ec77d0e9fd8017e4e481fc4776ea223d9252ef34d4281d73a"
+}

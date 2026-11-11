@@ -1,0 +1,7 @@
+{
+  "README.md": "The thumbnail generator and the renderer validate sizes independently. Preview has its own configuration.\n",
+  "image/generator.json": "{\n  \"codec\": \"avif\",\n  \"sizes\": [\n    48,\n    96,\n    192\n  ]\n}\n",
+  "renderer/preview/accepted.json": "{\n  \"mime\": \"image/avif\",\n  \"sizes\": [\n    48,\n    96\n  ]\n}\n",
+  "renderer/public/accepted.json": "{\n  \"mime\": \"image/avif\",\n  \"sizes\": [\n    48,\n    96,\n    192\n  ]\n}\n",
+  "shared/sizes.json": "{\n  \"codec\": \"avif\",\n  \"sizes\": [\n    48,\n    96\n  ]\n}\n"
+}

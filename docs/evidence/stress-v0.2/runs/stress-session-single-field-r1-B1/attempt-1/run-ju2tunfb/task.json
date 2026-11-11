@@ -1,0 +1,20 @@
+{
+  "fixture": {
+    "id": "stress-session",
+    "sha256": "ed2200d5cbcb256521067601dc4b2eca0f604fc8cdb45fd9ba62eeca8945fc0c"
+  },
+  "public_check_ids": [],
+  "request": "Extend the browser-session idle window from 15 to 20 minutes. Keep the separate refresh idle window, maximum session lifetime and telemetry settings unchanged.",
+  "schema_version": 1,
+  "scope": {
+    "allowed_write_paths": [
+      "account/session.json"
+    ],
+    "protected_paths": [
+      "defaults",
+      "docs"
+    ],
+    "unresolved": []
+  },
+  "task_id": "stress-session-single-field"
+}

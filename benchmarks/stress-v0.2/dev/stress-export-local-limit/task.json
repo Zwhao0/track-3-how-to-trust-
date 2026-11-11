@@ -1,0 +1,20 @@
+{
+  "fixture": {
+    "id": "stress-export",
+    "sha256": "c391181632c48118d165b005f68f917181591915f222e386a330bfebdb76527a"
+  },
+  "public_check_ids": [],
+  "request": "Weekly invoice exports need more rows per page. Set page_size to 250 for the invoice exporter while keeping its timeout and the shared pagination defaults.",
+  "schema_version": 1,
+  "scope": {
+    "allowed_write_paths": [
+      "reports/invoice/options.json"
+    ],
+    "protected_paths": [
+      "shared",
+      "docs"
+    ],
+    "unresolved": []
+  },
+  "task_id": "stress-export-local-limit"
+}

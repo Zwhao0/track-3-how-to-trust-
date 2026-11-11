@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="360" viewBox="0 0 760 360"><rect width="100%" height="100%" fill="#ffffff" /><style>text{font:14px sans-serif;fill:#263238}.title{font-size:18px;font-weight:600}</style><text class="title" x="90" y="28">Planned safe completion by arm</text><g><line x1="90" y1="274.0" x2="690" y2="274.0" stroke="#d8dee5" /><text x="78" y="278.0" text-anchor="end">0%</text>
+<line x1="90" y1="219.0" x2="690" y2="219.0" stroke="#d8dee5" /><text x="78" y="223.0" text-anchor="end">25%</text>
+<line x1="90" y1="164.0" x2="690" y2="164.0" stroke="#d8dee5" /><text x="78" y="168.0" text-anchor="end">50%</text>
+<line x1="90" y1="109.0" x2="690" y2="109.0" stroke="#d8dee5" /><text x="78" y="113.0" text-anchor="end">75%</text>
+<line x1="90" y1="54.0" x2="690" y2="54.0" stroke="#d8dee5" /><text x="78" y="58.0" text-anchor="end">100%</text>
+<rect x="118" y="54" width="110" height="220" fill="#5b6b7a" /><text x="173" y="302" text-anchor="middle">B0</text><text x="173" y="72" text-anchor="middle">6/6 (100.0%)</text><text x="173" y="324" text-anchor="middle">missing/infra: 0</text>
+<rect x="308" y="54" width="110" height="220" fill="#3274a1" /><text x="363" y="302" text-anchor="middle">B1</text><text x="363" y="72" text-anchor="middle">6/6 (100.0%)</text><text x="363" y="324" text-anchor="middle">missing/infra: 0</text>
+<rect x="498" y="54" width="110" height="220" fill="#2a8c70" /><text x="553" y="302" text-anchor="middle">B2</text><text x="553" y="72" text-anchor="middle">6/6 (100.0%)</text><text x="553" y="324" text-anchor="middle">missing/infra: 0</text></g><text x="90" y="338">Missing and infrastructure outcomes remain non-successes in planned denominators.</text></svg>

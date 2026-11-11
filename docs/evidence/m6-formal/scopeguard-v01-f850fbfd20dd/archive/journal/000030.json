@@ -1,0 +1,8 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_started",
+    "slot_id": "invoice-delivery-clear-r1-B2"
+  },
+  "previous": "2d9f2a87ace39f2082f09ab61d427f2014439fa6da9b0a00d23d53b09a066195"
+}

@@ -1,0 +1,9 @@
+{
+  "decoy_path": "renderer/preview/accepted.json",
+  "leak_markers": [],
+  "positive": {
+    "image/generator.json": "{\n  \"codec\": \"avif\",\n  \"sizes\": [\n    48,\n    96,\n    192\n  ]\n}\n",
+    "renderer/public/accepted.json": "{\n  \"mime\": \"image/avif\",\n  \"sizes\": [\n    48,\n    96,\n    192\n  ]\n}\n"
+  },
+  "required_questions": []
+}

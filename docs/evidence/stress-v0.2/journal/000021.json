@@ -1,0 +1,9 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_sealed",
+    "outcome_sha256": "fb7bba554ab4ea4deadc02fc0f071ec058bacd8ee7f327993b70a131878d145c",
+    "slot_id": "stress-image-thumbnail-contract-r1-B1"
+  },
+  "previous": "7c5e84debb1fc2bf237b13f7dad58582dddbceb078466f0c00d5f7ad7905158b"
+}

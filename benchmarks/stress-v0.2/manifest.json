@@ -1,0 +1,210 @@
+{
+  "benchmark": "scopeguard-stress-v0-2",
+  "schema_version": 1,
+  "split_seed": 20261111,
+  "status": "review_candidate",
+  "tasks": [
+    {
+      "category": "wrong_target",
+      "family": "stress-reconcile",
+      "files": {
+        "answers": {
+          "path": "private/dev/stress-reconcile-ambiguous/answers.json",
+          "sha256": "dae9a686c87c821f3eb7617c9100ae6a3197b0677b28337f0de788a2d414d7ad"
+        },
+        "card": {
+          "path": "private/dev/stress-reconcile-ambiguous/CARD.md",
+          "sha256": "ffae43b3823fcf89518055392e6f7c495b91a99f63fe6a30e51e24acc063dc35"
+        },
+        "checks": {
+          "path": "private/dev/stress-reconcile-ambiguous/checks.json",
+          "sha256": "7eb7d26d746dc59823f21a36f14123b3832291033f2a53a0420f1fd5c99afd23"
+        },
+        "controls": {
+          "path": "private/dev/stress-reconcile-ambiguous/controls.json",
+          "sha256": "1e60a4b1788dcb7b45fefc2e6891d25f39b583c2f68aaa0484c10c64c11a019f"
+        },
+        "fixture": {
+          "path": "dev/stress-reconcile-ambiguous/fixture.json",
+          "sha256": "a5aa6d46180b52cecad826042a06239674884a16aa2d77215b122c4df5d2570b"
+        },
+        "oracle": {
+          "path": "private/dev/stress-reconcile-ambiguous/oracle.json",
+          "sha256": "9e9d7140e8882e7ce53cb2e1c39318ebe4aa8c34ccba76ad7121b69876b11195"
+        },
+        "task": {
+          "path": "dev/stress-reconcile-ambiguous/task.json",
+          "sha256": "cd113727b1248d50837432e2ea625e1bc1d16160717828353e78cbab79df6e2f"
+        }
+      },
+      "split": "dev",
+      "task_id": "stress-reconcile-ambiguous",
+      "variant": "ambiguous"
+    },
+    {
+      "category": "wrong_target",
+      "family": "stress-reconcile",
+      "files": {
+        "card": {
+          "path": "private/dev/stress-reconcile-clear/CARD.md",
+          "sha256": "3229bc73530344ff64c9fcd65693696e17c6cda54c0246f7d45a27fbb2775bf0"
+        },
+        "checks": {
+          "path": "private/dev/stress-reconcile-clear/checks.json",
+          "sha256": "7eb7d26d746dc59823f21a36f14123b3832291033f2a53a0420f1fd5c99afd23"
+        },
+        "controls": {
+          "path": "private/dev/stress-reconcile-clear/controls.json",
+          "sha256": "ddd4f78bcb9eb1b2cd651c40a7c25f3a4d6243fd93833f8698bf6f41147a3ada"
+        },
+        "fixture": {
+          "path": "dev/stress-reconcile-clear/fixture.json",
+          "sha256": "a5aa6d46180b52cecad826042a06239674884a16aa2d77215b122c4df5d2570b"
+        },
+        "oracle": {
+          "path": "private/dev/stress-reconcile-clear/oracle.json",
+          "sha256": "48999feaae8bcc5ceb6f0882d4fe525602304412ed92da54272b71ff85e128ac"
+        },
+        "task": {
+          "path": "dev/stress-reconcile-clear/task.json",
+          "sha256": "2b534b36c0b3a0f37cc73ca621a85b6f2d99744c7a9f02aac57399a6d75f6a1b"
+        }
+      },
+      "split": "dev",
+      "task_id": "stress-reconcile-clear",
+      "variant": "clear"
+    },
+    {
+      "category": "over_scope",
+      "family": "stress-export",
+      "files": {
+        "card": {
+          "path": "private/dev/stress-export-local-limit/CARD.md",
+          "sha256": "bafa29fbbfad7906ebe74e7987849840fe75d4e7e1cf58cb1b0099dfb69b028e"
+        },
+        "checks": {
+          "path": "private/dev/stress-export-local-limit/checks.json",
+          "sha256": "af4abfb3fd36cad42caf23c285339ee141bf41ef7e1adda60115e95ccd0e1273"
+        },
+        "controls": {
+          "path": "private/dev/stress-export-local-limit/controls.json",
+          "sha256": "9a072d2dfbf712f4bc18439f06c115a5007bfc61f17b11ab742fd3b1d112a609"
+        },
+        "fixture": {
+          "path": "dev/stress-export-local-limit/fixture.json",
+          "sha256": "c391181632c48118d165b005f68f917181591915f222e386a330bfebdb76527a"
+        },
+        "oracle": {
+          "path": "private/dev/stress-export-local-limit/oracle.json",
+          "sha256": "b7fc401d7e1ba4cf316dab94bda590434d5a882f4094eff8eefff87ffc478997"
+        },
+        "task": {
+          "path": "dev/stress-export-local-limit/task.json",
+          "sha256": "4b61d0097355e5d664f58283284a9fade9e1c16fbaae59134ece310189a73748"
+        }
+      },
+      "split": "dev",
+      "task_id": "stress-export-local-limit",
+      "variant": "clear"
+    },
+    {
+      "category": "broad_change",
+      "family": "stress-notify",
+      "files": {
+        "card": {
+          "path": "private/dev/stress-notify-routing/CARD.md",
+          "sha256": "bafa2902e9cb7681fbe85caf00e6444bd9e24f9a8da1769b72f520a20b7ae2d3"
+        },
+        "checks": {
+          "path": "private/dev/stress-notify-routing/checks.json",
+          "sha256": "d9c0efc2e3872c0e4232055d9c9baa8216fd276c5d33fbf535e053d24f1ef19a"
+        },
+        "controls": {
+          "path": "private/dev/stress-notify-routing/controls.json",
+          "sha256": "4a46d0105752a2b42149410a7195c3eb85ad63b4276962fc83e380e81778e2aa"
+        },
+        "fixture": {
+          "path": "dev/stress-notify-routing/fixture.json",
+          "sha256": "e0e3b6a209f1acd3d35932c626e451e6a9a4296d0d8a8c6b5e6d7d4b43ba8c90"
+        },
+        "oracle": {
+          "path": "private/dev/stress-notify-routing/oracle.json",
+          "sha256": "97c313dc2aa1f76a4b73793d732bb20756c99b943395db73a25fe28a9e15f462"
+        },
+        "task": {
+          "path": "dev/stress-notify-routing/task.json",
+          "sha256": "a3e035f0e369ad86152d6a610880a7b462607ebc370d8cd643db9db4717805a8"
+        }
+      },
+      "split": "dev",
+      "task_id": "stress-notify-routing",
+      "variant": "clear"
+    },
+    {
+      "category": "multi_file",
+      "family": "stress-images",
+      "files": {
+        "card": {
+          "path": "private/dev/stress-image-thumbnail-contract/CARD.md",
+          "sha256": "510dea7c038074a5d8435678c83d71019d50c9e0fe0bfcbcfb936471ff76de3e"
+        },
+        "checks": {
+          "path": "private/dev/stress-image-thumbnail-contract/checks.json",
+          "sha256": "544541005beaca1af13e08b950297ee043af85b50117487ab5c79d275b4aa8e5"
+        },
+        "controls": {
+          "path": "private/dev/stress-image-thumbnail-contract/controls.json",
+          "sha256": "1189d78499cddc42c269edee7e7c596c10d15352606e4641fca312985c680d2b"
+        },
+        "fixture": {
+          "path": "dev/stress-image-thumbnail-contract/fixture.json",
+          "sha256": "73c641e242d0f8fc15dadcdbed0b46e14b7751b5bf6cca104668ec8d62ea3115"
+        },
+        "oracle": {
+          "path": "private/dev/stress-image-thumbnail-contract/oracle.json",
+          "sha256": "e9275dc94a9c36f6e419ae7d65a2904f15a3489788773bafa1c5546ca7b4d919"
+        },
+        "task": {
+          "path": "dev/stress-image-thumbnail-contract/task.json",
+          "sha256": "8f6b497c2652fb4367942c807e409188407c5c288b1848f6d635cd394b4878b5"
+        }
+      },
+      "split": "dev",
+      "task_id": "stress-image-thumbnail-contract",
+      "variant": "clear"
+    },
+    {
+      "category": "over_scope",
+      "family": "stress-session",
+      "files": {
+        "card": {
+          "path": "private/dev/stress-session-single-field/CARD.md",
+          "sha256": "f464ddbdb6c4daadbdebdf8a4ea0123dcb2a4b9a2116d9c2e579a20044deeaa9"
+        },
+        "checks": {
+          "path": "private/dev/stress-session-single-field/checks.json",
+          "sha256": "cd78d68d0d5b4d96544569a9bbb5f849c5d538044f0d64665f90d0f8656ccb70"
+        },
+        "controls": {
+          "path": "private/dev/stress-session-single-field/controls.json",
+          "sha256": "e0de7150f2a9aa0b41d3129d764a47389169b355fcb978a34f20981c5d340627"
+        },
+        "fixture": {
+          "path": "dev/stress-session-single-field/fixture.json",
+          "sha256": "ed2200d5cbcb256521067601dc4b2eca0f604fc8cdb45fd9ba62eeca8945fc0c"
+        },
+        "oracle": {
+          "path": "private/dev/stress-session-single-field/oracle.json",
+          "sha256": "6e0f50fd59e75ff62c99ba1b8d2250a88e7bda807ea2398350f2fe24a0d7ab03"
+        },
+        "task": {
+          "path": "dev/stress-session-single-field/task.json",
+          "sha256": "d474d838d658f5adef00a7984e3979512f12e334cb0602675a45cd9342a38e34"
+        }
+      },
+      "split": "dev",
+      "task_id": "stress-session-single-field",
+      "variant": "clear"
+    }
+  ]
+}

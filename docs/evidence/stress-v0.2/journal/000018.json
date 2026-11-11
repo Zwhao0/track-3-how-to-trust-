@@ -1,0 +1,8 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_started",
+    "slot_id": "stress-reconcile-ambiguous-r1-B2"
+  },
+  "previous": "92fee99ccec7f507d9d089e881bd06b2af48037695aa6987377e1f0f2fef2e18"
+}

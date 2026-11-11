@@ -1,0 +1,8 @@
+{
+  "decoy_path": "shared/pagination.json",
+  "leak_markers": [],
+  "positive": {
+    "reports/invoice/options.json": "{\n  \"format\": \"csv\",\n  \"page_size\": 250,\n  \"timeout_ms\": 4000\n}\n"
+  },
+  "required_questions": []
+}

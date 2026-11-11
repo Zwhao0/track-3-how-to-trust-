@@ -1,0 +1,9 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_sealed",
+    "outcome_sha256": "fc1bdefd5ddfb5379865d793d6c628fdf7c27db2bb55c49d481b81e63d58203d",
+    "slot_id": "orders-dispatch-timeout-clear-r1-B0"
+  },
+  "previous": "0f32946b96fcfb0f66f0eac989d0fe926aac1ebb8a7e7e5a88e4b94043a9f76e"
+}

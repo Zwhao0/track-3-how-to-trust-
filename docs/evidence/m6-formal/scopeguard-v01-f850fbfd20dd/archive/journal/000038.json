@@ -1,0 +1,8 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_started",
+    "slot_id": "warehouse-overflow-clear-r1-B1"
+  },
+  "previous": "a773a2c71fa2df52e6c60b9776bcd40fbb663c2e935b06e1d39680aaa98f24eb"
+}

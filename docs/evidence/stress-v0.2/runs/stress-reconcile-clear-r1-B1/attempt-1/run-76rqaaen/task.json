@@ -1,0 +1,20 @@
+{
+  "fixture": {
+    "id": "stress-reconcile",
+    "sha256": "a5aa6d46180b52cecad826042a06239674884a16aa2d77215b122c4df5d2570b"
+  },
+  "public_check_ids": [],
+  "request": "The canary reconciliation lane is overloading its downstream consumer. Reduce canary max_parallel to 2 and preserve its queue and retry settings.",
+  "schema_version": 1,
+  "scope": {
+    "allowed_write_paths": [
+      "services/reconcile/canary/queue.json"
+    ],
+    "protected_paths": [
+      "deploy",
+      "docs"
+    ],
+    "unresolved": []
+  },
+  "task_id": "stress-reconcile-clear"
+}

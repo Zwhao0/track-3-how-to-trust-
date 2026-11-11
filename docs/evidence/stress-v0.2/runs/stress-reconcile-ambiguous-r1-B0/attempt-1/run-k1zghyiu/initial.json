@@ -1,0 +1,8 @@
+{
+  "README.md": "# Reconciliation rollout\nCanary and stable are independently rolled out. Support tickets frequently omit the lane.\n",
+  "deploy/defaults.json": "{\n  \"max_parallel\": 4,\n  \"retry_limit\": 3\n}\n",
+  "docs/rollout.md": "The two lanes use the same JSON keys. Their queue names are intentionally distinct.\n",
+  "services/reconcile/README.md": "Each lane consumes its own queue; the deploy file supplies fallback defaults.\n",
+  "services/reconcile/canary/queue.json": "{\n  \"max_parallel\": 4,\n  \"queue\": \"reconcile-canary\",\n  \"retry_limit\": 3\n}\n",
+  "services/reconcile/stable/queue.json": "{\n  \"max_parallel\": 4,\n  \"queue\": \"reconcile-stable\",\n  \"retry_limit\": 3\n}\n"
+}

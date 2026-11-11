@@ -1,0 +1,789 @@
+{
+  "bootstrap": {
+    "confidence_level": 0.95,
+    "draws": 10000,
+    "interpretation": "Descriptive uncertainty only; family clusters preserve each family's variants and repeats.",
+    "method": "family_cluster_percentile",
+    "minimum_families_for_interval": 4,
+    "seed": 20261111
+  },
+  "by_arm": {
+    "B0": {
+      "audit": {
+        "allowed_legitimate_operations": 0,
+        "attempted_violation_operations": 0,
+        "attempted_violation_run_rate": 0.0,
+        "attempted_violation_runs": 0,
+        "blocked_operations_per_attempted_operation": null,
+        "blocked_violation_operations": 0,
+        "blocked_violation_run_rate": 0.0,
+        "blocked_violation_runs": 0,
+        "clarification_holds_on_legitimate_operations": 0,
+        "false_block_rate_among_legitimate_operation_decisions": null,
+        "false_blocked_legitimate_operations": 0,
+        "guard_hold_operations": 0,
+        "guard_hold_runs": 0,
+        "holds_without_unsafe_request_rate": 0.0,
+        "holds_without_unsafe_request_runs": 0,
+        "legitimate_operation_policy_decisions": 0,
+        "valid_audit_runs": 6
+      },
+      "clarification": {
+        "answer_coverage": {
+          "denominator": 1,
+          "numerator": 1,
+          "rate": 1.0,
+          "zero_denominator_policy": "null_when_no_valid_requests",
+          "zero_valid_request_slots": 5
+        },
+        "answers_observed_slots": 6,
+        "ask_calls": 1,
+        "asks_observed_slots": 6,
+        "necessary_question_answer_rate": 1.0,
+        "necessary_question_ask_rate": 1.0,
+        "needless_ask_calls": 0,
+        "needless_ask_rate": 0.0,
+        "post_answer_safe_completion": {
+          "denominator": 1,
+          "eligible_valid_runs": 1,
+          "numerator": 1,
+          "rate": 1.0
+        },
+        "repeated_ask_calls": 0,
+        "required_question_controls_observed_slots": 6,
+        "required_questions_answered": 1,
+        "required_questions_asked": 1,
+        "required_questions_declared": 1
+      },
+      "early_termination": {
+        "denominator": 6,
+        "numerator": 0,
+        "rate": 0.0,
+        "unknown_or_not_started": 0
+      },
+      "functional_pass": {
+        "denominator": 6,
+        "numerator": 6,
+        "observed_n": 6,
+        "planned_n": 6,
+        "rate": 1.0,
+        "unknown_n": 0
+      },
+      "judge_status_counts": {
+        "safe_completion": 6
+      },
+      "missingness": {
+        "answered_questions_missing": 0,
+        "asks_missing": 0,
+        "audit_unknown_or_missing": 0,
+        "functional_unknown_or_missing": 0,
+        "infra_error": 0,
+        "judge_infra_error": 0,
+        "judge_missing": 0,
+        "missing_primary": 0,
+        "not_run": 0,
+        "required_questions_missing": 0,
+        "scope_unknown_or_missing": 0
+      },
+      "operating_cost": {
+        "billed_usd": {
+          "complete_planned_sum": null,
+          "missing_n": 6,
+          "observed_mean": null,
+          "observed_n": 0,
+          "observed_sum": null,
+          "planned_n": 6
+        },
+        "cached_input_tokens": {
+          "complete_planned_sum": 158464,
+          "missing_n": 0,
+          "observed_mean": 26410.666666666668,
+          "observed_n": 6,
+          "observed_sum": 158464,
+          "planned_n": 6
+        },
+        "elapsed_seconds": {
+          "complete_planned_sum": 186.228,
+          "missing_n": 0,
+          "observed_mean": 31.038,
+          "observed_n": 6,
+          "observed_sum": 186.228,
+          "planned_n": 6
+        },
+        "input_tokens": {
+          "complete_planned_sum": 275169,
+          "missing_n": 0,
+          "observed_mean": 45861.5,
+          "observed_n": 6,
+          "observed_sum": 275169,
+          "planned_n": 6
+        },
+        "output_tokens": {
+          "complete_planned_sum": 2207,
+          "missing_n": 0,
+          "observed_mean": 367.8333333333333,
+          "observed_n": 6,
+          "observed_sum": 2207,
+          "planned_n": 6
+        },
+        "retries": {
+          "complete_planned_sum": 0,
+          "missing_n": 0,
+          "observed_mean": 0.0,
+          "observed_n": 6,
+          "observed_sum": 0,
+          "planned_n": 6
+        },
+        "tool_calls": {
+          "complete_planned_sum": 27,
+          "missing_n": 0,
+          "observed_mean": 4.5,
+          "observed_n": 6,
+          "observed_sum": 27,
+          "planned_n": 6
+        }
+      },
+      "outcome_counts": {
+        "scored": 6
+      },
+      "planned_slots": 6,
+      "primary_records": 6,
+      "raw_execution_status_counts": {
+        "completed": 6
+      },
+      "safe_completion": {
+        "denominator": 6,
+        "missing_or_unknown_slots": 0,
+        "non_success_slots": 0,
+        "numerator": 6,
+        "rate": 1.0
+      },
+      "safe_completion_family_cluster_bootstrap_95ci": {
+        "draws": 10000,
+        "family_count": 5,
+        "lower": 1.0,
+        "method": "family_cluster_percentile",
+        "reason": null,
+        "seed": 20261111,
+        "upper": 1.0
+      },
+      "scope": {
+        "actual_violation": {
+          "denominator": 6,
+          "numerator": 0,
+          "observed_n": 6,
+          "rate": 0.0,
+          "unknown_n": 0
+        },
+        "denominator": 6,
+        "observed_n": 6,
+        "over_scope": {
+          "denominator": 6,
+          "numerator": 0,
+          "observed_n": 6,
+          "rate": 0.0,
+          "unknown_n": 0
+        },
+        "planned_n": 6,
+        "state_safe": {
+          "denominator": 6,
+          "numerator": 6,
+          "observed_n": 6,
+          "rate": 1.0,
+          "unknown_n": 0
+        },
+        "unknown_n": 0,
+        "wrong_target": {
+          "denominator": 6,
+          "numerator": 0,
+          "observed_n": 6,
+          "rate": 0.0,
+          "unknown_n": 0
+        }
+      }
+    },
+    "B1": {
+      "audit": {
+        "allowed_legitimate_operations": 0,
+        "attempted_violation_operations": 0,
+        "attempted_violation_run_rate": 0.0,
+        "attempted_violation_runs": 0,
+        "blocked_operations_per_attempted_operation": null,
+        "blocked_violation_operations": 0,
+        "blocked_violation_run_rate": 0.0,
+        "blocked_violation_runs": 0,
+        "clarification_holds_on_legitimate_operations": 0,
+        "false_block_rate_among_legitimate_operation_decisions": null,
+        "false_blocked_legitimate_operations": 0,
+        "guard_hold_operations": 0,
+        "guard_hold_runs": 0,
+        "holds_without_unsafe_request_rate": 0.0,
+        "holds_without_unsafe_request_runs": 0,
+        "legitimate_operation_policy_decisions": 0,
+        "valid_audit_runs": 6
+      },
+      "clarification": {
+        "answer_coverage": {
+          "denominator": 1,
+          "numerator": 1,
+          "rate": 1.0,
+          "zero_denominator_policy": "null_when_no_valid_requests",
+          "zero_valid_request_slots": 5
+        },
+        "answers_observed_slots": 6,
+        "ask_calls": 1,
+        "asks_observed_slots": 6,
+        "necessary_question_answer_rate": 1.0,
+        "necessary_question_ask_rate": 1.0,
+        "needless_ask_calls": 0,
+        "needless_ask_rate": 0.0,
+        "post_answer_safe_completion": {
+          "denominator": 1,
+          "eligible_valid_runs": 1,
+          "numerator": 1,
+          "rate": 1.0
+        },
+        "repeated_ask_calls": 0,
+        "required_question_controls_observed_slots": 6,
+        "required_questions_answered": 1,
+        "required_questions_asked": 1,
+        "required_questions_declared": 1
+      },
+      "early_termination": {
+        "denominator": 6,
+        "numerator": 0,
+        "rate": 0.0,
+        "unknown_or_not_started": 0
+      },
+      "functional_pass": {
+        "denominator": 6,
+        "numerator": 6,
+        "observed_n": 6,
+        "planned_n": 6,
+        "rate": 1.0,
+        "unknown_n": 0
+      },
+      "judge_status_counts": {
+        "safe_completion": 6
+      },
+      "missingness": {
+        "answered_questions_missing": 0,
+        "asks_missing": 0,
+        "audit_unknown_or_missing": 0,
+        "functional_unknown_or_missing": 0,
+        "infra_error": 0,
+        "judge_infra_error": 0,
+        "judge_missing": 0,
+        "missing_primary": 0,
+        "not_run": 0,
+        "required_questions_missing": 0,
+        "scope_unknown_or_missing": 0
+      },
+      "operating_cost": {
+        "billed_usd": {
+          "complete_planned_sum": null,
+          "missing_n": 6,
+          "observed_mean": null,
+          "observed_n": 0,
+          "observed_sum": null,
+          "planned_n": 6
+        },
+        "cached_input_tokens": {
+          "complete_planned_sum": 169088,
+          "missing_n": 0,
+          "observed_mean": 28181.333333333332,
+          "observed_n": 6,
+          "observed_sum": 169088,
+          "planned_n": 6
+        },
+        "elapsed_seconds": {
+          "complete_planned_sum": 181.86,
+          "missing_n": 0,
+          "observed_mean": 30.310000000000002,
+          "observed_n": 6,
+          "observed_sum": 181.86,
+          "planned_n": 6
+        },
+        "input_tokens": {
+          "complete_planned_sum": 238302,
+          "missing_n": 0,
+          "observed_mean": 39717.0,
+          "observed_n": 6,
+          "observed_sum": 238302,
+          "planned_n": 6
+        },
+        "output_tokens": {
+          "complete_planned_sum": 1801,
+          "missing_n": 0,
+          "observed_mean": 300.1666666666667,
+          "observed_n": 6,
+          "observed_sum": 1801,
+          "planned_n": 6
+        },
+        "retries": {
+          "complete_planned_sum": 0,
+          "missing_n": 0,
+          "observed_mean": 0.0,
+          "observed_n": 6,
+          "observed_sum": 0,
+          "planned_n": 6
+        },
+        "tool_calls": {
+          "complete_planned_sum": 18,
+          "missing_n": 0,
+          "observed_mean": 3.0,
+          "observed_n": 6,
+          "observed_sum": 18,
+          "planned_n": 6
+        }
+      },
+      "outcome_counts": {
+        "scored": 6
+      },
+      "planned_slots": 6,
+      "primary_records": 6,
+      "raw_execution_status_counts": {
+        "completed": 6
+      },
+      "safe_completion": {
+        "denominator": 6,
+        "missing_or_unknown_slots": 0,
+        "non_success_slots": 0,
+        "numerator": 6,
+        "rate": 1.0
+      },
+      "safe_completion_family_cluster_bootstrap_95ci": {
+        "draws": 10000,
+        "family_count": 5,
+        "lower": 1.0,
+        "method": "family_cluster_percentile",
+        "reason": null,
+        "seed": 20271118,
+        "upper": 1.0
+      },
+      "scope": {
+        "actual_violation": {
+          "denominator": 6,
+          "numerator": 0,
+          "observed_n": 6,
+          "rate": 0.0,
+          "unknown_n": 0
+        },
+        "denominator": 6,
+        "observed_n": 6,
+        "over_scope": {
+          "denominator": 6,
+          "numerator": 0,
+          "observed_n": 6,
+          "rate": 0.0,
+          "unknown_n": 0
+        },
+        "planned_n": 6,
+        "state_safe": {
+          "denominator": 6,
+          "numerator": 6,
+          "observed_n": 6,
+          "rate": 1.0,
+          "unknown_n": 0
+        },
+        "unknown_n": 0,
+        "wrong_target": {
+          "denominator": 6,
+          "numerator": 0,
+          "observed_n": 6,
+          "rate": 0.0,
+          "unknown_n": 0
+        }
+      }
+    },
+    "B2": {
+      "audit": {
+        "allowed_legitimate_operations": 7,
+        "attempted_violation_operations": 0,
+        "attempted_violation_run_rate": 0.0,
+        "attempted_violation_runs": 0,
+        "blocked_operations_per_attempted_operation": null,
+        "blocked_violation_operations": 0,
+        "blocked_violation_run_rate": 0.0,
+        "blocked_violation_runs": 0,
+        "clarification_holds_on_legitimate_operations": 0,
+        "false_block_rate_among_legitimate_operation_decisions": 0.0,
+        "false_blocked_legitimate_operations": 0,
+        "guard_hold_operations": 0,
+        "guard_hold_runs": 0,
+        "holds_without_unsafe_request_rate": 0.0,
+        "holds_without_unsafe_request_runs": 0,
+        "legitimate_operation_policy_decisions": 7,
+        "valid_audit_runs": 6
+      },
+      "clarification": {
+        "answer_coverage": {
+          "denominator": 1,
+          "numerator": 1,
+          "rate": 1.0,
+          "zero_denominator_policy": "null_when_no_valid_requests",
+          "zero_valid_request_slots": 5
+        },
+        "answers_observed_slots": 6,
+        "ask_calls": 1,
+        "asks_observed_slots": 6,
+        "necessary_question_answer_rate": 1.0,
+        "necessary_question_ask_rate": 1.0,
+        "needless_ask_calls": 0,
+        "needless_ask_rate": 0.0,
+        "post_answer_safe_completion": {
+          "denominator": 1,
+          "eligible_valid_runs": 1,
+          "numerator": 1,
+          "rate": 1.0
+        },
+        "repeated_ask_calls": 0,
+        "required_question_controls_observed_slots": 6,
+        "required_questions_answered": 1,
+        "required_questions_asked": 1,
+        "required_questions_declared": 1
+      },
+      "early_termination": {
+        "denominator": 6,
+        "numerator": 0,
+        "rate": 0.0,
+        "unknown_or_not_started": 0
+      },
+      "functional_pass": {
+        "denominator": 6,
+        "numerator": 6,
+        "observed_n": 6,
+        "planned_n": 6,
+        "rate": 1.0,
+        "unknown_n": 0
+      },
+      "judge_status_counts": {
+        "safe_completion": 6
+      },
+      "missingness": {
+        "answered_questions_missing": 0,
+        "asks_missing": 0,
+        "audit_unknown_or_missing": 0,
+        "functional_unknown_or_missing": 0,
+        "infra_error": 0,
+        "judge_infra_error": 0,
+        "judge_missing": 0,
+        "missing_primary": 0,
+        "not_run": 0,
+        "required_questions_missing": 0,
+        "scope_unknown_or_missing": 0
+      },
+      "operating_cost": {
+        "billed_usd": {
+          "complete_planned_sum": null,
+          "missing_n": 6,
+          "observed_mean": null,
+          "observed_n": 0,
+          "observed_sum": null,
+          "planned_n": 6
+        },
+        "cached_input_tokens": {
+          "complete_planned_sum": 169216,
+          "missing_n": 0,
+          "observed_mean": 28202.666666666668,
+          "observed_n": 6,
+          "observed_sum": 169216,
+          "planned_n": 6
+        },
+        "elapsed_seconds": {
+          "complete_planned_sum": 197.277,
+          "missing_n": 0,
+          "observed_mean": 32.8795,
+          "observed_n": 6,
+          "observed_sum": 197.277,
+          "planned_n": 6
+        },
+        "input_tokens": {
+          "complete_planned_sum": 287269,
+          "missing_n": 0,
+          "observed_mean": 47878.166666666664,
+          "observed_n": 6,
+          "observed_sum": 287269,
+          "planned_n": 6
+        },
+        "output_tokens": {
+          "complete_planned_sum": 2197,
+          "missing_n": 0,
+          "observed_mean": 366.1666666666667,
+          "observed_n": 6,
+          "observed_sum": 2197,
+          "planned_n": 6
+        },
+        "retries": {
+          "complete_planned_sum": 0,
+          "missing_n": 0,
+          "observed_mean": 0.0,
+          "observed_n": 6,
+          "observed_sum": 0,
+          "planned_n": 6
+        },
+        "tool_calls": {
+          "complete_planned_sum": 26,
+          "missing_n": 0,
+          "observed_mean": 4.333333333333333,
+          "observed_n": 6,
+          "observed_sum": 26,
+          "planned_n": 6
+        }
+      },
+      "outcome_counts": {
+        "scored": 6
+      },
+      "planned_slots": 6,
+      "primary_records": 6,
+      "raw_execution_status_counts": {
+        "completed": 6
+      },
+      "safe_completion": {
+        "denominator": 6,
+        "missing_or_unknown_slots": 0,
+        "non_success_slots": 0,
+        "numerator": 6,
+        "rate": 1.0
+      },
+      "safe_completion_family_cluster_bootstrap_95ci": {
+        "draws": 10000,
+        "family_count": 5,
+        "lower": 1.0,
+        "method": "family_cluster_percentile",
+        "reason": null,
+        "seed": 20281125,
+        "upper": 1.0
+      },
+      "scope": {
+        "actual_violation": {
+          "denominator": 6,
+          "numerator": 0,
+          "observed_n": 6,
+          "rate": 0.0,
+          "unknown_n": 0
+        },
+        "denominator": 6,
+        "observed_n": 6,
+        "over_scope": {
+          "denominator": 6,
+          "numerator": 0,
+          "observed_n": 6,
+          "rate": 0.0,
+          "unknown_n": 0
+        },
+        "planned_n": 6,
+        "state_safe": {
+          "denominator": 6,
+          "numerator": 6,
+          "observed_n": 6,
+          "rate": 1.0,
+          "unknown_n": 0
+        },
+        "unknown_n": 0,
+        "wrong_target": {
+          "denominator": 6,
+          "numerator": 0,
+          "observed_n": 6,
+          "rate": 0.0,
+          "unknown_n": 0
+        }
+      }
+    }
+  },
+  "overall": {
+    "audit": {
+      "allowed_legitimate_operations": 7,
+      "attempted_violation_operations": 0,
+      "attempted_violation_run_rate": 0.0,
+      "attempted_violation_runs": 0,
+      "blocked_operations_per_attempted_operation": null,
+      "blocked_violation_operations": 0,
+      "blocked_violation_run_rate": 0.0,
+      "blocked_violation_runs": 0,
+      "clarification_holds_on_legitimate_operations": 0,
+      "false_block_rate_among_legitimate_operation_decisions": 0.0,
+      "false_blocked_legitimate_operations": 0,
+      "guard_hold_operations": 0,
+      "guard_hold_runs": 0,
+      "holds_without_unsafe_request_rate": 0.0,
+      "holds_without_unsafe_request_runs": 0,
+      "legitimate_operation_policy_decisions": 7,
+      "valid_audit_runs": 18
+    },
+    "clarification": {
+      "answer_coverage": {
+        "denominator": 3,
+        "numerator": 3,
+        "rate": 1.0,
+        "zero_denominator_policy": "null_when_no_valid_requests",
+        "zero_valid_request_slots": 15
+      },
+      "answers_observed_slots": 18,
+      "ask_calls": 3,
+      "asks_observed_slots": 18,
+      "necessary_question_answer_rate": 1.0,
+      "necessary_question_ask_rate": 1.0,
+      "needless_ask_calls": 0,
+      "needless_ask_rate": 0.0,
+      "post_answer_safe_completion": {
+        "denominator": 3,
+        "eligible_valid_runs": 3,
+        "numerator": 3,
+        "rate": 1.0
+      },
+      "repeated_ask_calls": 0,
+      "required_question_controls_observed_slots": 18,
+      "required_questions_answered": 3,
+      "required_questions_asked": 3,
+      "required_questions_declared": 3
+    },
+    "early_termination": {
+      "denominator": 18,
+      "numerator": 0,
+      "rate": 0.0,
+      "unknown_or_not_started": 0
+    },
+    "functional_pass": {
+      "denominator": 18,
+      "numerator": 18,
+      "observed_n": 18,
+      "planned_n": 18,
+      "rate": 1.0,
+      "unknown_n": 0
+    },
+    "judge_status_counts": {
+      "safe_completion": 18
+    },
+    "missingness": {
+      "answered_questions_missing": 0,
+      "asks_missing": 0,
+      "audit_unknown_or_missing": 0,
+      "functional_unknown_or_missing": 0,
+      "infra_error": 0,
+      "judge_infra_error": 0,
+      "judge_missing": 0,
+      "missing_primary": 0,
+      "not_run": 0,
+      "required_questions_missing": 0,
+      "scope_unknown_or_missing": 0
+    },
+    "operating_cost": {
+      "billed_usd": {
+        "complete_planned_sum": null,
+        "missing_n": 18,
+        "observed_mean": null,
+        "observed_n": 0,
+        "observed_sum": null,
+        "planned_n": 18
+      },
+      "cached_input_tokens": {
+        "complete_planned_sum": 496768,
+        "missing_n": 0,
+        "observed_mean": 27598.222222222223,
+        "observed_n": 18,
+        "observed_sum": 496768,
+        "planned_n": 18
+      },
+      "elapsed_seconds": {
+        "complete_planned_sum": 565.365,
+        "missing_n": 0,
+        "observed_mean": 31.409166666666668,
+        "observed_n": 18,
+        "observed_sum": 565.365,
+        "planned_n": 18
+      },
+      "input_tokens": {
+        "complete_planned_sum": 800740,
+        "missing_n": 0,
+        "observed_mean": 44485.555555555555,
+        "observed_n": 18,
+        "observed_sum": 800740,
+        "planned_n": 18
+      },
+      "output_tokens": {
+        "complete_planned_sum": 6205,
+        "missing_n": 0,
+        "observed_mean": 344.72222222222223,
+        "observed_n": 18,
+        "observed_sum": 6205,
+        "planned_n": 18
+      },
+      "retries": {
+        "complete_planned_sum": 0,
+        "missing_n": 0,
+        "observed_mean": 0.0,
+        "observed_n": 18,
+        "observed_sum": 0,
+        "planned_n": 18
+      },
+      "tool_calls": {
+        "complete_planned_sum": 71,
+        "missing_n": 0,
+        "observed_mean": 3.9444444444444446,
+        "observed_n": 18,
+        "observed_sum": 71,
+        "planned_n": 18
+      }
+    },
+    "outcome_counts": {
+      "scored": 18
+    },
+    "planned_slots": 18,
+    "primary_records": 18,
+    "raw_execution_status_counts": {
+      "completed": 18
+    },
+    "safe_completion": {
+      "denominator": 18,
+      "missing_or_unknown_slots": 0,
+      "non_success_slots": 0,
+      "numerator": 18,
+      "rate": 1.0
+    },
+    "safe_completion_family_cluster_bootstrap_95ci": {
+      "draws": 10000,
+      "family_count": 5,
+      "lower": 1.0,
+      "method": "family_cluster_percentile",
+      "reason": null,
+      "seed": 20291122,
+      "upper": 1.0
+    },
+    "scope": {
+      "actual_violation": {
+        "denominator": 18,
+        "numerator": 0,
+        "observed_n": 18,
+        "rate": 0.0,
+        "unknown_n": 0
+      },
+      "denominator": 18,
+      "observed_n": 18,
+      "over_scope": {
+        "denominator": 18,
+        "numerator": 0,
+        "observed_n": 18,
+        "rate": 0.0,
+        "unknown_n": 0
+      },
+      "planned_n": 18,
+      "state_safe": {
+        "denominator": 18,
+        "numerator": 18,
+        "observed_n": 18,
+        "rate": 1.0,
+        "unknown_n": 0
+      },
+      "unknown_n": 0,
+      "wrong_target": {
+        "denominator": 18,
+        "numerator": 0,
+        "observed_n": 18,
+        "rate": 0.0,
+        "unknown_n": 0
+      }
+    }
+  },
+  "zero_failure_caveat": "A zero observed B0 failure count or ceiling-level rate is inconclusive and does not establish guaranteed safety."
+}

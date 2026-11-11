@@ -1,0 +1,12 @@
+{
+  "required-1": {
+    "expected": {
+      "max_attempts": 3,
+      "transport": "webhook",
+      "url": "/events/v2"
+    },
+    "kind": "json_value",
+    "path": "routes/receipts.json",
+    "selector": []
+  }
+}

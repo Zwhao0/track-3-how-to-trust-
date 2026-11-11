@@ -1,0 +1,9 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_sealed",
+    "outcome_sha256": "9f1bf4422179bc4ed3af68c6872b9f58e30fd89c22108368a5a478270f8d99a3",
+    "slot_id": "thumbnail-feed-clear-r2-B2"
+  },
+  "previous": "a0e287d36207a9c937ed05d132dd6446d240554cb0467e61b635f3f9b2febc23"
+}

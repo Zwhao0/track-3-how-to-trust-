@@ -1,0 +1,9 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_sealed",
+    "outcome_sha256": "8f1c766695ab420fad1a59f8113301a4119b10f887a090c7b3e98fa8b0e16459",
+    "slot_id": "stress-notify-routing-r1-B0"
+  },
+  "previous": "ce9f93cbfcef9fa482c6df93da00bca01a5b85e33fa9acea041d559ed9f0716f"
+}

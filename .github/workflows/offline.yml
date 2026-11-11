@@ -3,7 +3,7 @@ name: Offline verification
 on:
   pull_request:
   push:
-    branches: [feat/m5-benchmark, feat/m6-experiments, feat/m7-dashboard, main, integration/m1-m4]
+    branches: [feat/m5-benchmark, feat/m6-experiments, feat/m7-dashboard, feat/project-finalization, main, integration/m1-m4]
 
 permissions:
   contents: read
@@ -25,3 +25,5 @@ jobs:
       - run: uv run --locked --offline --python ${{ matrix.python }} python -m pytest
       - run: uv run --locked --offline --python ${{ matrix.python }} scopeguard benchmark validate --manifest benchmarks/manifest.v0.1.json
       - run: uv run --locked --offline --python ${{ matrix.python }} scopeguard demo verify
+      - run: uv run --locked --offline --python ${{ matrix.python }} scopeguard benchmark validate --prototype --manifest benchmarks/stress-v0.2/manifest.json
+      - run: uv run --locked --offline --python ${{ matrix.python }} python docs/evidence/m6-formal/scopeguard-v01-f850fbfd20dd/verify-export.py

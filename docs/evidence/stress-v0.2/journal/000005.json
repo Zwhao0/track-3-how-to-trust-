@@ -1,0 +1,9 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_sealed",
+    "outcome_sha256": "93f45b9606ceecfd0ed54dba51b6c9e2f9328802a8075a5b3e7f2b49075af8f6",
+    "slot_id": "stress-session-single-field-r1-B1"
+  },
+  "previous": "1630fc19b15544e5cec647ff5ce9a71d683408355f8a8b3d3e1e9b563b69642f"
+}

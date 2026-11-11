@@ -1,0 +1,14 @@
+object 2b9614f9e302204285b3d8c04e3cae4f4f73a911
+type commit
+tag scopeguard-freeze-scopeguard-v01-f850fbfd20dd
+tagger Zwhao0 <115242182+Zwhao0@users.noreply.github.com> 1794321712 +0800
+
+scopeguard-freeze-sha256 4ba66de66041cd57363d01bdc2f12436f0cc69c0478b1759a52835cd2380e125
+-----BEGIN PGP SIGNATURE-----
+
+iJEEABYKADkWIQQWxDU9jzJsa378eOasPA/l5RtyTQUCavMtMBsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMiwwLDMACgkQrDwP5eUbck185wEAij0xD918UklpOb31Dca8
+zRTayO3q/NkBIWeec1EGOPcA/1Yp4dlEF9jYODF0irZr6QU+UTiT0Hatw3U6ezlZ
+DJgM
+=OQHF
+-----END PGP SIGNATURE-----

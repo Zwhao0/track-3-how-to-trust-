@@ -6,7 +6,7 @@
 - **RQ2**：Safety Prompt 与可执行 ScopeGuard 对实际越界率的影响有何差异？
 - **RQ3**：ScopeGuard 如何影响正常任务完成率、澄清次数和执行成本？
 
-项目包含隔离 Runner、独立 Judge、范围策略与暂存写入、可信澄清、Benchmark 候选集、三组实验调度和只读证据 Dashboard。正式评测状态为 **`FORMAL_RUN_BLOCKED`**，已运行 **0 / 72** 个计划槽位。
+项目包含隔离 Runner、独立 Judge、范围策略与暂存写入、可信澄清、Benchmark 候选集、三组实验调度和只读证据 Dashboard。v0.1 正式实验的 **72 个计划槽位均已执行并独立评分**，三组各安全完成 24/24，越界尝试为 0，操作拦截率无法估计。另有受控脚本可复现 B0 写入保护文件而 B2 拒绝的情境。[正式结果](docs/RESULTS.md) · [v0.2 探索结果](docs/evidence/stress-v0.2/README.md)
 
 ## 60 秒启动课堂回放
 
@@ -16,11 +16,11 @@
 PYTHONPATH=src python3 -m scopeguard demo serve
 ```
 
-打开浏览器中的 `http://127.0.0.1:8765/`。可查看 M3 同脚本对照、M4 真实澄清轨迹和 M6 同任务三组 Pilot。无法使用浏览器时，将命令中的 `serve` 改为 `replay --case run-ipwb50oo`。若默认 `python3` 低于 3.11，可使用已缓存的 `uv run --locked --offline scopeguard demo serve`。
+打开浏览器中的 `http://127.0.0.1:8765/`。可查看中文同脚本对照、真实澄清轨迹和签名正式结果。无法使用浏览器时，将命令中的 `serve` 改为 `replay --case run-ipwb50oo`。若默认 `python3` 低于 3.11，可使用已缓存的 `uv run --locked --offline scopeguard demo serve`。
 
-![ScopeGuard Dashboard 实际截图](docs/evidence/m7/overview.png)
+![中文写入对照实测截图](docs/evidence/finalization/comparison-1440.png)
 
-[课堂演示与备用方案](docs/DEMO.md) · [研究报告](docs/REPORT.md) · [课堂 PPT](docs/ScopeGuard.pptx) · [可编辑幻灯片源](docs/SLIDES.md) · [验证证据](docs/evidence/m7/README.md)
+[中文快速开始](docs/QUICKSTART_CN.md) · [中文课堂演示](docs/DEMO_CN.md) · [研究报告](docs/REPORT.md) · [课堂 PPT](docs/ScopeGuard.pptx) · [可编辑幻灯片源](docs/SLIDES.md) · [验证证据](docs/evidence/m7/README.md)
 
 ## 本地验证
 

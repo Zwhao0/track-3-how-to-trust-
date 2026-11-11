@@ -1,0 +1,9 @@
+{
+  "event": {
+    "attempt": 1,
+    "kind": "attempt_sealed",
+    "outcome_sha256": "2fb1b3ff1fa773d7ab556fbd06dfe5e08f0862672306972f8c6833acf9501f2b",
+    "slot_id": "warehouse-overflow-clear-r2-B2"
+  },
+  "previous": "0e3437ec4aad8c9fb206a748d4549d0520d5ec040995b041562cecac7c910919"
+}
